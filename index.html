@@ -2,8 +2,12 @@
 Z : <p id="alpha"> z </p>
 
 <script>
+    partial interface Window {
+        [SecureContext] attribute EventHandler ondeviceorientationabsolute;
+    };
+
     let a = document.getElementById("alpha");
-    window.addEventListener('deviceorientation', (event) => {
+    window.addEventListener('deviceorientationabsolute', (event) => {
         a.innerHTML = Math.abs(event.alpha - 360);
     }, true);
 </script>
