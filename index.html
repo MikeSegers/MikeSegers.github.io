@@ -1,14 +1,16 @@
+<h1 id='connection_info'></h1>
 <h1>Latitude</h1>
-<input id="latitude" type="number" value="0">
+<input id="latitude">
 <h1>Longitude</h1>
-<input id="longitude" type="number" value="0">
-
+<input id="longitude">
+<button onclick="start()">start</button>
+<button onclick="stopDemo()">stop</button>
 Degree : <p id="degree"> degrees </p>
 
 <script>
     let b = document.getElementById("degree");
-    let lat = parseInt(document.getElementById("latitude"));
-    let lng = parseInt(document.getElementById("longitude"));
+    let lat = parseFloat(document.getElementById("latitude").value);
+    let lng = parseFloat(document.getElementById("longitude").value);
 
     /**
    * Helper method for angle calculation
@@ -57,6 +59,7 @@ Degree : <p id="degree"> degrees </p>
     b.innerHTML = calcDegreeToPoint(latitude, longitude);
   }
 
-  window.navigator.geolocation.getCurrentPosition(locationHandler);
-  
+  function start() {
+    window.navigator.geolocation.getCurrentPosition(locationHandler);
+  }
 </script>
