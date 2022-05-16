@@ -3,9 +3,7 @@ Z : <p id="alpha"> z </p>
 
 <script>
     let a = document.getElementById("alpha");
-    let alpha;
     window.addEventListener('deviceorientation', (event) => {
-        alpha = Math.abs(event.alpha - 360);
+        a.innerHTML = Math.abs(event.alpha - 360);
     }, true);
-    a.innerHTML = alpha;
 </script>
