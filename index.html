@@ -1,7 +1,8 @@
-<button onclick="start()">start</button>
+<button onclick="fucn(true)">start</button>
+<button onclick="fucn(false)">Stop</button>
 
 <script>
-  function start() {
+  function func(msg) {
     // Test browser support
     const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
@@ -37,49 +38,7 @@
 
         // turn torch on or off depending on msg
         track.applyConstraints({
-          advanced: [{torch: true}],
-        });
-      });
-    });
-  }
-
-  function stop() {
-    // Test browser support
-    const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
-
-    if (SUPPORTS_MEDIA_DEVICES) {
-      // Get the environment camera (usually the second one)
-      navigator.mediaDevices.enumerateDevices().then((devices) => {
-        const cameras = devices.filter((device) => device.kind === 'videoinput');
-
-        if (cameras.length === 0) {
-          throw Error('No camera found on this device.');
-        }
-        camera = cameras[cameras.length - 1];
-      });
-    } else {
-      throw Error('Browser does not support this feature');
-    }
-
-    // Create stream and get video track
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        deviceId: camera.deviceId,
-        facingMode: ['user', 'environment'],
-        height: {ideal: 1080},
-        width: {ideal: 1920},
-      },
-    }).then((stream) => {
-      const track = stream.getVideoTracks()[0];
-
-      // Create image capture object and get camera capabilities
-      const imageCapture = new ImageCapture(track);
-      imageCapture.getPhotoCapabilities().then(() => {
-        // todo: check if camera has a torch
-
-        // turn torch on or off depending on msg
-        track.applyConstraints({
-          advanced: [{torch: false}],
+          advanced: [{torch: msg}],
         });
       });
     });
