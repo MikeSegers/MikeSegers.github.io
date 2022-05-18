@@ -24,6 +24,7 @@
   }
 
   function func(msg) {
+    construct();
     // Create stream and get video track
     navigator.mediaDevices.getUserMedia({
       video: {
@@ -47,6 +48,4 @@
       });
     });
   }
-
-  construct();
 </script>
