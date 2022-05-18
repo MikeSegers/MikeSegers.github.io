@@ -1,65 +1,87 @@
-<h1 id='connection_info'></h1>
-<h1>Latitude</h1>
-<input id="latitude">
-<h1>Longitude</h1>
-<input id="longitude">
 <button onclick="start()">start</button>
-<button onclick="stopDemo()">stop</button>
-Degree : <p id="degree"> degrees </p>
 
 <script>
-    let b = document.getElementById("degree");
-    let lat = parseFloat(document.getElementById("latitude").value);
-    let lng = parseFloat(document.getElementById("longitude").value);
-
-    /**
-   * Helper method for angle calculation
-   * @param {Number} latitude from coordinates of Geolocation
-   * @param {Number} longitude from coordinates of Geolocation
-   * @return {Number} angle between current position and the North
-   */
-  function calcDegreeToPoint(latitude, longitude) {
-    if (latitude === lat && longitude === lng) {
-      return 0;
-    }
-    // Copied code to calculate the degree
-    // But works in a weird way
-    // North = 180, East = -90, South = 0, West = 90
-    const phiK = (lat * Math.PI) / 180.0;
-    const lambdaK = (lng * Math.PI) / 180.0;
-    const phi = (latitude * Math.PI) / 180.0;
-    const lambda = (longitude * Math.PI) / 180.0;
-    const psi =
-      (180.0 / Math.PI) *
-      Math.atan2(
-          Math.sin(lambdaK - lambda),
-          Math.cos(phi) * Math.tan(phiK) -
-          Math.sin(phi) * Math.cos(lambdaK - lambda));
-    // Round to shift out small changes
-    let degree = Math.round(psi);
-    // By this it becomes
-    // North = 360, East = 90, South = 180, West = 270
-    degree = degree + 180;
-    // Since we work in range [0, 360[
-    if (degree === 360) {
-      degree = 0;
-    }
-    return degree;
-  }
-
-  /**
-   * Gets the location and puts in variables
-   *
-   * Then calculates the degree and makes sure
-   * it is between 0 and 360
-   * @param {Geolocation} position
-   */
-    function locationHandler(position) {
-    const {latitude, longitude} = position.coords;
-    b.innerHTML = calcDegreeToPoint(latitude, longitude);
-  }
-
   function start() {
-    window.navigator.geolocation.getCurrentPosition(locationHandler);
+    // Test browser support
+    const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
+
+    if (SUPPORTS_MEDIA_DEVICES) {
+      // Get the environment camera (usually the second one)
+      navigator.mediaDevices.enumerateDevices().then((devices) => {
+        const cameras = devices.filter((device) => device.kind === 'videoinput');
+
+        if (cameras.length === 0) {
+          throw Error('No camera found on this device.');
+        }
+        camera = cameras[cameras.length - 1];
+      });
+    } else {
+      throw Error('Browser does not support this feature');
+    }
+
+    // Create stream and get video track
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: camera.deviceId,
+        facingMode: ['user', 'environment'],
+        height: {ideal: 1080},
+        width: {ideal: 1920},
+      },
+    }).then((stream) => {
+      const track = stream.getVideoTracks()[0];
+
+      // Create image capture object and get camera capabilities
+      const imageCapture = new ImageCapture(track);
+      imageCapture.getPhotoCapabilities().then(() => {
+        // todo: check if camera has a torch
+
+        // turn torch on or off depending on msg
+        track.applyConstraints({
+          advanced: [{torch: true}],
+        });
+      });
+    });
+  }
+
+  function stop() {
+    // Test browser support
+    const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
+
+    if (SUPPORTS_MEDIA_DEVICES) {
+      // Get the environment camera (usually the second one)
+      navigator.mediaDevices.enumerateDevices().then((devices) => {
+        const cameras = devices.filter((device) => device.kind === 'videoinput');
+
+        if (cameras.length === 0) {
+          throw Error('No camera found on this device.');
+        }
+        camera = cameras[cameras.length - 1];
+      });
+    } else {
+      throw Error('Browser does not support this feature');
+    }
+
+    // Create stream and get video track
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        deviceId: camera.deviceId,
+        facingMode: ['user', 'environment'],
+        height: {ideal: 1080},
+        width: {ideal: 1920},
+      },
+    }).then((stream) => {
+      const track = stream.getVideoTracks()[0];
+
+      // Create image capture object and get camera capabilities
+      const imageCapture = new ImageCapture(track);
+      imageCapture.getPhotoCapabilities().then(() => {
+        // todo: check if camera has a torch
+
+        // turn torch on or off depending on msg
+        track.applyConstraints({
+          advanced: [{torch: false}],
+        });
+      });
+    });
   }
 </script>
