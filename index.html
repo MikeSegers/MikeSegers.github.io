@@ -2,7 +2,9 @@
 <button onclick="func(false)">Stop</button>
 
 <script>
-  function func(msg) {
+  camera;
+
+  function construct() {
     // Test browser support
     const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
 
@@ -19,7 +21,9 @@
     } else {
       throw Error('Browser does not support this feature');
     }
+  }
 
+  function func(msg) {
     // Create stream and get video track
     navigator.mediaDevices.getUserMedia({
       video: {
@@ -43,4 +47,6 @@
       });
     });
   }
+
+  construct();
 </script>
