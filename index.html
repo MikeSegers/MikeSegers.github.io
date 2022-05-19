@@ -1,8 +1,10 @@
-<button onclick="func(true)">Start</button>
-<button onclick="func(false)">Stop</button>
+<button onclick="construct()">Construct</button>
+<button onclick="onMessage(true)">Start</button>
+<button onclick="onMessage(false)">Stop</button>
 
 <script>
-  camera;
+  track;
+  imageCapture;
 
   function construct() {
     // Test browser support
@@ -17,35 +19,34 @@
           throw Error('No camera found on this device.');
         }
         camera = cameras[cameras.length - 1];
+        // Create stream and get video track
+        navigator.mediaDevices.getUserMedia({
+          video: {
+            deviceId: camera.deviceId,
+            facingMode: ['user', 'environment'],
+            height: {ideal: 1080},
+            width: {ideal: 1920},
+          },
+        }).then((stream) => {
+          track = stream.getVideoTracks()[0];
+
+          // Create image capture object and get camera capabilities
+          imageCapture = new ImageCapture(track);
+        });
       });
     } else {
       throw Error('Browser does not support this feature');
     }
   }
 
-  function func(msg) {
-    construct();
-    // Create stream and get video track
-    navigator.mediaDevices.getUserMedia({
-      video: {
-        deviceId: camera.deviceId,
-        facingMode: ['user', 'environment'],
-        height: {ideal: 1080},
-        width: {ideal: 1920},
-      },
-    }).then((stream) => {
-      const track = stream.getVideoTracks()[0];
+  function onMessage(msg) {
+    imageCapture.getPhotoCapabilities().then(() => {
+            // todo: check if camera has a torch
 
-      // Create image capture object and get camera capabilities
-      const imageCapture = new ImageCapture(track);
-      imageCapture.getPhotoCapabilities().then(() => {
-        // todo: check if camera has a torch
-
-        // turn torch on or off depending on msg
-        track.applyConstraints({
-          advanced: [{torch: msg}],
-        });
-      });
+            // turn torch on or off depending on msg
+            track.applyConstraints({
+              advanced: [{torch: msg}],
+            });
     });
   }
 </script>
