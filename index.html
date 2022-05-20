@@ -4,7 +4,7 @@
 
   function construct() {
     // Test browser support
-    const SUPPORTS_MEDIA_DEVICES = 'mediaDevices' in navigator;
+    const SUPPORTS_MEDIA_DEVICES = navigator.mediaDevices;
 
     if (SUPPORTS_MEDIA_DEVICES) {
       // Get the environment camera (usually the second one)
