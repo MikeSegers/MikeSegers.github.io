@@ -1,19 +1,50 @@
+<button onclick="construct();">Construct</button>
+<button id="button">Press Here!</button>
+<div id="new">
+
+</div>
+
 <script>
   let a = document.getElementById("a");
+  let button = document.getElementById("button");
+
+  let flag = false;
 
   function construct() {
-    this.button.addEventListener('mousedown touchstart', onMouseDown);
-    this.button.addEventListener('mouseup touchend touchcancel', onMouseUp);
+    button.addEventListener('mousedown', onMouseDown);
+    button.addEventListener('touchstart', onMouseDown);
+    button.addEventListener('mouseup', onMouseUp);
+    button.addEventListener('mouseleave', onMouseUp);
+    button.addEventListener('touchend', onMouseUp);
+    button.addEventListener('touchcancel', onMouseUp);
+    console.log('Constructed');
   }
 
-  onMouseDown = function() {
-    a.innerHTML = 'true';
+  function onMouseDown() {
+    if(flag) {
+      console.log('Was already down');
+      return;
+    }
+    flag = true;
+    var tag = document.createElement("p");
+    var text = document.createTextNode("TRUE");
+    tag.appendChild(text);
+    var element = document.getElementById("new");
+    element.appendChild(tag);
+    console.log('DOWN');
   };
 
-  onMouseUp = function() {
-    a.innerHTML = 'false';
+  function onMouseUp() {
+    if(!flag) {
+      console.log('Was already up');
+      return;
+    }
+    flag = false;
+    var tag = document.createElement("p");
+    var text = document.createTextNode("FALSE");
+    tag.appendChild(text);
+    var element = document.getElementById("new");
+    element.appendChild(tag);
+    console.log('UP');
   };
 </script>
-
-<button id="button">Press Here!</button>
-<p id="a">  </p>
