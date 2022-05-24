@@ -25,7 +25,10 @@ user-select: none;">Press Here!</button>
     console.log('Constructed');
   }
 
-  function onMouseDown() {
+  function onMouseDown(event) {
+    console.log(event);
+    event.stopPropagation();
+    event.preventDefault();
     if(flag) {
       console.log('Was already down');
       return;
@@ -39,7 +42,10 @@ user-select: none;">Press Here!</button>
     console.log('DOWN');
   };
 
-  function onMouseUp() {
+  function onMouseUp(event) {
+    console.log(event);
+    event.stopPropagation();
+    event.preventDefault();
     if(!flag) {
       console.log('Was already up');
       return;
