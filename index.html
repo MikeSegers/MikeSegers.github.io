@@ -1,52 +1,19 @@
 <script>
-  track;
-  imageCapture;
+  let a = document.getElementById("a");
 
   function construct() {
-    // Test browser support
-    const SUPPORTS_MEDIA_DEVICES = navigator.mediaDevices;
-
-    if (SUPPORTS_MEDIA_DEVICES) {
-      // Get the environment camera (usually the second one)
-      navigator.mediaDevices.enumerateDevices().then((devices) => {
-        const cameras = devices.filter((device) => device.kind === 'videoinput');
-
-        if (cameras.length === 0) {
-          throw Error('No camera found on this device.');
-        }
-        camera = cameras[cameras.length - 1];
-        // Create stream and get video track
-        navigator.mediaDevices.getUserMedia({
-          video: {
-            deviceId: camera.deviceId,
-            facingMode: ['user', 'environment'],
-            height: {ideal: 1080},
-            width: {ideal: 1920},
-          },
-        }).then((stream) => {
-          track = stream.getVideoTracks()[0];
-
-          // Create image capture object and get camera capabilities
-          imageCapture = new ImageCapture(track);
-        });
-      });
-    } else {
-      throw Error('Browser does not support this feature');
-    }
+    this.button.addEventListener('mousedown touchstart', onMouseDown);
+    this.button.addEventListener('mouseup touchend touchcancel', onMouseUp);
   }
 
-  function onMessage(msg) {
-    imageCapture.getPhotoCapabilities().then(() => {
-            // todo: check if camera has a torch
+  onMouseDown = function() {
+    a.innerHTML = 'true';
+  };
 
-            // turn torch on or off depending on msg
-            track.applyConstraints({
-              advanced: [{torch: msg}],
-            });
-    });
-  }
+  onMouseUp = function() {
+    a.innerHTML = 'false';
+  };
 </script>
 
-<button onclick="construct();">Construct</button>
-<button onclick="onMessage(true)">Start</button>
-<button onclick="onMessage(false)">Stop</button>
+<button id="button">Press Here!</button>
+<p id="a">  </p>
