@@ -28,10 +28,12 @@ user-select: none;">Press Here!</button>
   function onMouseDown(event) {
     console.log(event);
     event.preventDefault();
+
     if(flag) {
       console.log('Was already down');
       return;
     }
+    
     flag = true;
     var tag = document.createElement("p");
     var text = document.createTextNode("TRUE");
@@ -44,10 +46,12 @@ user-select: none;">Press Here!</button>
   function onMouseUp(event) {
     console.log(event);
     event.preventDefault();
+
     if(!flag) {
       console.log('Was already up');
       return;
     }
+
     flag = false;
     var tag = document.createElement("p");
     var text = document.createTextNode("FALSE");
