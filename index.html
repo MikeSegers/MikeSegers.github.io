@@ -1,25 +1,59 @@
 <button style="font-size : 20px; width: 100%; height: 100px;" onclick="construct();" >Construct</button>
-<p id = "a"> STANDARD </p>
+<button id="button" style="font-size : 20px; width: 100%; height: 100px; 
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;">Press Here!</button>
+<div id="new">
+
+</div>
 
 <script>
   let a = document.getElementById("a");
+  let button = document.getElementById("button");
+
+  let flag = false;
 
   function construct() {
-    const sensor = new AmbientLightSensor();
-    sensor.addEventListener('reading', (event) => {
-      this.onReadAmbientLight(sensor.illuminance);
-    });
-    a.innerHTML = "CONSTRUCTED";
+    button.addEventListener('mousedown', onMouseDown);
+    button.addEventListener('touchstart', onMouseDown);
+    button.addEventListener('mouseup', onMouseUp);
+    button.addEventListener('mouseleave', onMouseUp);
+    button.addEventListener('touchend', onMouseUp);
+    button.addEventListener('touchcancel', onMouseUp);
+    console.log('Constructed');
+  }
+
+  function onMouseDown(event) {
+    console.log(event);
+    event.preventDefault();
+    if(flag) {
+      console.log('Was already down');
+      return;
+    }
+    flag = true;
+    var tag = document.createElement("p");
+    var text = document.createTextNode("TRUE");
+    tag.appendChild(text);
+    var element = document.getElementById("new");
+    element.appendChild(tag);
+    console.log('DOWN');
   };
 
-  /**
-     * Callback for reading ambient light.
-     * context of object that called callback.
-     *
-     * @param {Event} event object containing sensor data.
-     */
-  function onReadAmbientLight(event) {
-    a.innerHTML = "READ";
-    a.innerHTML = event;
+  function onMouseUp(event) {
+    console.log(event);
+    event.preventDefault();
+    if(!flag) {
+      console.log('Was already up');
+      return;
+    }
+    flag = false;
+    var tag = document.createElement("p");
+    var text = document.createTextNode("FALSE");
+    tag.appendChild(text);
+    var element = document.getElementById("new");
+    element.appendChild(tag);
+    console.log('UP');
   };
 </script>
