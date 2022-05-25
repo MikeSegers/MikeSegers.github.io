@@ -1,5 +1,5 @@
 <button style="font-size : 20px; width: 100%; height: 100px;" onclick="construct();" >Construct</button>
-<p id = "a"> </p>
+<p id = "a"> STANDARD </p>
 
 <script>
   let a = document.getElementById("a");
@@ -9,7 +9,7 @@
     sensor.addEventListener('reading', (event) => {
       this.onReadAmbientLight(sensor.illuminance);
     });
-    console.log('Constructed');
+    a.innerHTML = "CONSTRUCTED";
   };
 
   /**
@@ -19,7 +19,7 @@
      * @param {Event} event object containing sensor data.
      */
   function onReadAmbientLight(event) {
-    console.log(event);
+    a.innerHTML = "READ";
     a.innerHTML = event;
   };
 </script>
