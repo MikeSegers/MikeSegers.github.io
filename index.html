@@ -5,8 +5,9 @@
   let a = document.getElementById("a");
 
   function construct() {
-    window.addEventListener('reading', (event) => {
-      this.onReadAmbientLight(event);
+    const sensor = new AmbientLightSensor();
+    sensor.addEventListener('reading', (event) => {
+      this.onReadAmbientLight(sensor.illuminance);
     });
     console.log('Constructed');
   };
@@ -19,6 +20,6 @@
      */
   function onReadAmbientLight(event) {
     console.log(event);
-    a.innerHTML = event.illuminance;
+    a.innerHTML = event;
   };
 </script>
