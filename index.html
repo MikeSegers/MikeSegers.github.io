@@ -1,61 +1,24 @@
 <button style="font-size : 20px; width: 100%; height: 100px;" onclick="construct();" >Construct</button>
-<button id="button" style="font-size : 20px; width: 100%; height: 100px; 
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;">Press Here!</button>
-<div id="new">
-
-</div>
+<p id = "a"> </p>
 
 <script>
   let a = document.getElementById("a");
-  let button = document.getElementById("button");
-
-  let flag = false;
 
   function construct() {
-    button.addEventListener('mousedown', onMouseDown);
-    button.addEventListener('touchstart', onMouseDown);
-    button.addEventListener('mouseup', onMouseUp);
-    button.addEventListener('mouseleave', onMouseUp);
-    button.addEventListener('touchend', onMouseUp);
-    button.addEventListener('touchcancel', onMouseUp);
+    window.addEventListener('reading', (event) => {
+      this.onReadAmbientLight(event);
+    });
     console.log('Constructed');
-  }
-
-  function onMouseDown(event) {
-    console.log(event);
-    event.stopPropagation();
-    event.preventDefault();
-    if(flag) {
-      console.log('Was already down');
-      return;
-    }
-    flag = true;
-    var tag = document.createElement("p");
-    var text = document.createTextNode("TRUE");
-    tag.appendChild(text);
-    var element = document.getElementById("new");
-    element.appendChild(tag);
-    console.log('DOWN');
   };
 
-  function onMouseUp(event) {
+  /**
+     * Callback for reading ambient light.
+     * context of object that called callback.
+     *
+     * @param {Event} event object containing sensor data.
+     */
+  function onReadAmbientLight(event) {
     console.log(event);
-    event.stopPropagation();
-    event.preventDefault();
-    if(!flag) {
-      console.log('Was already up');
-      return;
-    }
-    flag = false;
-    var tag = document.createElement("p");
-    var text = document.createTextNode("FALSE");
-    tag.appendChild(text);
-    var element = document.getElementById("new");
-    element.appendChild(tag);
-    console.log('UP');
+    a.innerHTML = event.illuminance;
   };
 </script>
