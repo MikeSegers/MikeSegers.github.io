@@ -7,8 +7,7 @@
   function construct() {
     // check support for API
     if (!('AmbientLightSensor' in window)) {
-      throw new NotSupportedError('Unable to create AmbientLightSensor, ' +
-          'AmbientLight API not supported');
+      a.innerHTML = 'No AmbientLightSensor';
     }
 
     window.addEventListener('reading', (event) => {
