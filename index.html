@@ -1,63 +1,26 @@
 <button style="font-size : 20px; width: 100%; height: 100px;" onclick="construct();" >Construct</button>
-<button id="button" style="font-size : 20px; width: 100%; height: 100px; 
--webkit-user-select: none;
--khtml-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;">Press Here!</button>
-<div id="new">
-
-</div>
+<p id ="a">STANDARD</p>>
 
 <script>
   let a = document.getElementById("a");
-  let button = document.getElementById("button");
-
-  let flag = false;
 
   function construct() {
-    button.addEventListener('mousedown', onMouseDown);
-    button.addEventListener('touchstart', onMouseDown);
-    button.addEventListener('mouseup', onMouseUp);
-    button.addEventListener('mouseleave', onMouseUp);
-    button.addEventListener('touchend', onMouseUp);
-    button.addEventListener('touchcancel', onMouseUp);
+    // check support for API
+    if (!('AmbientLightSensor' in window)) {
+      throw new NotSupportedError('Unable to create AmbientLightSensor, ' +
+          'AmbientLight API not supported');
+    }
+
+    window.addEventListener('reading', (event) => {
+      onReadAmbientLight(illuminance);
+    });
+    a.innerHTML = 'Constructed';
     console.log('Constructed');
   }
 
-  function onMouseDown(event) {
-    console.log(event);
-    event.preventDefault();
+  function onReadAmbientLight(newIllu) {
+    console.log(newIllu);
+    a.innerHTML = newIllu;
+  }
 
-    if(flag) {
-      console.log('Was already down');
-      return;
-    }
-    
-    flag = true;
-    var tag = document.createElement("p");
-    var text = document.createTextNode("TRUE");
-    tag.appendChild(text);
-    var element = document.getElementById("new");
-    element.appendChild(tag);
-    console.log('DOWN');
-  };
-
-  function onMouseUp(event) {
-    console.log(event);
-    event.preventDefault();
-
-    if(!flag) {
-      console.log('Was already up');
-      return;
-    }
-
-    flag = false;
-    var tag = document.createElement("p");
-    var text = document.createTextNode("FALSE");
-    tag.appendChild(text);
-    var element = document.getElementById("new");
-    element.appendChild(tag);
-    console.log('UP');
-  };
 </script>
