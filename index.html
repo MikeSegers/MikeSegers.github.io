@@ -1,5 +1,5 @@
 <button style="font-size : 20px; width: 100%; height: 100px;" onclick="construct();" >Construct</button>
-<p id ="a">STANDARD</p>>
+<p id ="a">STANDARD</p>
 
 <script>
   let a = document.getElementById("a");
@@ -10,8 +10,9 @@
       a.innerHTML = 'No AmbientLightSensor';
     }
 
-    window.addEventListener('reading', (event) => {
-      onReadAmbientLight(illuminance);
+    const sensor = new AmbientLightSensor();
+    sensor.addEventListener('reading', (event) => {
+      onReadAmbientLight(sensor.illuminance);
     });
     a.innerHTML = 'Constructed';
     console.log('Constructed');
