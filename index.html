@@ -5,7 +5,7 @@
   let a = document.getElementById("a");
 
   function construct() {
-    if ( 'AmbientLightSensor' in window ) {
+    
       const sensor = new AmbientLightSensor();
       sensor.addEventListener('reading', event => {
         a.innerHTML = sensor.illuminance;
@@ -13,15 +13,12 @@
       });
       sensor.addEventListener('error', event => {
         console.log(event.error.name, event.error.message);
+        a.innerHTML = 'KAPOET';
       });
       sensor.start();
 
       a.innerHTML = 'Constructed';
       console.log('Constructed');
-    } else {
-      a.innerHTML = 'No support';
-      console.log('No support');
-    }
   }
 
   
