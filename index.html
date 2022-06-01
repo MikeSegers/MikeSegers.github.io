@@ -5,20 +5,16 @@
   let a = document.getElementById("a");
 
   function construct() {
-    // check support for API
-    if (!('AmbientLightSensor' in window)) {
-      a.innerHTML = 'No AmbientLightSensor';
-    }
-
-    const sensor = new AmbientLightSensor();
-    sensor.addEventListener('reading', (event) => {
-      onReadAmbientLight(sensor.illuminance);
+    window.addEventListener('devicelight', (event) => {
+      onReadAmbientLight(event);
     });
+
     a.innerHTML = 'Constructed';
     console.log('Constructed');
   }
 
   function onReadAmbientLight(newIllu) {
+    a.innerHTML = 'onReadAmbientLight';
     console.log(newIllu);
     a.innerHTML = newIllu;
   }
