@@ -5,18 +5,25 @@
   let a = document.getElementById("a");
 
   function construct() {
-    window.addEventListener('devicelight', (event) => {
-      onReadAmbientLight(event);
-    });
+    if ( 'AmbientLightSensor' in window ) {
+      const sensor = new AmbientLightSensor();
+      sensor.addEventListener('reading', event => {
+        a.innerHTML = sensor.illuminance;
+        console.log('Current light level:', sensor.illuminance);
+      });
+      sensor.addEventListener('error', event => {
+        console.log(event.error.name, event.error.message);
+      });
+      sensor.start();
 
-    a.innerHTML = 'Constructed';
-    console.log('Constructed');
+      a.innerHTML = 'Constructed';
+      console.log('Constructed');
+    } else {
+      a.innerHTML = 'No support';
+      console.log('No support');
+    }
   }
 
-  function onReadAmbientLight(newIllu) {
-    a.innerHTML = 'onReadAmbientLight';
-    console.log(newIllu);
-    a.innerHTML = newIllu;
-  }
+  
 
 </script>
