@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Volgorde</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a href="../HTML/tekst.html">HTML</a></li>
+        <li><a class="active" href="toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content stijl">
+      <h2> Volgorde </h2>
+      <p>
+        We hebben tot nu toe ervoor gezorgd dat we in staat zijn om HTML op onze websites te zetten.
+        We kunnen losse blokjes naast elkaar zetten, al doen ze nog niet altijd wat we wel willen.
+        En we hebben een ontwerp voor wat we graag zouden willen in de ideale wereld. Nu is het tijd
+        om dit alles samen te voegen en te kijken in welke volgorde je dit dan moet doen.
+      </p>
+      <h3>HTML</h3>
+      <p>
+        Eerst moeten we terug naar HTML, dit is natuurlijk de basis van de website en deze moet daarom
+        al goed staan om alles goed te krijgen in de CSS. Hierin werken we als volgt. <b> Begin altijd
+        van boven naar beneden, van links naar rechts.</b> Laten we naar een voorbeeld kijken voor de
+        verduidelijking.
+      </p>
+      <img src="../fotos/structuur.png" width="25%" class="right" alt="Layout voorbeeld">
+      <p>
+        Hier zie je de eerste structuur die we samen hebben bekeken. Als we deze van boven naar beneden,
+        van links naar rechts maken in onze HTML dan krijgen we de volgende HTML structuur. Op de puntjes moet
+        natuurlijk dan nog de inhoud van de website komen.
+      </p>
+      <pre><code>
+        &#60;body>
+          &#60;header> ... &#60;/header>
+          &#60;nav> ... &#60;/nav>
+          &#60;main> ... &#60;/main>
+          &#60;aside> ... &#60;/aside>
+          &#60;footer> ... &#60;/footer>
+        &#60;/body>
+      </code></pre>
+      <h3>CSS</h3>
+      <p>
+        Als de volgorde klopt, is het tijd om de CSS goed in te stellen. Hierbij is het belangrijk
+        om door te hebben dat als er geen inhoud zit in de HTML, dan zie je het ook niet met je CSS.
+        Tenzij je natuurlijk de hoogte en breedte aanpast.
+      </p>
+      <h4>Header</h4>
+      <p>
+        In ons voorbeeld wordt de header de volledige breedte van ons beeldscherm. Dan zouden we kunnen
+        meten hoeveel pixels ons beeldscherm is en dat instellen, maar niet elk scherm is even groot.
+        Vandaar dat het handig is om hier de breedte in te stellen op 100%. Dat betekent dat hij gewoon
+        altijd de volle ruimte krijgt.
+        <br>
+        Dan willen we de achtergrond vaak een kleurtje geven, dit kun je gewoon doen zoals je hebt geleerd
+        bij <a target="_blank" href="kleuren.html"> kleuren toevoegen</a>.
+        <br>
+        Voor het toevoegen van een logotje kun je gebruik maken van het <a target="_blank" href="../HTML/foto.html">
+        toevoegen van een foto</a>. Deze kun je dan links uitlijnen met <a target="_blank" href="layout.html">
+        de float die je hebt geleerd in layout</a>. Hiervoor is het handig om er een specifiek id aan te geven zoals in
+        <a target="_blank" href="opties.html"> classes en id</a> is geleerd. Eventuele tekst voor een titel kun je dan ook
+        uitlijnen en in bijvoorbeeld de <code>h1</code> zetten van <a href="../HTML/tekst.html"> de headers van tekst toevoegen</a>.
+        <br>
+        Je ziet nu natuurlijk dat zo alles stapje voor stapje op zijn plaats valt.
+      </p>
+      <h4>Navigatie</h4>
+      <p>
+        Als je de navigatie netjes maakt zoals geleerd <a href="../HTML/paginaLink.html"> bij de navigatie</a>. Dan heb je jouw
+        navigatie als een unordered list met daarin alle linkjes. Je kunt dan vervolgens de bolletje weg halen, de knopjes links uitlijnen
+        en een speciale active id toevoegen om alles mooi gekleur te krijgen. Ook heb je de speciale <code>hover</code> eigenschap
+        om er voor te zorgen dat de knop veranderd als je er over heen beweegt. De code voor de navigatie van deze pagina kun je nu hier zien.
+      </p>
+      <pre><code>
+        nav ul {
+          /* Dit haalt de bolletjes weg en geeft de kleur aan de knoppen */
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: var(--main);
+        }
+
+        nav ul li {
+          /* Dit lijnt alles links uit */
+          float: left;
+        }
+
+        nav li a {
+          /* Dit is de tekst van de knoppen */
+          display: block;
+          color: black;
+          padding: 14px 16px;
+          text-decoration: none;
+          text-align: center;
+        }
+
+        nav li a.active {
+          /* speciale kleur voor knop die id="active" heeft */
+          background-color: var(--accent2-s2);
+          color: black;
+        }
+
+        nav li a:hover:not(.active) {
+          /* Kleur voor alle niet actieve knoppen, als je er over heen beweegt */
+          background-color: var(--main-s2);
+          color: black;
+        }
+
+        nav li a:hover.active {
+          /* Kleur voor actieve knoppen, als je er over heen beweegt */
+          background-color: var(--accent2);
+          color: black;
+        }
+      </code></pre>
+      <h4>Main en sidebar</h4>
+      <p>
+        Alles in de main en de sidebar kun je stijlen op de gebruikelijke manier. Hier is niet heel veel speciaals,
+        maar omdat de sidebar natuurlijk aan de rechter kant van de main moet, moeten we hier wel
+        de float op left instellen bij beide. Ook is het van belang dat de breedte van main + aside niet groter is
+        dan 100% van het scherm, dan past het namelijk niet.
+      </p>
+      <h4>Footer</h4>
+      <p>
+        De footer is misschien wel het grootste pijnpunt voor de meeste mensen.
+        Als je een makkelijke oplossing wilt, dan is een sticky footer het beste.
+        Hiervoor kun je gemakkelijk <a href="https://www.w3schools.com/howto/howto_css_fixed_footer.asp" target="_blank"> een tutorial</a> volgen.
+        <br>
+        Als je echter een gewone footer wilt die verstopt is tot je op de onderkant van de pagina komt,
+        dan ben je wel wat langer bezig. Er zijn veel kleine stukjes die hier verschil maken en zelfs als je een
+        werkende oplossing hebt, wil dat niet zeggen dat je het zomaar kan kopieren en plakken.
+        Kortom, hoofdpijn. Het makkelijkste om dit op te lossen is om gewoon genoeg inhoud op jouw website te hebben.
+        <br>
+        Wil je toch nog proberen om het een andere manier wilt proberen kun je een poging doen om <code> clear: both; </code> toe te voegen aan de CSS van jouw footer.
+        Soms wil dat het wel eens magisch maken!
+      </p>
+
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        <ol>
+          <li>Voeg in jouw HTML een footer tag toe met daarin jouw naam en klas.</li>
+          <li>Zorg ervoor dat de footer aan de onderkant zit van de pagina met behulp van CSS.</li>
+        </ol>
+      </div>
+
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="zelfstudie.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Netjes coderen</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+   <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a class="active" href="tekst.html">HTML</a></li>
+        <li><a href="../CSS/toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content html">
+      <h2> Indentatie </h2>
+      <p>
+        We kennen nu echt al een heleboel tags die je kunt gebruiken om jouw website te vullen.
+        Nu wordt het tijd om te leren hoe je de tags correct neerzet zodat het beter te lezen is.
+        Dit doen we door middel van <span class="begrip">indentatie</span>. De indentatie is hoeveel
+        ruimte er zit voordat er tekst komt vanaf de linker kantlijn. Deze ruimte vullen we door middel
+        van de tab knop links op het toetsenbord. <br>
+        Elk voorbeeld die je tot nu toe gezien hebt maakt gebruik van indentatie. Je zult daarom waarschijnlijk
+        in jouw bestanden al redelijk wat lege ruimte aan de linkerkant tegen komen. <br>
+        De algeme regel is als volg: Na het openen van een tag voeg je een tabje meer toe tot je hem weer sluit.<br>
+        Maar de regel zou geen regel zijn als we er geen uitzonderingen op zouden hebben. De uitzondering is
+        gelukkig niet willekeurig, maar vraagt wel om weer een beetje theorie.
+      </p>
+
+      <h3> Verschillende type tags </h3>
+      <p>
+        Er zijn twee type tags in html <span class="begrip">block</span> en <span class="begrip">inline</span> tags.
+      </p>
+      <table>
+        <tr class="mid"> <th> type </th> <th class="mid"> uitleg </th> <th class="mid"> voorbeelden </th> </tr>
+        <tr> <td> inline </td> <td> Deze type tags worden niet op een nieuwe regel begonnen, en is slechts zo breed als nodig is. </td> <td> a, br, b, i, img, button, span </td> </tr>
+        <tr> <td> block </td> <td> Deze type tags beginnen netjes op een nieuwe regel, en maken gebruik van indentatie. Ze worden zo breed als het maar kan. </td> <td> p, div, h1-h6, main, section, footer, header, table, aside, header, ol, ul, li</td> </tr>
+      </table>
+
+      <p>
+        Wat je dus goed moet onthouden is het volgende: <br>
+        <b> Na elke block tag gebruik je indentatie om er voor te zorgen dat het bestand leesbaar is </b>
+        <br>
+        Nog een voorbeeld om het af te leren:
+      </p>
+
+      <pre><code>
+        &#60;!DOCTYPE html>
+        &#60;html>
+          &#60;head>
+            &#60;meta charset="utf-8">
+            &#60;title> Website titel &#60;/title>
+          &#60;/head>
+          &#60;body>
+            &#60;h1> h1 is een block tag &#60;/h1>
+            &#60;p>
+              De p is ook een blocktag, maar &#60;b>de b&#60;/b> tag niet.
+              html, head en body dan weer wel, maar img weer niet!
+            &#60;/p>
+          &#60;/body>
+        &#60;/html>
+      </code></pre>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        <ol>
+          <li> Neem onderstaande code over in een nieuw html bestand genaamd indentatie.html. Hierin is de indentatie weg gehaald</li>
+          <li> Voeg alle indentatie weer toe op de juiste plekken door middel van de tab toets.</li>
+          <li> Voeg een link toe naar indentatie.html aan de lijst van <a target="_blank" href="paginaLink.html"> navigeren opdracht 2</a>.</li>
+        </ol>
+
+      <pre><code>
+&#60;!DOCTYPE html>
+&#60;html>
+&#60;head>
+&#60;meta charset="utf-8">
+&#60;title> Website titel &#60;/title>
+&#60;/head>
+&#60;body>
+&#60;main>
+&#60;article>
+&#60;h1> Kopje &#60;/h1>
+&#60;p> Een stukje tekst &#60;b>DIK GEDRUKT&#60;/b>
+&#60;i> schuingedrukt... &#60;/i> of gewoon normaal... &#60;/p>
+&#60;/article>
+&#60;/main>
+&#60;/body>
+&#60;/html>
+      </code></pre>
+      </div>
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="tabel.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

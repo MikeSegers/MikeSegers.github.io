@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Onderscheiden: class en id</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a href="../HTML/tekst.html">HTML</a></li>
+        <li><a class="active" href="toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content stijl">
+      <h2> Onderscheiden: class en id </h2>
+      <p>
+        Tot nu toe hebben we elke keer voor een bepaalde tag ervoor gezorgt dat alles dezelfde opmaak krijgt.
+        Met natuurlijk de uitzondering van de stukken die jullie van mij gekregen hebben. In dit onderdeel leer je
+        waarom en hoe die uitzonderingen gemaakt worden door middel van class en id. Beide onderdelen zijn een attribuut die
+        je toe kan voegen aan een tag. bijvoorbeeld <code>&#60;p class="col1"></code> of <code>&#60;p id="ruimte"></code>.
+      </p>
+      <h3>Class</h3>
+      <p>
+        De class attribuut wordt toegevoegd aan alle onderdelen die een bepaalde eigenschap moeten hebben. Bijvoorbeeld,
+        je kunt een class links maken, die je gebruikt voor alle tags die links uitgelijnt moeten worden. Of bijvoorbeeld een
+        class center voor alle tekst die je in het midden wilt hebben. Deze classes kun je ook combineren zoals dit:
+        <code>&#60;p class="links center"></code>. Hiermee krijgt deze tekst in de p tag zowel de eigenschappen van links, als
+        van center. In het CSS bestand krijgen zet je een . voor de naam van de class om de eigenschappen te defineren. Bijvoorbeeld:
+      </p>
+      <pre><code>
+        .links {
+          float: left;
+          width: 20%;
+        }
+        .center {
+          text-align: center;
+        }
+      </code></pre>
+      <div class="assignment">
+        <h4> Opdracht 1</h4>
+        <ol>
+          <li>Voeg de CSS code toe van hierboven aan jouw CSS.</li>
+          <li>Voeg de HTML code van hieronder teo aan een van jouw websites.</li>
+          <li>Voeg de classes links center toe aan beide <code>p</code> tags.</li>
+        </ol>
+        <pre><code>
+          &#60;p>
+            Dit is een stukje tekst die we hebben die straks in het midden is,
+            Daarnaast komt het blokje tekst aan de linkerkant voor 20% van het scherm.
+            Het is best handig om de classes toe te voegen zodat je snel dingen kan stijlen.
+          &#60;/p>
+          &#60;p>
+            Hierna gaan we kijken naar ID, je weet het nog niet, maar die gaan we toevoegen aan deze
+            paragraaf. Hiermee zorgen we dat alleen deze een bepaalde achtergrond kleur krijgt.
+          &#60;/p>
+        </code></pre>
+      </div>
+      <h3>ID</h3>
+      <p>
+        De ID is ook een attribuut, en werkt eigenlijk op een gelijkende wijze als de class.
+        De ID wordt alleen gebruikt om specifieke elementen aan te duiden. Dit wordt namelijk ook
+        gebruikt als je bijvoorbeeld javascript toevoegt. Dit is een programmeertaal die je kunt
+        gebruiken om de website interactief te maken. Met Javascript kun je een element met specifiek ID
+        aanspreken om hem bijvoorrbeeld te verstoppen, of te laten bewegen over het scherm. Dit kan een begin zijn van een spel?
+        <br>
+        De ID kun je ook stijlen net als de class. Hiervoor gebruik je de hashtag voor de naam om hem als selector te gebruiken.
+        Je krijgt dus de combinatie van <code>&#60;p id="specifiek"></code> met <code>#specifiek { ... }</code>
+      </p>
+      <div class="assignment">
+        <h4> Opdracht 2</h4>
+        <ol>
+          <li>Voeg de CSS code van hieronder toe aan jouw CSS.</li>
+          <li>Zorg dat de background color een van jouw kleuren is, met behulp van de var.</li>
+          <li>Voeg de id tweede toe aan de laatste <code>p</code> tags.</li>
+        </ol>
+        <pre><code>
+          #tweede {
+            background-color: var(--main);
+          }
+        </code></pre>
+      </div>
+
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="volgorde.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

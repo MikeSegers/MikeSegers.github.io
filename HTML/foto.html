@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Foto's toevoegen</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a class="active" href="tekst.html">HTML</a></li>
+        <li><a href="../CSS/toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content html">
+      <h2> Foto's toevoegen </h2>
+      <p>
+        Je hebt nu de basis van de HTML pagina onder de knie, tijd om verder te kijken naar de inhoud van de website.
+        Een van de tags die je website een snelle boost geeft, is het gebruik maken van foto's.
+        Een voorbeeld van hoe je een foto zou kunnen toevoegen aan jouw website is:
+      </p>
+      <pre><code>
+  &#60;img src="https://www.elle.be/nl/wp-content/uploads/2015/01/fotoapps_v.jpg" alt="Persoon die foto maakt">
+      </code></pre>
+      <p>
+        In de <code>img</code> tag maken we gebruik van twee <span class="begrip"> attributen </span> namelijk <code> src</code> en <code>alt</code>.
+        Een attribuut is een extra eigenschap van de tag die altijd wordt toegevoegt in de openingstag. Ze worden altijd als een paar geschreven namelijk:
+        <code>naam="waarde"</code>. Hierbij is het heel belangrijk dat je na het is teken gebruik maakt van de dubbele quotejes.
+        <br>
+        De <code>src</code> wordt gebruikt om te laten zien welke foto er op de website moet komen. Hiervoor heb je twee opties:
+      </p>
+      <h3> Foto's van internet </h3>
+      <p>
+          Je kunt de foto van het internet halen, zorg er dan voor dat je echt het adres van de foto zelf kopieerd en niet van de algemene website.
+          Als je de verkeerde link hebt, of de link werkt niet dan krijg je meestal het volgende plaatje te zien:
+      </p>
+      <img src="https://i.pinimg.com/originals/f2/a8/0e/f2a80ee8087d750080763918df53d2be.gif" height="20px">
+      <p>
+        Als je de <code>alt</code> attribuut hebt gebruikt dan wordt ook deze tekst weergegeven als het plaatje het niet doet.
+        Hiermee geef je de gebruiker toch een idee wat ze zouden hebben moeten zien. Als je tenminste een goede tekst ervoor geschreven hebt...
+      </p>
+      <h3> Foto's in jouw mapje </h3>
+      <p>
+        Je kunt ook gebruik maken van foto's die je opgeslagen hebt bij het mapje van jouw website. Hiervoor moet je hem eerst downloaden natuurlijk.
+        Je vult dan in plaats van de link van de website, alleen maar de naam van de foto toe in de <code>src</code>. Een voorbeeld hiervan is:
+      </p>
+      <pre><code>
+      &#60;img src="foto.jpg" alt="tekst die je zelf toevoegt">
+      </code></pre>
+      <p>
+        Anders dan het eerste voorbeeld, kun je deze niet zomaar plakken op jouw website om te kijken of hij het doet. Dat komt natuurlijk omdat je de foto.jpg niet hebt op jouw computer!
+      </p>
+      <br>
+      <div class="assignment">
+        <h4> Opdracht </h4>
+        <ol>
+          <li>Download een foto van internet en sla deze op in jouw website map. </li>
+          <li>Voeg de img tag toe aan jouw index pagina en zorg dat in de src de naam van de foto komt te staan. </li>
+          <li>Voeg een alt toe aan de img tag, met een beschrijving van de foto. </li>
+        </ol>
+      </div>
+
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="paginaLink.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mappen gebruiken</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a class="active" href="tekst.html">HTML</a></li>
+        <li><a href="../CSS/toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content html">
+      <h2> Mappen gebruiken </h2>
+      <p>
+        Nu we geleerd hebben hoe HTML bestanden en afbeeldingen toegevoegd kunnen worden aan onze website,
+        wordt het tijd om ook te leren hoe we de mappen netjes kunnen houden. Natuurlijk zorg je er als eerste voor
+        dat alles een goede naam heeft zodat we het makkelijk kunnen terug vinden, maar we kunnen ook mapjes gebruiken
+        om het zoeken wat in te perken. Zo staat alles netjes bij elkaar in plaats van door elkaar heen!
+      </p>
+      <p>
+        <img src="../fotos/mappen.png" alt="Mappen structuur voor foto's en html bestanden" width="25%" class="right">
+        We hebben net gezien dat we de naam van de foto konden gebruiken om te
+        verwijzen naar de foto die in het mapje stond van de website. Dit werkte
+        omdat de foto en de website in de zelfde map stonden. Als je een mapje toevoegt,
+        dan moet je tegen HTML vertellen hoe hij bij de foto of andere pagina kan komen.
+        Stel we hebben de volgende mappen structuur, en we moeten de foto1.jpg toevoegen aan onze index.html
+      </p>
+      <p>
+        Als we kijken bij index.html, dan staat hij in het mapje HTML in het mapje Website.
+        De afbeelding staat in het mapje afbeeldingen in het mapje Website.
+        We hebben nu de eerste overeenkomende map gevonden. Namelijk, ze staan allebei ergens in de map van Website.
+        Om dan van de index.html naar de foto1.jpg te gaan moeten we eerst het mapje van HTML uit, en daarna het mapje van afbeeldingen in.
+        Dit doen we als volgt:
+      </p>
+      <pre><code>
+      &#60;img src="../afbeeldingen/foto1.jpg" alt="tekst die je zelf toevoegt">
+      </code></pre>
+      <p>
+        We gebruiken dus <code>..</code> om een mapje uit te gaan, en de naam
+        van de map om het mapje in te gaan. Tussen elke stap gebruiken we <code>/</code> om de volgende stap aan te geven.
+        Deze manier van een verbinding maken tussen twee bestanden heet een <span class="begrip">relatieve link</span>.
+        De naam komt van het principe dat we vanaf we website kijken hoe we bij de foto komen,
+        in plaats van vanuit het aller eerste mapje wat jouw computer kent.
+
+        Het voordeel hiervan is dat we altijd zeker weten dat de relatieve link klopt. Zodra je namelijk een <span class="begrip">absolute link</span> hebt zoals:
+        <code> Gebruiker/tld/informatica/website/afbeeldingen/foto1.jpg </code> <br>
+        Dan moet je altijd tld heten op jouw computer, en dat zou toch wel lastig zijn.
+      </p>
+      <p>
+        Om een goede relatieve link te maken kun je het volgende stappen plan volgen:
+      </p>
+      <ol>
+        <li>Zorg dat alle bestanden in de goede mappen zitten.</li>
+        <li>Zoek de eerste map waar zowel de foto als de website in zitten.</li>
+        <li>Schrijf op hoe je van de website naar de foto kan komen</li>
+        <li>Schrijf in de code <code>..</code> elke keer als je een mapje uit gaat,
+          en de naam van het mapje als je een mapje in wilt.
+          Vergeet niet om een / te gebruiken tussen elke stap.</li>
+      </ol>
+
+      <p>
+        Relatieve links werken niet alleen in de src van bijvoorbeeld de img tag, maar ook in de href van de a tag, en elke andere plek waar je een link maakt tussen twee bestanden.
+      </p>
+      <div class="assignment">
+        <h4> Opdracht</h4>
+        <ol>
+          <li>Zet alle foto's in een mapje afbeeldingen</li>
+          <li>Zet alle HTML pagina's in een mapje HTML. Laat de index.html wel buiten het HTML mapje.</li>
+          <li>Zorg ervoor door middel van de relatieve links zoals hierboven beschreven dat de website weer werkt zoals voorheen.</li>
+        </ol>
+      </div>
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="structuur.html"> Volgende </a> </span>
+    </div>
+  </body>
+</html>

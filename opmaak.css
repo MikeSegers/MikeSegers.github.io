@@ -1,0 +1,381 @@
+/* RGB - kleuren schema
+rgb(34, 132, 220) - Blauw
+    Shades
+    rgb(34, 132, 220)
+    rgb(30, 116, 193)
+    rgb(26, 99, 165)
+    rgb(21, 83, 137)
+    rgb(17, 66, 110)
+    rgb(13, 50, 82)
+    rgb(9, 33, 55)
+    rgb(4, 17, 27)
+    tinten
+    rgb(34, 132, 220)
+    rgb(62, 147, 224)
+    rgb(89, 163, 229)
+    rgb(117, 178, 233)
+    rgb(145, 194, 237)
+    rgb(172, 209, 242)
+    rgb(200, 224, 246)
+    rgb(227, 240, 251)
+    rgb(234, 244, 252)
+rgb(220, 34, 132) - Roze
+rgb(132, 220, 34) - Groen
+*/
+
+:root {
+  --main: rgb(34, 132, 220);
+  --main-s2: rgb(26, 99, 165);
+  --main-s4: rgb(17, 66, 110);
+  --main-t2: rgb(89, 163, 229);
+  --main-t4: rgb(117, 178, 233);
+  --main-t6: rgb(172, 209, 242);
+  --main-t8: rgb(200, 224, 246);
+  --main-t10: rgb(227, 240, 251);
+
+  --accent1: rgb(220, 34, 132);
+  --accent1-s2: rgba(220, 34, 132, 0.8);
+  --accent1-s10: rgba(220, 34, 132, 0.1);
+
+  --accent2: rgb(132, 220, 34);
+  --accent2-s2: rgba(132, 220, 34, 0.8);
+  --accent2-s4: rgba(132, 220, 34, 0.6);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin:0;
+}
+
+.begrip {
+  font-weight: bold;
+  color: var(--accent1);
+}
+
+.basis, .PHP {
+  background-color: var(--main-t4);
+}
+
+.sql, .html {
+  background-color: var(--main-t6);
+}
+
+.maken, .stijl {
+  background-color: var(--main-t8);
+}
+
+.skill {
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--main-s2);
+  padding: 4px;
+  margin: 5px;
+  width: max(30%, 200px);
+  min-width: 160px;
+  text-align: center;
+  float: left;
+  min-height: 310px;
+}
+
+.opdracht {
+  background-color: var(--main-t10);
+  width: max(96%, 400px);
+  min-height: inherit;
+}
+
+.opdracht p, .opdracht li{
+  padding-left: 8px;
+  padding-right: 8px;
+  text-align: justify;
+}
+
+/* work in progress mobile view*/
+@media only screen and (max-width: 500px) {
+  .content {
+    margin: auto;
+    width: 90%!important;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  .skill {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: inherit;
+    padding-bottom: 5px;
+    float: none;
+  }
+}
+
+@media only screen and (max-width: 1235px) {
+  .skill {
+    width: max(70%, 400px);
+    margin-left: auto;
+    margin-right: auto;
+    min-height: inherit;
+    padding-bottom: 5px;
+    float: none;
+  }
+
+  .opdracht {
+    background-color: var(--main);
+    width: max(70%, 400px);
+  }
+}
+
+.skilltable {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  text-align: left;
+}
+
+.skillName {
+  width: 50%;
+}
+
+.skillPoints {
+  width: 10%;
+  text-align: center;
+}
+
+.content {
+  margin: auto;
+  width: max(60%, 500px);
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  overflow: hidden;
+}
+
+.right {
+  float:right;
+}
+
+.left {
+  float:left;
+}
+
+img {
+  margin-left: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+p + p {
+  margin-top: 15px;
+}
+
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+pre {
+  margin-top: 0px;
+}
+
+a {
+  color: var(--accent1);
+}
+
+a:hover {
+  color: var(--accent1-s2);
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--main);
+}
+
+nav ul li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: black;
+  padding: 14px 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+nav li a.active {
+  background-color: var(--accent2-s2);
+  color: black;
+}
+
+nav li a:hover:not(.active) {
+  background-color: var(--main-s2);
+  color: black;
+}
+
+nav li a:hover.active {
+  background-color: var(--accent2);
+  color: black;
+}
+
+.inhoud {
+  margin-left: auto;
+  margin-right: auto;
+  padding:1px 16px;
+  margin-bottom: 40px;
+}
+
+.explain {
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 68%;
+}
+
+.uitleg {
+  width: 85%;
+}
+
+button {
+  all: unset;
+  background-color: var(--accent1-s4);
+  color: black;
+  border: 2px solid var(--accent1);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: var(--accent1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button a:link,.button a:visited {
+  background-color: var(--accent1-s4);
+  color: black;
+  border: 2px solid var(--accent1);
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.button a:hover,.button a:active {
+  background-color: var(--accent1);
+  color: white;
+  border-radius: 10px;
+}
+
+.center {
+  margin:auto;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+ol, ul {
+  margin-top: 0px;
+}
+
+tr a {
+  color: black;
+}
+
+pre {
+  margin-bottom: 0px;
+}
+
+.third {
+  width: 33%;
+}
+
+table, td{
+  /* margin: 3px; */
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+td + td:not([class="skillPoints"]) {
+  border-top: 1px solid var(--accent1);
+  border-collapse: collapse;
+}
+
+td.not {
+  border-top: initial;
+  border-collapse: initial;
+}
+
+.query {
+    min-width: 184px;
+}
+
+th.mid {
+  text-align: center;
+}
+
+footer {
+  margin-top:auto;
+  width: 100%;
+  background-color: var(--main-s4);
+  color: white;
+}
+
+#opdracht {
+  width: 50%;
+  color: #D800FF;
+  text-align: left;
+  text-indent: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#code {
+  margin: 10px;
+  margin-top: -15px;
+}
+
+.assignment {
+  background-color: var(--accent1-s10);
+  padding: 3px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#codeinside {
+  height: 200px;
+}
+
+article {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.abc {
+  list-style-type: lower-alpha;
+}
+
+.fill {
+  float: none;
+  overflow: hidden;
+}
+
+* + pre {
+  margin-bottom: 5px;
+}

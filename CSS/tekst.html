@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tekst opmaken</title>
+    <link rel="stylesheet" href="../opmaak.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico"/>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../Basis/basis.html">Het begin</a></li>
+        <li><a href="../HTML/tekst.html">HTML</a></li>
+        <li><a class="active" href="toevoegen.html">CSS</a></li>
+      </ul>
+    </nav>
+    <div class="content stijl">
+      <h2> Tekst </h2>
+      <p>
+        Het opmaken van tekst is een van de dingen die altijd veel makkelijker lijkt in Word dan op een website, maar als je weet welke opties je hebt en hoe je wilt dat jouw tekst eruit ziet, dan moet het niet al te moeilijk zijn.
+        Voor het opmaken van tekst heb je grofweg zes opties.
+      </p>
+      <ul>
+        <li>Tekst kleur</li>
+        <li>Uitlijning</li>
+        <li>Decoratie</li>
+        <li>Transformatie</li>
+        <li>Ruimte</li>
+        <li>Schaduws</li>
+      </ul>
+      <h3> Kleur </h3>
+      <p>
+        De tekst kleur hebben we natuurlijk al bekeken in het hoofdstuk van <a target="_blank" href="kleuren.html">kleuren</a>. Hierom gaan we er nu niet dieper op in.
+      </p>
+      <h3> Uitlijning </h3>
+      <p>
+        Voor het uitlijnen zijn verschillende opties. Het makkelijkste is de eigenschap <code>text-align</code>. Deze eigenschap werkt het zelfde als in Word, je kunt een tekst op verschillende manieren uitlijnen op een pagina, hiervoor zijn vier opties:
+        <code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>. Hieronder zie je een foto van de vier verschillende opties.
+      </p>
+      <img src="../fotos/textalign.png" width="95%" alt="Foto met de vier verschillende text alignments">
+      <p>
+        De uitlijning van de tekst is natuurlijk het belangrijkste van dit onderdeel, maar via <a target="_blank" href="https://www.w3schools.com/css/css_text_align.asp">W3Schools</a> kun je ook nog zien hoe je tekst van rechts naar links neer zet en andere uitlijn opties.
+      </p>
+
+      <h3> Decoratie </h3>
+      <p>
+        De decoratie van de tekst is het toevoegen van lijnen aan de tekst, bijvoorbeeld een lijn eronder, of door je tekst heen. De vier eigenschappen die je hierin kunt bewerken zijn:
+      </p>
+      <ul>
+        <li><code>text-decoration-line</code> te kiezen uit <code>none</code>, <code>underline</code>, <code>overline</code>, <code>line-through</code>, <code>initial</code>, <code>inherit</code> </li>
+        <li><code>text-decoration-color</code> werkt zoals alle andere kleuren</li>
+        <li><code>text-decoration-style</code> te kiezen uit <code>solid</code>, <code>double</code>, <code>dotted</code>, <code>dashed</code>, <code>wavy</code>, <code>initial</code>, <code>inherit</code></li>
+        <li><code>text-decoration-thickness</code> te kiezen uit <code>auto</code>, <code>from-font</code>, <code>length/percentage</code>, <code>initial</code>, <code>inherit</code></li>
+      </ul>
+      <p>
+        Veel eigenschappen hebben de optie om een lengte of percentage te gebruiken om de dikte, hoogte of breedte in te stellen. De lengte kun je defineren in bijvoorbeeld hoeveel pixels lang het moet zijn door de eenheid <code>px</code> te gebruiken.<br>
+
+        Percentages zijn handig als je wilt dat op verschillende monitoren je website er alsnog goed uit ziet. Hoe groot het precies wordt hangt af van waar jouw code staat. We kijken hiervoor naar een voorbeeld.
+        We hebben de body een breedte gegeven van 50 procent, dit is dus 50 procent van jouw beeldschem. Daarin staat een article die ook weer 50% breed is, dit betekent dat het 50% van de body in neemt en dus 50% keer 50% = 25% van het scherm.
+        Als laatst hebben we de paragraaf, deze is weer 50% van het article, dus 25% keer 50% = 12,5% van het beeldscherm. <br>
+        Percentage wordt dus bepaald aan de hand van de tag ervoor.
+      </p>
+      <pre> <code>
+      &#60;body style="width: 50%;">
+        &#60;article style="width: 50%;">
+          &#60;p style="width: 50%;">
+            Hallo allemaal!
+          &#60;/p>
+        &#60;/article>
+      &#60;/body>
+      </code> </pre>
+      <h3> Transformatie </h3>
+      <p>
+        De transformatie zorgt ervoor dat je kan instellen waar de hoofdletters zitten in de tekst hiervoor zijn drie opties:
+      </p>
+      <img src="../fotos/transformatie.png" width="40%" alt="Verschillende transformaties">
+
+      <h3> Ruimte </h3>
+      <p>
+        Je kunt op verschillende manieren meer ruimte maken voor jouw tekst, zo kun je de tekst laten inspringen met de eigenschap <code>text-indent</code>.
+        Je kan de ruimte tussen letters, woorden en regels aanpassen met de eigenschappen <code>letter-spacing</code>, <code>word-spacing</code> en <code>line-height.</code>
+        Het is zelfs mogelijk om spaties groter te maken met <code>white-space</code>. Al deze eigenschappen werken weer met de lengte of percentage waardes. Je kunt deze ook negatief maken om in plaats van meer, minder ruimte te geven!
+      </p>
+
+      <h3> Schaduws </h3>
+      <p>
+        De schaduw eigenschap kun je gebruiken om kopjes en tekst wat interessanter te maken. Voor een goed voorbeeld verwijs ik je liever door naar <a href="https://www.w3schools.com/css/tryit.asp?filename=trycss_text-shadow7">W3Schools</a>. De <code>text-shadow</code> eigenschap werkt door een breedte in te stellen voor de horizontale en verticale schaduw. Deze kun je ook van kleur veranderen en breeder maken. Probeer het maar eens uit in dat voorbeeld wat ik benoemde!
+      </p>
+
+
+      <div class="assignment">
+        <h4> Opdracht</h4>
+        <p>
+          Stijl jouw tekst zodat het er zo uit komt te zien. De breedte van de tekst is 50%, de kleur is #D800FF.
+          De tekst is links uitgelijnt, en heeft een indent van 5%.
+          De uitlijning naar het midden van de pagina leren we later, deze hoef je niet na te maken.
+          Doe dit door in de volgende p tag te gebruiken <code>&#60;p id="opdracht"></code> en dan de CSS selector <code>#opdracht</code> te gebruiken. Als je niet meer weet wat de selector is kijk dan terug bij <a href="toevoegen.html">toevoegen</a>.
+        </p>
+        <p id="opdracht">
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, deserunt incididunt excepteur occaecat commodo nulla commodo deserunt ut magna minim. Aute occaecat sed consequat tempor non anim veniam dolore cillum dolor enim eiusmod culpa ut ullamco sint minim sit reprehenderit irure amet reprehenderit et excepteur consectetur est quis nulla aliquip non laborum commodo amet minim elit aliqua excepteur quis. Ut. Nisi duis et commodo nostrud ut incididunt reprehenderit nulla ex irure ut deserunt ad cupidatat ut quis magna. Sed aliqua dolor eu ex id consectetur adipiscing ad aute quis tempor proident non sed irure aute velit exercitation velit eiusmod mollit in duis dolor culpa eu labore eu et dolore proident labore aliqua et nisi quis consectetur voluptate ad sed eiusmod dolor sed cupidatat aliquip dolore quis laborum sit quis quis nisi sit nisi. Aliqua incididunt anim deserunt velit. Cillum in sunt elit pariatur dolore sit amet. Duis commodo veniam culpa ullamco.
+        </p>
+      </div>
+      <button onclick="history.back()">Terug</button>
+      <span class="right button"><a href="ruimte.html"> Volgende <a> </span>
+    </div>
+
+  </body>
+</html>
