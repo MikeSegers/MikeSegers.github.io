@@ -22,43 +22,6 @@
         We hebben nu een heleboel losse stukjes inhoud geleerd die je kunt gebruiken voor het maken van een website.
         Het enige wat ons nu dan nog te wachten staat is het stijlen van de website. Hiervoor zijn drie manieren die gebruikt kunnen worden.
       </p>
-      <h3>Inline CSS</h3>
-      <p>
-        De makkelijkste manier van CSS toevoegen is inline. Hier kun je met het style attribuut aan elke losse tag zelf stijl toevoegen.
-        Bijvoorbeeld als je een paragraaf met rode tekst wilt zou je in de openingstag het attribuut <code>style="color: red;"</code> zetten.
-        De code ziet er dan zo uit
-      </p>
-
-      <pre><code>
-        &#60;p style="color:red;">
-        Een geweldige rode tekst
-        &#60;/p>
-      </code></pre>
-      <p>
-        Als je deze manier gebruikt moet je voor elke tag, elke keer los de CSS toevoegen. Dit wordt echt een chaos!
-      </p>
-
-      <h3>Internal CSS</h3>
-      <p>
-        Je kunt daarom ook <b>in de head</b> een style tag gebruiken om in het algemeen de kleur aan te passen. Het voordeel hiervan is dat je niet elke <code>p</code> los rood hoeft te maken.
-        In de style tag gebruik je de taal CSS. Deze wordt opgebouwd op de volgende manier:
-  </p>
-        <code>selector {eigenschap: waarde;}</code>.
-      <p>
-        Je kunt zo veel eigenschappen en waardes toevoegen binnen de accolades als je nodig hebt. Sluit ze wel altijd netjes af met een puntkomma.
-        De <span class="begrip">selector</span> is de tag die je wilt veranderen, bijvoorbeeld de <code>p</code>. De <span class="begrip">eigenschappen</span> die een tag heeft verschillen, maar zijn per tag terug te vinden op W3Schools.
-        Voor dit voorbeeld werken we met de eigenschap tekst kleur, deze geef je aan met <code>color</code>. De <span class="begrip">waarde</span> die we hieraan toekennen is <code>red</code> voor rood. <br>
-        De interne CSS zet je als onderdeel van de head neer en ziet er dan als volgt uit:
-      </p>
-      <pre><code>
-        &#60;style>
-          p { color: red; }
-        &#60;/style>
-      </code></pre>
-      <p>
-        Je kunt hiermee al een groot deel van de chaos weghalen, het nadeel komt vooral als je meedere pagina's hebt die allemaal dezelfde stijl nodig hebben.
-        Stel je voor je hebt 10 pagina's en je wilt de tekst nu blauw maken. Je kunt dan de waarde <code>blue</code> opschrijven, maar dit moet je voor alle 10 de pagina's los doen!
-      </p>
 
       <h3> External CSS</h3>
       <p>
@@ -78,17 +41,10 @@
       <div class="assignment">
         <h4> Opdracht </h4>
         <ol>
-          <li> Ga naar Notepad++ en maak een nieuw bestand aan met ctrl en n. </li>
-          <li> Klik op ctrl, alt en s om het bestand op te slaan. </li>
-          <ol>
-            <li>Zoek naar de map die je hebt gemaakt voor jouw website. </li>
-            <li>Noem het bestand <code>opmaak.css</code></li>
-            <li>De bestandstype moet een cascade style sheet file zijn.</li>
-          </ol>
-          <li>Voeg in <code>opmaak.css</code> de code <code>p { color: red; }</code> toe en sla het op met ctrl en s. Je mag de kleur ook veranderen.</li>
+          <li> Open het bestand <code>style.css</code> in Replit </li>
+          <li>Voeg in <code>style.css</code> de code <code>p { color: red; }</code> toe en kijk wat er veranderd aan je website als je op run duwt. Je mag de kleur ook veranderen.</li>
           <li>Verbind de CSS met jouw index pagina zoals je hebt geleerd bij External CSS.</li>
         </ol>
-        <img src="../fotos/opslaancss.jpg" alt="Voorbeeld voor hoe je het CSS bestand opslaat." width="95%">
 
       </div>
       <button onclick="history.back()">Terug</button>
