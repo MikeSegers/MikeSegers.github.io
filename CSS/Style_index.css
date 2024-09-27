@@ -28,8 +28,18 @@ body {
     margin: 5% auto;
     border-radius: 10px;
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items at the start */
     align-items: center;
+    position: relative; /* Position for absolute children */
+}
+
+.clock {
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Position the clock at the top right */
+    font-size: 20px; /* Font size for the clock */
+    color: black; /* Color of the clock */
 }
 
 .app-grid {
@@ -37,7 +47,7 @@ body {
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
     grid-template-rows: repeat(3, 1fr); /* 3 rows */
     gap: 10px; /* Space between icons */
-    padding: 20px; /* Padding around the grid */
+    padding: 20px 20px 20px; /* Padding around the grid */
     width: 100%; /* Full width of the screen */
     height: 100%; /* Full height of the screen */
 }
@@ -48,9 +58,10 @@ body {
     height: 70px; /* Adjusted height for smaller icons */
     width: 70px; /* Adjusted width for smaller icons */
     margin: auto; /* Center the icons in their grid cell */
+    display: block; /* Make it a block element for links */
+    text-decoration: none; /* Remove underline from links */
 }
 
-/* Updated home button size */
 .home-button {
     position: absolute;
     left: 15px; /* Move to the left */
@@ -60,4 +71,26 @@ body {
     height: 40px; /* Adjusted height for the home button */
     background-color: grey; /* Grey color for the home button */
     border-radius: 50%; /* Circular shape */
+}
+
+
+.back-button {
+    position: absolute;
+    top: 10px; /* Distance from the top */
+    left: 10px; /* Distance from the left */
+    background-color: grey; /* Button color */
+    color: white; /* Text color */
+    width: 70px; /* Same width as app icons */
+    height: 30px; /* Same height as app icons */
+    border-radius: 10px; /* Rounded corners */
+    display: flex; /* Flexbox for centering text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.back-button:hover {
+    background-color: darkgrey; /* Darker shade on hover */
 }
