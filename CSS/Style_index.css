@@ -94,3 +94,10 @@ body {
 .back-button:hover {
     background-color: darkgrey; /* Darker shade on hover */
 }
+
+.icon-image {
+    width: 70px; /* Width same as app icons */
+    height: 70px; /* Height same as app icons */
+    border-radius: 10px; /* Rounded corners */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
