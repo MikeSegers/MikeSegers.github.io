@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.ipad {
+    width: 682px; /* iPad width in landscape */
+    height: 512px; /* iPad height in landscape */
+    background-color: black;
+    border-radius: 40px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.screen {
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    margin: 5% auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 rows */
+    gap: 10px; /* Space between icons */
+    padding: 20px; /* Padding around the grid */
+    width: 100%; /* Full width of the screen */
+    height: 100%; /* Full height of the screen */
+}
+
+.app-icon {
+    background-color: grey; /* Grey color for the app icon */
+    border-radius: 10px;
+    height: 70px; /* Adjusted height for smaller icons */
+    width: 70px; /* Adjusted width for smaller icons */
+    margin: auto; /* Center the icons in their grid cell */
+}
+
+/* Updated home button size */
+.home-button {
+    position: absolute;
+    left: 15px; /* Move to the left */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px; /* Adjusted width for the home button */
+    height: 40px; /* Adjusted height for the home button */
+    background-color: grey; /* Grey color for the home button */
+    border-radius: 50%; /* Circular shape */
+}
