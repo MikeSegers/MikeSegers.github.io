@@ -10,3 +10,23 @@
     width: fit-content; /* Adjust width to content */
     background-color: white; /* Optional: Set background color */
 }
+
+
+#dish-image {
+    width: 150px;
+    height: 150px;
+}
+
+#order-button, #cancel-button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#order-button:hover, #cancel-button:hover {
+    background-color: #0056b3;
+}

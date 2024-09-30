@@ -15,6 +15,11 @@
             <a href="../Apps/App2.html"  class="back-button">Back</a> <!-- Back button -->
 
             <div class="nutrition-info">
+
+                <div class="image-container">
+                    <img id="dish-image" src="" alt="Dish Image" class="dish-image">
+                </div>
+
                 <h1 id="dish-name">Dish Name</h1>
                 <ul>
                     <li>Calories: <span id="calories"></span></li>
@@ -24,11 +29,11 @@
                     <li>Salt: <span id="salt"></span> g</li>
                     <li>Water: <span id="water"></span> g</li>
                 </ul>
+                <div id="order-section">
+                    <button id="order-button" onclick="orderDish()">Order This Dish</button>
+                </div>
             </div>
-
-
         </div>
-
         <a href="../index.html" class="home-button"></a>
     </div>
 
