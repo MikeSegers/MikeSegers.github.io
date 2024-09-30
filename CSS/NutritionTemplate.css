@@ -1,0 +1,12 @@
+.nutrition-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    border: 1px solid black; /* Thin black border */
+    padding: 20px; /* Add some padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
+    margin: auto; /* Center in the parent */
+    width: fit-content; /* Adjust width to content */
+    background-color: white; /* Optional: Set background color */
+}
