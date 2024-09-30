@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* Light gray background */
+}
+
+.guide-container {
+    padding: 60px 40px 20px; /* Increased top padding */
+    max-width: 600px; /* Limit the width for better readability */
+    margin: auto; /* Center the container */
+}
+
+h1, h2 {
+    color: #333; /* Dark gray for headings */
+}
+
+h2 {
+    margin-top: 20px; /* Space above section headings */
+}
+
+ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove padding */
+}
+
+li {
+    margin: 5px 0; /* Space between list items */
+    font-size: 1rem; /* Standard font size */
+    color: #555; /* Medium gray for list items */
+}
