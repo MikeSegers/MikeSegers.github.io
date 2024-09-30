@@ -32,7 +32,6 @@ body {
     justify-content: flex-start; /* Align items at the start */
     align-items: center;
     position: relative; /* Position for absolute children */
-    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .clock {

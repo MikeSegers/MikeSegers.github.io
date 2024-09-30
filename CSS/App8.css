@@ -4,10 +4,16 @@ body {
 }
 
 .guide-container {
-    padding: 60px 40px 20px; /* Increased top padding */
-    max-width: 600px; /* Limit the width for better readability */
-    margin: auto; /* Center the container */
+    width: 90%;
+    height: 90%;
+    margin: 10% auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling if content is too long */
+    border: 1px solid black; /* Add a thin black border */
 }
+
 
 h1, h2 {
     color: #333; /* Dark gray for headings */
