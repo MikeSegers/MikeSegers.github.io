@@ -20,13 +20,15 @@ function parseCSV(data) {
     
     // Skip header and loop through each line
     for (let i = 1; i < lines.length; i++) {
-        const [dish, calories, protein, carbs, fats] = lines[i].split(',');
+        const [dish, calories, protein, carbs, fats, salt, water] = lines[i].split(',');
         if (dish) { // Check if line is not empty
             result[dish.toLowerCase()] = {
                 calories: parseFloat(calories),
                 protein: parseFloat(protein),
                 carbs: parseFloat(carbs),
                 fats: parseFloat(fats),
+                salt: parseFloat(salt),
+                water: parseFloat(water),
             };
         }
     }
@@ -45,6 +47,8 @@ async function displayNutritionInfo() {
         document.getElementById('protein').innerText = info.protein;
         document.getElementById('carbs').innerText = info.carbs;
         document.getElementById('fats').innerText = info.fats;
+        document.getElementById('salt').innerText = info.salt;
+        document.getElementById('water').innerText = info.water;
     } else {
         document.getElementById('dish-name').innerText = 'Dish not found';
     }
