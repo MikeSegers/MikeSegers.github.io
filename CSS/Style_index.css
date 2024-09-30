@@ -67,7 +67,7 @@ body {
 
 
 .app-icon {
-    background-color: grey; /* Grey color for the app icon */
+    background-color: white; /* Grey color for the app icon */
     border-radius: 10px;
     height: 70px; /* Adjusted height for smaller icons */
     width: 70px; /* Adjusted width for smaller icons */
