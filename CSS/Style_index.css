@@ -52,6 +52,20 @@ body {
     height: 100%; /* Full height of the screen */
 }
 
+.icon-container {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center the text under the image */
+}
+
+.icon-text {
+    margin-top: 5px; /* Space between the image and the text */
+    font-size: 0.8rem; /* Smaller font size for the text */
+    color: #666; /* Gray color for the text */
+    text-align: center; /* Center the text */
+}
+
+
 .app-icon {
     background-color: grey; /* Grey color for the app icon */
     border-radius: 10px;
@@ -60,6 +74,15 @@ body {
     margin: auto; /* Center the icons in their grid cell */
     display: block; /* Make it a block element for links */
     text-decoration: none; /* Remove underline from links */
+}
+
+.icon-image {
+    width: 70px; /* Width same as app icons */
+    height: 70px; /* Height same as app icons */
+    border-radius: 10px; /* Rounded corners */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border: 2px solid black; /* Adds a black border */
+    padding: 2px; /* Adds some space between the image and border */
 }
 
 .home-button {
@@ -101,3 +124,4 @@ body {
     border-radius: 10px; /* Rounded corners */
     object-fit: cover; /* Ensures the image covers the area without distortion */
 }
+
