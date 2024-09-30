@@ -1,0 +1,34 @@
+/* news_style.css */
+
+.news-container {
+    width: 90%;
+    height: 90%;
+    margin: 5% auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto; /* Allows scrolling if content is too long */
+}
+
+.news-article {
+    margin-bottom: 20px; /* Space between articles */
+    padding: 10px;
+    border-bottom: 1px solid #ccc; /* Separator line */
+}
+
+.news-article h2 {
+    font-size: 1.2rem; /* Title size */
+    color: #333; /* Title color */
+}
+
+.news-article p {
+    font-size: 0.9rem; /* Text size */
+    color: #666; /* Text color */
+}
+
+.news-article time {
+    display: block;
+    font-size: 0.8rem; /* Date size */
+    color: #999; /* Date color */
+    margin-bottom: 5px; /* Space below date */
+}
