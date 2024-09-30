@@ -64,6 +64,22 @@ async function displayNutritionInfo() {
 
 // Function to handle dish ordering
 function orderDish() {
+    const now = new Date();
+    const currentHours = now.getHours();
+
+    // Check if it's restricted time (between 15:00 and 6:00)
+    if (currentHours >= 15 || currentHours < 6) {
+        const orderedDish = localStorage.getItem('orderedDish');
+        if (orderedDish) {
+            const orderedDishName = orderedDish.charAt(0).toUpperCase() + orderedDish.slice(1);
+            alert(`You cannot order food between 15h-6h. You have already ordered: ${orderedDishName}.`);
+        } else {
+            alert("You cannot order food between 15h-6h. You did not select anything in time so a random meal will be provided.");
+        }
+        return; // Exit the function if ordering is not allowed
+    }
+
+    // Proceed with ordering if within allowed time
     const dish = getDishParameter();
     localStorage.setItem('orderedDish', dish); // Save the ordered dish
     showCancelOrderButton(); // Switch button to "Cancel"
@@ -71,6 +87,21 @@ function orderDish() {
 
 // Function to handle canceling an order
 function cancelOrder() {
+    const now = new Date();
+    const currentHours = now.getHours();
+
+    // Check if it's restricted time (between 15:00 and 6:00)
+    if (currentHours >= 15 || currentHours < 6) {
+        const orderedDish = localStorage.getItem('orderedDish');
+        if (orderedDish) {
+            const orderedDishName = orderedDish.charAt(0).toUpperCase() + orderedDish.slice(1);
+            alert(`You cannot cancel an order between 15h-6h. You have ordered: ${orderedDishName}.`);
+        } else {
+            alert("You cannot cancel an order between 15h-6h. You did not select anything in time so a random meal will be provided.");
+        }
+        return; // Exit the function if ordering is not allowed
+    }
+
     localStorage.removeItem('orderedDish'); // Remove the order
     showOrderButton(); // Switch button back to "Order"
 }
