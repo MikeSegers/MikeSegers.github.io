@@ -21,9 +21,9 @@ function restoreScreen() {
 // Function to redirect to index file
 function redirectToIndex() {
     const currentFile = window.location.href; // Get current URL
-    if (currentFile.includes('Apps')) { // Check if the current URL includes a specific path
+    if (currentFile.includes('/Apps/')) { // Check if the current URL includes a specific path
         window.location.href = "../index.html"; // Redirect to ../Index.html
-    } else if (currentFile.includes('HTML')) { // Check if the current URL includes a specific path
+    } else if (currentFile.includes('/HTML/')) { // Check if the current URL includes a specific path
         window.location.href = "../index.html"; // Redirect to ../Index.html
     } else {
         window.location.href = "index.html"; // Redirect to Index.html
@@ -37,8 +37,8 @@ function resetTimer() {
     restoreScreen();  // Restore brightness on interaction
 
     // Set timeouts
-    timeout = setTimeout(dimScreen, 5000);  // Set the dimming timeout for 30 seconds
-    redirectTimeout = setTimeout(redirectToIndex, 8000); // Set redirect timeout for 45 seconds
+    timeout = setTimeout(dimScreen, 25000);  // Set the dimming timeout for 30 seconds
+    redirectTimeout = setTimeout(redirectToIndex, 30000); // Set redirect timeout for 45 seconds
 }
 
 // Add event listeners for user interaction
