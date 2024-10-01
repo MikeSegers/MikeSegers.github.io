@@ -3,19 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablet Mockup</title>
+    <title>Balance Screen</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/Balance.css"> 
 </head>
 <body>
     <div class="ipad">
         <div class="screen" id="balance">
             <div class="clock" id="liveClock">17:21</div>
             
+            <!-- Centered Scale Indicator -->
+            <div class="scale-container">
+                <div class="scale-segment red"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment green"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment red"></div>
+            </div>
+            
+            <!-- Text at both red ends -->
+            <div class="scale-text">
+                <span class="left-text">Underhydrated</span>
+                <span class="right-text">Overhydrated</span>
+            </div>
+            
+            <!-- Indicator for current status -->
+            <div class="indicator-container">
+                <div class="indicator" id="currentStatusBalance"></div>
+            </div>
+
+
+
+            <!-- Centered Scale Indicator -->
+            <div class="scale-container">
+                <div class="scale-segment red"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment green"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment red"></div>
+            </div>
+            
+            <!-- Text at both red ends -->
+            <div class="scale-text">
+                <span class="left-text">Too little intake</span>
+                <span class="right-text">Too much intake</span>
+            </div>
+            
+            <!-- Indicator for current status -->
+            <div class="indicator-container">
+                <div class="indicator" id="currentStatusIntake"></div>
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
+
     <script src="../Scripts/Clock.js"></script>
     <script>
+        // Simulate the position of the indicator on the scale
+        const currentStatusBalance = document.getElementById('currentStatusBalance');
+        const scaleContainer = document.querySelector('.scale-container');
+
+        // Adjust the left position of the indicator
+        currentStatusBalance.style.left = '65%'; // Change this percentage based on the current value
+
+        // Simulate the position of the indicator on the scale
+        const currentStatusIntake = document.getElementById('currentStatusIntake');
+
+        // Adjust the left position of the indicator
+        currentStatusIntake.style.left = '35%'; // Change this percentage based on the current value
+
         // Add a click event listener to the 'off' div
         document.getElementById('balance').addEventListener('click', function() {
             // Redirect to another page

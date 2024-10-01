@@ -1,0 +1,78 @@
+/* Center the entire screen content */
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Scale container - bigger and centered */
+.scale-container {
+    display: flex;
+    width: 500px; /* Increased width for better visibility */
+    height: 50px; /* Increased height for better visibility */
+    margin: 0 auto; /* Center horizontally */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #000;
+    position: relative;
+}
+
+/* Segments of the scale */
+.scale-segment {
+    flex: 1;
+    height: 100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.green {
+    background-color: green;
+}
+
+/* Text on both sides of the scale */
+.scale-text {
+    width: 500px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.scale-text .left-text {
+    font-size: 16px;
+    color: black;
+    margin-left: 5px;
+}
+
+.scale-text .right-text {
+    font-size: 16px;
+    color: black;
+    margin-right: 5px;
+}
+
+/* Indicator container - keeps the stripe and text together */
+.indicator-container {
+    position: relative;
+    margin-top: 20px;
+    width: 500px; /* Same width as scale container */
+    height: 0px; 
+    text-align: center;
+}
+
+/* Indicator (the stripe) */
+.indicator {
+    position: absolute;
+    width: 5px; /* Narrower to resemble a stripe */
+    height: 80px; /* Taller to span the height of the scale and beyond */
+    background-color: black;
+    left: 60%; /* Adjust the position of the stripe */
+    top: -110px; /* Move the stripe slightly above the scale */
+    transform: translateX(-50%); /* Center the stripe at the given position */
+}
