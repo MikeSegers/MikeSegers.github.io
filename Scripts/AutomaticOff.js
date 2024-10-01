@@ -43,6 +43,7 @@ function resetTimer() {
 
 // Add event listeners for user interaction
 window.onload = function() {
+    document.addEventListener('mousemove', resetTimer);  // Detect mouse clicks
     document.addEventListener('click', resetTimer);  // Detect mouse clicks
     document.addEventListener('keydown', resetTimer);  // Detect keyboard input
     resetTimer();  // Initialize the timer on page load

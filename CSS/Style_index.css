@@ -55,6 +55,17 @@ body {
     color: black; /* Color of the clock */
 }
 
+.patient {
+    position: absolute;
+    top: 5px; /* Adjust as needed */
+    left: 50%; /* Start positioning from the center */
+    transform: translateX(-50%); /* Center the content horizontally */
+    font-size: 10px; /* Adjust font size as needed */
+    color: grey; /* Adjust color as needed */
+    text-align: center; /* Center the text */
+    width: 100%; /* Ensure it spans across the screen */
+}
+
 .app-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */

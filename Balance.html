@@ -10,6 +10,10 @@
 <body>
     <div class="ipad">
         <div class="screen" id="balance">
+            <div class="patient">
+                <div id="patientName">Patient Name: [Name]</div>
+                <div id="patientID">Patient ID: [ID]</div>
+            </div>
             <div class="clock" id="liveClock">17:21</div>
             
             <!-- Centered Scale Indicator -->
@@ -59,6 +63,7 @@
 
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
+    <script src="../Scripts/Patient.js"></script>
     <script>
         // Simulate the position of the indicator on the scale
         const currentStatusBalance = document.getElementById('currentStatusBalance');

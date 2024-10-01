@@ -2,8 +2,8 @@
 
 .news-container {
     width: 90%;
-    height: 90%;
-    margin: 5% auto;
+    height: 85%;
+    margin-top: 50px; /* Add top margin */
     background-color: white;
     border-radius: 10px;
     padding: 20px;
