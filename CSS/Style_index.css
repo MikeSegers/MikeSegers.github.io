@@ -23,8 +23,8 @@ body {
 
 .screen {
     width: 90%;
-    height: 90%;
-    background-color: white;
+    height: 87%;
+    background-color: #9bd4e4;
     margin: 5% auto;
     border-radius: 10px;
     display: flex;
