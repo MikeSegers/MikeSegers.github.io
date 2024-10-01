@@ -21,12 +21,12 @@ function restoreScreen() {
 function redirectToIndex() {
     const currentFile = window.location.href; // Get current URL
     if (currentFile.includes('Apps')) { // Check if the current URL includes a specific path
-        window.location.href = "../Index.html"; // Redirect to ../Index.html
+        window.location.href = "../index.html"; // Redirect to ../Index.html
     } else if (currentFile.includes('HTML')) { // Check if the current URL includes a specific path
-        window.location.href = "../Index.html"; // Redirect to ../Index.html
+        window.location.href = "../index.html"; // Redirect to ../Index.html
     }
      else {
-        window.location.href = "Index.html"; // Redirect to Index.html
+        window.location.href = "index.html"; // Redirect to Index.html
     }
 }
 
