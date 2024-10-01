@@ -8,12 +8,19 @@
 </head>
 <body>
     <div class="ipad">
-        <div class="screen">
+        <div class="screen" id="balance">
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
     <script src="../Scripts/Clock.js"></script>
+    <script>
+        // Add a click event listener to the 'off' div
+        document.getElementById('balance').addEventListener('click', function() {
+            // Redirect to another page
+            window.location.href = "HomeScreen.html"; // Adjust the path to your desired page
+        });
+    </script>
 </body>
 </html>

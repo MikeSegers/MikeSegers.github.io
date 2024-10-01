@@ -34,6 +34,19 @@ body {
     position: relative; /* Position for absolute children */
 }
 
+#off {
+    width: 90%;
+    height: 87%;
+    background-color: #696969;
+    margin: 5% auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start; /* Align items at the start */
+    align-items: center;
+    position: relative; /* Position for absolute children */
+}
+
 .clock {
     position: absolute;
     top: 10px;
@@ -124,4 +137,3 @@ body {
     border-radius: 10px; /* Rounded corners */
     object-fit: cover; /* Ensures the image covers the area without distortion */
 }
-
