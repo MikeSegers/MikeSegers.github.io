@@ -1,6 +1,7 @@
 let timeout;
 let redirectTimeout;
 
+
 // Function to dim the screen
 function dimScreen() {
     const screenElement = document.getElementsByClassName('screen')[0]; // Get the first element with class 'screen'
@@ -24,8 +25,7 @@ function redirectToIndex() {
         window.location.href = "../index.html"; // Redirect to ../Index.html
     } else if (currentFile.includes('HTML')) { // Check if the current URL includes a specific path
         window.location.href = "../index.html"; // Redirect to ../Index.html
-    }
-     else {
+    } else {
         window.location.href = "index.html"; // Redirect to Index.html
     }
 }
