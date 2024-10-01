@@ -1,0 +1,66 @@
+.image-column img {
+    max-width: 100%; /* Scale the image to fit the column */
+    border-radius: 10px;
+    border: 2px solid black; /* Add a small black border */
+}
+
+.content-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    gap: 20px; /* Space between the columns */
+    padding: 20px; /* Padding around the content */
+    margin: 0;
+    position: absolute;
+    top: 11%;
+}
+
+.column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.image-column img {
+    max-width: 100%; /* Scale the image to fit the column */
+    border-radius: 10px;
+}
+
+.text-column {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    padding: 10px;
+}
+
+.text-column h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.text-column p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.action-button {
+    background-color: #0330fc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.action-button:hover {
+    background-color: #0356fc;
+}
+
+.screen-content {
+    text-align: center;
+    padding: 40px;
+}
+
