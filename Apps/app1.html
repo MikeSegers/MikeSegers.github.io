@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Statistics</title>
-    <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/Style_index.css">
+    <link rel="stylesheet" href="../CSS/App1.css"> <!-- CSS for styling the table -->
 </head>
 <body>
     <div class="ipad">
@@ -15,6 +16,29 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+
+            <!-- Fluid intake header and table -->
+            <div class="fluid-intake">
+                <h2>Fluid Intake Overview</h2>
+                <div class="scrollable-table">
+                    <table id="foodTable">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Calories</th>
+                                <th>Protein (g)</th>
+                                <th>Carbs (g)</th>
+                                <th>Fats (g)</th>
+                                <th>Salts (g)</th>
+                                <th>Water (ml)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic rows will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
@@ -22,5 +46,6 @@
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+    <script src="../Scripts/App1.js"></script> <!-- Link to the external JS file -->
 </body>
 </html>

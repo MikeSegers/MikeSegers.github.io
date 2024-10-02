@@ -1,0 +1,62 @@
+/* App1.css */
+
+/* Fluid intake class with 10px margin on top */
+.fluid-intake {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Scrollable table with a max height of 360px */
+.scrollable-table {
+    max-height: 360px;
+    overflow-y: auto;
+    width: 90%;
+}
+
+.scrollable-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.scrollable-table th, .scrollable-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.scrollable-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.scrollable-table td {
+    font-size: 1em;
+}
+
+/* Hidden items rows */
+.hidden {
+    display: none;
+}
+
+/* Indent item rows to make them appear as part of the category */
+.items-row .item {
+    padding-left: 20px;
+    font-style: italic;
+}
+
+/* Hover effect for expandable categories */
+.scrollable-table tr.expandable:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+
+/* Hover effect for category rows */
+.category-row:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+    cursor: pointer; /* Change cursor to pointer */
+}
