@@ -16,12 +16,13 @@ async function getPatientData(roomNumber) {
     const lastNameIndex = headers.indexOf('last_name');
     const dateOfBirthIndex = headers.indexOf('date_of_birth');
     const maxFluidIntakeIndex = headers.indexOf('max_fluid_intake');
+    const state = headers.indexOf('state');
 
     // Iterate over the rows to find the correct patient
     for (let i = 1; i < lines.length; i++) {
         const fields = lines[i].split(',');
 
-        if (fields[roomIndex] == roomNumber) {
+        if (fields[roomIndex] == roomNumber && fields[state] == "active") {
             window.patientID = fields[idIndex];
             window.patientName = fields[firstNameIndex] + ' ' + fields[lastNameIndex];
 
