@@ -1,33 +1,47 @@
 const tbody = document.querySelector('#foodTable tbody');
 
-// Function to load CSV data
-async function loadCSV(filePath) {
-    const response = await fetch(filePath);
-    const text = await response.text();
-    const rows = text.split('\n').map(row => row.split(','));
-    return rows.slice(1); // Remove header row
+// Base URL for the API
+const baseURL = 'http://localhost:3000';
+
+// Function to load data from API
+async function loadData(endpoint) {
+    const response = await fetch(`${baseURL}${endpoint}`);
+    if (!response.ok) {
+        throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
+
+    }
+    const data = await response.json();
+
+    return data;
 }
 
 // Function to parse log data and nutrition data
 async function generateFoodTable() {
+    const patientID = window.patientID; // Assuming window.patientID is set
+
+    // Fetch log data and nutrition data from the API
     const [logData, nutritionData] = await Promise.all([
-        loadCSV('../Logs.csv'),
-        loadCSV('../NutritionValues.csv')
+        loadData(`/api/logs?patient_id=${patientID}`),
+        loadData('/api/nutrition')
     ]);
+
+    if (!logData || !nutritionData) {
+        console.error('Error fetching data');
+        return;
+    }
 
     const nutritionMap = {};
     nutritionData.forEach(row => {
-        const [id, dish, calories, protein, carbs, fats, salt, water] = row;
+        const {id, dish, calories, protein, carbs, fats, salt, water} = row;
         nutritionMap[id] = { dish, calories: parseFloat(calories), protein: parseFloat(protein), carbs: parseFloat(carbs), fats: parseFloat(fats), salt: parseFloat(salt), water: parseFloat(water) };
     });
 
     const overallTotal = { calories: 0, protein: 0, carbs: 0, fats: 0, salts: 0, water: 0 };
-    const patientID = window.patientID; // Assuming window.patientID is set
 
     const foodData = {};
     
     logData.forEach(row => {
-        const [input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount] = row;
+        const {input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount} = row;
 
         if (patient_id == patientID) { // Filter by patient ID
             if (!foodData[category]) {
