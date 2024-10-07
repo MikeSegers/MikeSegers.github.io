@@ -1,7 +1,7 @@
 const tbody = document.querySelector('#foodTable tbody');
 
-// Base URL for the API
-const baseURL = 'http://localhost:3000';
+// Base URL for the API if not declared
+// import { baseURL } from './config.js';
 
 // Function to load data from API
 async function loadData(endpoint) {

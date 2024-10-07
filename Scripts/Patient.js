@@ -1,36 +1,32 @@
 localStorage.setItem('roomNumber', JSON.stringify(112));
 const roomNumber = JSON.parse(localStorage.getItem('roomNumber'));
 
-// Fetch patient data from CSV
+// Base URL for the API if not declared
+// import { baseURL } from './Scripts/config.js';
+
+// Fetch patient data from database
 async function getPatientData(roomNumber) {
-    const response = await fetch('../Patients.csv');
-    const data = await response.text();
-    
-    const lines = data.split('\n');
-    const headers = lines[0].split(',');
+    try {
+        const response = await fetch(`${baseURL}/api/roomnumber?roomnumber=${roomNumber}&state=active`);
+        if (!response.ok) {
+            throw new Error(`Error fetching patient data: ${response.statusText}`);
+        }
 
-    // Find the column indices
-    const roomIndex = headers.indexOf('roomnumber');
-    const idIndex = headers.indexOf('patient_id');
-    const firstNameIndex = headers.indexOf('first_name');
-    const lastNameIndex = headers.indexOf('last_name');
-    const dateOfBirthIndex = headers.indexOf('date_of_birth');
-    const maxFluidIntakeIndex = headers.indexOf('max_fluid_intake');
-    const state = headers.indexOf('state');
+        const patients = await response.json();
 
-    // Iterate over the rows to find the correct patient
-    for (let i = 1; i < lines.length; i++) {
-        const fields = lines[i].split(',');
-
-        if (fields[roomIndex] == roomNumber && fields[state] == "active") {
-            window.patientID = fields[idIndex];
-            window.patientName = fields[firstNameIndex] + ' ' + fields[lastNameIndex];
+        if (patients.length > 0) {
+            const patient = patients[0]; // Assuming one active patient per room
+            window.patientID = patient.patient_id;
+            window.patientName = `${patient.first_name} ${patient.last_name}`;
 
             // Display the patient information
             document.getElementById('patientID').textContent = 'ID: ' + window.patientID;
             document.getElementById('patientName').textContent = 'Name: ' + window.patientName;
-            break;
+        } else {
+            console.error('No active patient found in this room.');
         }
+    } catch (error) {
+        console.error('Error fetching patient data:', error);
     }
 }
 
