@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excretion</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/FluidTracking.css"> 
 </head>
 <body>
     <div class="ipad">
@@ -14,7 +15,41 @@
                 <div id="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../Apps/app3.html" class="back-button">Back</a> <!-- Back button -->
+            
+            <!-- Table for excretion types -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Amount (in ml)</th>
+                        <th>Submit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Urine</td>
+                        <td><input type="number" placeholder="Amount" min="0"></td>
+                        <td><button type="button">Submit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Diarrhea</td>
+                        <td><input type="number" placeholder="Amount" min="0"></td>
+                        <td><button type="button">Submit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Vomit</td>
+                        <td><input type="number" placeholder="Amount" min="0"></td>
+                        <td><button type="button">Submit</button></td>
+                    </tr>
+                    <tr>
+                        <td>Blood</td>
+                        <td><input type="number" placeholder="Amount" min="0"></td>
+                        <td><button type="button">Submit</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>

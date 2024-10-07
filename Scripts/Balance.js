@@ -25,8 +25,9 @@ async function fetchCSV(url) {
 // Function to calculate fluid intake percentage
 async function calculateFluidIntake() {
     // Fetch the log and patient CSV files
+    const nutritionData = await fetchCSV('../NutritionValues.csv');
     const logData = await fetchCSV('../Log.csv');
-    const patientData = await fetchCSV('../Patient.csv');
+    const patientData = await fetchCSV('../Patients.csv');
 
     const patientID = window.patientID; // Use the patient ID from the window object
 
@@ -34,7 +35,7 @@ async function calculateFluidIntake() {
     let maxFluidIntake = 0;
     patientData.forEach(row => {
     	if (row[1] === patientID) {
-            maxFluidIntake = parseFloat(row[2]); // Assuming max amount is in the 3rd column
+            maxFluidIntake = parseFloat(row[5]); // Assuming max amount is in the 3rd column
         }
     });
 
@@ -42,18 +43,23 @@ async function calculateFluidIntake() {
     let totalIntake = 0;
     logData.forEach(row => {
     	if (row[1] === patientID) {
-            totalIntake += parseFloat(row[6]); // Assuming the fluid amount is in the 7th column
+            const foodId = row[4]
+            const food = nutritionData[foodId]
+            totalIntake += parseFloat(food[7]); 
         }
     });
 
     // Calculate percentage of intake
     const intakePercentage = (totalIntake / maxFluidIntake) * 50;
+    
+    // Convert to string with '%' sign
+    const intakePercentageStr = `${intakePercentage}%`;
 
     // Simulate the position of the indicator on the scale
 	const currentStatusIntake = document.getElementById('currentStatusIntake');
 
 	// Adjust the left position of the indicator
-	currentStatusIntake.style.left = intakePercentage; // Change this percentage based on the current value
+	currentStatusIntake.style.left = intakePercentageStr; // Change this percentage based on the current value
 }
 
 // Generate the fluid intake percentage on page load

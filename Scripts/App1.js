@@ -34,7 +34,7 @@ async function generateFoodTable() {
                 foodData[category] = [];
             }
 
-            const nutritionInfo = nutritionMap[food_id];
+            const nutritionInfo = nutritionMap[nutrition_id];
             if (nutritionInfo) {
                 foodData[category].push(nutritionInfo);
                 // Update overall totals

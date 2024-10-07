@@ -1,0 +1,39 @@
+table {
+    margin-top: 100px;
+    width: 90%; /* Make the table take full width */
+    border-collapse: collapse; /* Collapse borders */
+}
+
+th, td {
+    padding: 10px;
+    text-align: center; /* Center text in the table */
+}
+
+th {
+    background-color: #007BFF; /* Header background color */
+    color: white; /* Header text color */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra stripe effect for even rows */
+}
+
+input[type="number"] {
+    width: 60%; /* Input field width */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #28a745; /* Green button color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
