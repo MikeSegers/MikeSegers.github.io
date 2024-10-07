@@ -15,11 +15,17 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <div id="userRole">Role: [Role]</div> <!-- New field to display the current role -->
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+    <script>
+        // Get the role from localStorage and display it
+        const role = JSON.parse(localStorage.getItem('role'));
+        document.getElementById('userRole').textContent = `Role: ${role || 'Unknown'}`; // Set to 'Unknown' if role is null
+    </script>
 </body>
 </html>

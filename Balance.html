@@ -64,27 +64,6 @@
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
-    <script>
-        //Set role to patient
-        localStorage.setItem('role', JSON.stringify("Patient"));
-        // Simulate the position of the indicator on the scale
-        const currentStatusBalance = document.getElementById('currentStatusBalance');
-        const scaleContainer = document.querySelector('.scale-container');
-
-        // Adjust the left position of the indicator
-        currentStatusBalance.style.left = '65%'; // Change this percentage based on the current value
-
-        // Simulate the position of the indicator on the scale
-        const currentStatusIntake = document.getElementById('currentStatusIntake');
-
-        // Adjust the left position of the indicator
-        currentStatusIntake.style.left = '35%'; // Change this percentage based on the current value
-
-        // Add a click event listener to the 'off' div
-        document.getElementById('balance').addEventListener('click', function() {
-            // Redirect to another page
-            window.location.href = "HomeScreen.html"; // Adjust the path to your desired page
-        });
-    </script>
+    <script src="../Scripts/Balance.js"></script>
 </body>
 </html>
