@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablet Mockup</title>
+    <title>Balance Screen</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/Balance.css"> 
 </head>
 <body>
     <div class="ipad">
@@ -15,11 +16,61 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            
+            <!-- Centered Scale Indicator -->
+            <div class="scale-container">
+                <div class="scale-segment red"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment green"></div>
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment red"></div>
+            </div>
+            
+            <!-- Text at both red ends -->
+            <div class="scale-text">
+                <span class="left-text">Underhydrated</span>
+                <span class="right-text">Overhydrated</span>
+            </div>
+            
+            <!-- Indicator for current status -->
+            <div class="indicator-container">
+                <div class="indicator" id="currentStatusBalance"></div>
+            </div>
+
+
+
+            <!-- Centered Scale Indicator -->
+            <div class="scale-container">
+                <div class="scale-segment green"></div> 
+                <div class="scale-segment green"></div>
+                <div class="scale-segment green"></div> 
+                <div class="scale-segment green"></div>
+                <div class="scale-segment green"></div> <!-- Until 50% -->
+                <div class="scale-segment orange"></div>
+                <div class="scale-segment red"></div>
+                <div class="scale-segment red"></div>
+                <div class="scale-segment red"></div>
+                <div class="scale-segment red"></div>
+            </div>
+            
+            <!-- Text at both red ends -->
+            <div class="scale-text">
+                <span class="left-text">Too little intake</span>
+                <span class="right-text">Too much intake</span>
+            </div>
+            
+            <!-- Indicator for current status -->
+            <div class="indicator-container">
+                <div class="indicator" id="currentStatusIntake"></div>
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
+        <div id="balance"></div> <!-- Solves error -->
     </div>
+
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+    <script src="../Scripts/Balance.js"></script>
 </body>
 </html>
