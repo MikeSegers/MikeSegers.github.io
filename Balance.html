@@ -65,6 +65,8 @@
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
     <script>
+        //Set role to patient
+        localStorage.setItem('role', JSON.stringify("Patient"));
         // Simulate the position of the indicator on the scale
         const currentStatusBalance = document.getElementById('currentStatusBalance');
         const scaleContainer = document.querySelector('.scale-container');

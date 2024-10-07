@@ -20,6 +20,7 @@ function restoreScreen() {
 
 // Function to redirect to index file
 function redirectToIndex() {
+    localStorage.setItem('role', JSON.stringify("Patient"));
     const currentFile = window.location.href; // Get current URL
     if (currentFile.includes('/Apps/')) { // Check if the current URL includes a specific path
         window.location.href = "../index.html"; // Redirect to ../Index.html

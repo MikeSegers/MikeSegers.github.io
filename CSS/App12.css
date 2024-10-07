@@ -1,0 +1,38 @@
+/* Center the QR code section */
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Adjust for spacing */
+    text-align: center;
+}
+
+#qrcode {
+    margin-top: 20px; /* Space between QR code and H2 */
+}
+
+#login-status {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: green;
+    text-align: center;
+}
+
+
+/* LogoutButton.css */
+#logout-button {
+    background-color: grey;
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+#logout-button:hover {
+    background-color: darkgrey;
+}
+

@@ -1,7 +1,7 @@
-// Function to get the dish parameter from the URL
-function getDishParameter() {
+// Function to get the ID parameter from the URL
+function getIdParameter() {
     const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('dish');
+    return urlParams.get('id');
 }
 
 // Function to fetch nutrition data from the CSV file
@@ -18,9 +18,10 @@ function parseCSV(data) {
     
     // Skip header and loop through each line
     for (let i = 1; i < lines.length; i++) {
-        const [dish, calories, protein, carbs, fats, salt, water] = lines[i].split(',');
-        if (dish) { // Check if line is not empty
-            result[dish.toLowerCase()] = {
+        const [id, dish, calories, protein, carbs, fats, salt, water] = lines[i].split(',');
+        if (id) { // Check if line is not empty
+            result[id] = {
+                dish: dish.toLowerCase(),
                 calories: parseFloat(calories),
                 protein: parseFloat(protein),
                 carbs: parseFloat(carbs),
@@ -35,12 +36,12 @@ function parseCSV(data) {
 
 // Function to display the nutritional information
 async function displayNutritionInfo() {
-    const dish = getDishParameter();
+    const id = getIdParameter();
     const nutritionData = await fetchNutritionData();
-    const info = nutritionData[dish];
+    const info = nutritionData[id];
 
     if (info) {
-        document.getElementById('dish-name').innerText = dish.charAt(0).toUpperCase() + dish.slice(1);
+        document.getElementById('dish-name').innerText = info.dish.charAt(0).toUpperCase() + info.dish.slice(1);
         document.getElementById('calories').innerText = info.calories;
         document.getElementById('protein').innerText = info.protein;
         document.getElementById('carbs').innerText = info.carbs;
@@ -50,11 +51,11 @@ async function displayNutritionInfo() {
 
         // Set dish image
         const dishImage = document.getElementById('dish-image');
-        dishImage.src = `../Images/Food/${dish.charAt(0).toUpperCase() + dish.slice(1)}.jpg`; // Assuming the image naming convention matches the dish names
-        dishImage.alt = `${dish.charAt(0).toUpperCase() + dish.slice(1)} image`;
+        dishImage.src = `../Images/Food/${info.dish.charAt(0).toUpperCase() + info.dish.slice(1)}.jpg`; // Assuming the image naming convention matches the dish names
+        dishImage.alt = `${info.dish.charAt(0).toUpperCase() + info.dish.slice(1)} image`;
 
         // Check if a dish is already ordered
-        if (localStorage.getItem('orderedDish') === dish) {
+        if (localStorage.getItem('orderedDish') === id) {
             showCancelOrderButton();
         }
     } else {
@@ -71,8 +72,7 @@ function orderDish() {
     if (currentHours >= 15 || currentHours < 6) {
         const orderedDish = localStorage.getItem('orderedDish');
         if (orderedDish) {
-            const orderedDishName = orderedDish.charAt(0).toUpperCase() + orderedDish.slice(1);
-            alert(`You cannot order food between 15h-6h. You have already ordered: ${orderedDishName}.`);
+            alert(`You cannot order food between 15h-6h. You have already ordered: ${orderedDish}.`);
         } else {
             alert("You cannot order food between 15h-6h. You did not select anything in time so a random meal will be provided.");
         }
@@ -80,8 +80,8 @@ function orderDish() {
     }
 
     // Proceed with ordering if within allowed time
-    const dish = getDishParameter();
-    localStorage.setItem('orderedDish', dish); // Save the ordered dish
+    const id = getIdParameter();
+    localStorage.setItem('orderedDish', id); // Save the ordered dish by ID
     showCancelOrderButton(); // Switch button to "Cancel"
 }
 
@@ -94,8 +94,7 @@ function cancelOrder() {
     if (currentHours >= 15 || currentHours < 6) {
         const orderedDish = localStorage.getItem('orderedDish');
         if (orderedDish) {
-            const orderedDishName = orderedDish.charAt(0).toUpperCase() + orderedDish.slice(1);
-            alert(`You cannot cancel an order between 15h-6h. You have ordered: ${orderedDishName}.`);
+            alert(`You cannot cancel an order between 15h-6h. You have ordered: ${orderedDish}.`);
         } else {
             alert("You cannot cancel an order between 15h-6h. You did not select anything in time so a random meal will be provided.");
         }
@@ -105,6 +104,7 @@ function cancelOrder() {
     localStorage.removeItem('orderedDish'); // Remove the order
     showOrderButton(); // Switch button back to "Order"
 }
+
 
 // Function to display the "Order This Dish" button
 function showOrderButton() {

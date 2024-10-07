@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablet Mockup</title>
+    <title>QR Login</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/App12.css">
 </head>
 <body>
     <div class="ipad">
@@ -13,13 +14,35 @@
                 <div id="patientName">Patient Name: [Name]</div>
                 <div id="patientID">Patient ID: [ID]</div>
             </div>
+            
+            <!-- Clock Display -->
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            
+            <!-- QR Code Login Section -->
+            <div class="qr-section">
+                <h2>Scan the QR Code to Log In</h2>
+                <div id="qrcode"></div>
+                <div id="login-status"></div>
+
+                <!-- Logout Section -->
+                <div id="logout-section" style="display: none;">
+                    <button id="logout-button">Log Out</button>
+                </div>
+            </div>
+
+            <!-- Back Button -->
+            <a href="../HomeScreen.html" class="back-button">Back</a>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
+    
+    <!-- Existing Scripts -->
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+
+    <!-- Include the QRCode generation script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="../Scripts/QRLogin.js"></script> <!-- The new JS file for QR code login -->
 </body>
 </html>
