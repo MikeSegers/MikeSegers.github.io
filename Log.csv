@@ -1,4 +1,4 @@
-employee_id,patient_id,time,date,food_id,catergory,corrected_amount
+input_user_id,patient_id,time,date,nutrition_id,catergory,corrected_amount
 1,126942,09:08,2024-10-07,13,lunch,1
 1,126942,09:08,2024-10-07,17,lunch,1
 1,126942,18:18,2024-10-07,14,dinner,1

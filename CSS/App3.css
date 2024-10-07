@@ -1,0 +1,33 @@
+/* styles.css */
+
+#userRole {
+    margin-top: 150px; /* Adjust this value to move it lower */
+    font-size: 16px; /* Set the size of the role text */
+}
+
+#nurseNote {
+    font-size: 12px; /* Smaller text for the nurse note */
+    color: gray; /* Optional: change color for emphasis */
+    margin-top: 5px; /* Space above the note */
+}
+
+.button-container {
+    margin-top: 20px; /* Space between text and buttons */
+}
+
+.action-button {
+    display: inline-block; /* Make the link behave like a button */
+    margin: 5px; /* Space between buttons */
+    padding: 10px 20px; /* Button padding */
+    font-size: 14px; /* Button text size */
+    cursor: pointer; /* Cursor change on hover */
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Text color */
+    background-color: #007BFF; /* Button background color */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center the text */
+}
+
+.action-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

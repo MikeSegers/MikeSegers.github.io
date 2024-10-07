@@ -37,8 +37,8 @@ function parseCSV(data) {
 // Function to display the nutritional information
 async function displayNutritionInfo() {
     const id = getIdParameter();
-    const nutritionData = await fetchNutritionData();
-    const info = nutritionData[id];
+    window.nutritionData = await fetchNutritionData();
+    const info = window.nutritionData[id];
 
     if (info) {
         document.getElementById('dish-name').innerText = info.dish.charAt(0).toUpperCase() + info.dish.slice(1);
@@ -123,16 +123,16 @@ window.onload = function() {
     displayNutritionInfo();
 
     // Check if any dish has already been ordered and update button
-    const orderedDish = localStorage.getItem('orderedDish');
-    const currentDish = getDishParameter();
+    const orderedDishID = localStorage.getItem('orderedDish');
+    const currentDish = getIdParameter();
 
-    if (orderedDish && orderedDish !== currentDish) {
+    if (orderedDishID && orderedDishID !== currentDish) {
         // Capitalize the first letter of the ordered dish
-        const orderedDishName = orderedDish.charAt(0).toUpperCase() + orderedDish.slice(1);
+        const orderedDishName = orderedDishID.charAt(0).toUpperCase() + orderedDishID.slice(1);
         
         // Show message informing the user which dish has already been ordered
         document.getElementById('order-section').innerHTML = 
-        `<p style="text-align: center;">You have already ordered <strong>${orderedDishName}</strong>.</p>
+        `<p style="text-align: center;">You have already ordered another meal.</p>
         <p style="text-align: center;">Please cancel it first before ordering another dish.</p>`;
 
     }

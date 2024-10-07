@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fluid Tracking</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/App3.css"> <!-- Link to the new CSS file -->
 </head>
 <body>
     <div class="ipad">
@@ -15,7 +16,12 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
-            <div id="userRole">Role: [Role]</div> <!-- New field to display the current role -->
+            <div id="userRole">Role: [Role]</div>
+            <div id="nurseNote" style="display: none;">If you are a nurse, please log in first.</div>
+            <div class="button-container">
+                <a href="../HTML/Excretion.html" class="action-button" id="excretionButton">Excretion</a> <!-- Link for excretion -->
+                <a href="../HTML/Intake.html" class="action-button" id="intakeButton">Intake</a> <!-- Link for intake -->
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
@@ -26,6 +32,13 @@
         // Get the role from localStorage and display it
         const role = JSON.parse(localStorage.getItem('role'));
         document.getElementById('userRole').textContent = `Role: ${role || 'Unknown'}`; // Set to 'Unknown' if role is null
+
+        // Show the nurse note only if the role is not 'nurse'
+        if (role !== 'Nurse') {
+            document.getElementById('nurseNote').style.display = 'block';
+        } else {
+            document.getElementById('nurseNote').style.display = 'none';
+        }
     </script>
 </body>
 </html>
