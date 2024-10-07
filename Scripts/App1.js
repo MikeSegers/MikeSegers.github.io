@@ -11,7 +11,7 @@ async function loadCSV(filePath) {
 // Function to parse log data and nutrition data
 async function generateFoodTable() {
     const [logData, nutritionData] = await Promise.all([
-        loadCSV('../Log.csv'),
+        loadCSV('../Logs.csv'),
         loadCSV('../NutritionValues.csv')
     ]);
 

@@ -26,7 +26,7 @@ async function fetchCSV(url) {
 async function calculateFluidIntake() {
     // Fetch the log and patient CSV files
     const nutritionData = await fetchCSV('../NutritionValues.csv');
-    const logData = await fetchCSV('../Log.csv');
+    const logData = await fetchCSV('../Logs.csv');
     const patientData = await fetchCSV('../Patients.csv');
 
     const patientID = window.patientID; // Use the patient ID from the window object
@@ -39,7 +39,7 @@ async function calculateFluidIntake() {
         }
     });
 
-    // Calculate total fluid intake from log.csv
+    // Calculate total fluid intake from Logs.csv
     let totalIntake = 0;
     logData.forEach(row => {
     	if (row[1] === patientID) {
