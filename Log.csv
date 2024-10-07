@@ -7,3 +7,4 @@ employee_id,patient_id,time,date,food_id,catergory,corrected_amount
 1,126942,16:16,2024-10-07,16,snacks,1
 1,126942,10:58,2024-10-07,19,drinks,1
 1,126942,13:47,2024-10-07,18,drinks,1
+1,126944,13:47,2024-10-07,18,drinks,1

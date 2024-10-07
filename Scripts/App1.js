@@ -1,28 +1,52 @@
-// Mock data for different food categories
-const foodData = {
-    lunch: [
-        { item: "Chicken Sandwich", calories: 250, protein: 20, carbs: 30, fats: 10, salts: 1.5, water: 200 },
-        { item: "Water", calories: 0, protein: 0, carbs: 0, fats: 0, salts: 0, water: 150 }
-    ],
-    dinner: [
-        { item: "Pasta", calories: 200, protein: 8, carbs: 40, fats: 5, salts: 0.7, water: 300 },
-        { item: "Salad", calories: 50, protein: 2, carbs: 10, fats: 1, salts: 0.2, water: 150 }
-    ],
-    snacks: [
-        { item: "Apple", calories: 95, protein: 0.5, carbs: 25, fats: 0.3, salts: 0.01, water: 200 },
-        { item: "Yogurt", calories: 100, protein: 6, carbs: 15, fats: 4, salts: 0.1, water: 100 }
-    ],
-    drinks: [
-        { item: "Orange Juice", calories: 45, protein: 0.7, carbs: 10, fats: 0.2, salts: 0.01, water: 100 },
-        { item: "Soda", calories: 150, protein: 0, carbs: 39, fats: 0, salts: 0.05, water: 250 }
-    ]
-};
-
 const tbody = document.querySelector('#foodTable tbody');
 
-// Function to generate the table rows
-function generateFoodTable() {
-    let overallTotal = { calories: 0, protein: 0, carbs: 0, fats: 0, salts: 0, water: 0 };
+// Function to load CSV data
+async function loadCSV(filePath) {
+    const response = await fetch(filePath);
+    const text = await response.text();
+    const rows = text.split('\n').map(row => row.split(','));
+    return rows.slice(1); // Remove header row
+}
+
+// Function to parse log data and nutrition data
+async function generateFoodTable() {
+    const [logData, nutritionData] = await Promise.all([
+        loadCSV('../Log.csv'),
+        loadCSV('../NutritionValues.csv')
+    ]);
+
+    const nutritionMap = {};
+    nutritionData.forEach(row => {
+        const [id, dish, calories, protein, carbs, fats, salt, water] = row;
+        nutritionMap[id] = { dish, calories: parseFloat(calories), protein: parseFloat(protein), carbs: parseFloat(carbs), fats: parseFloat(fats), salt: parseFloat(salt), water: parseFloat(water) };
+    });
+
+    const overallTotal = { calories: 0, protein: 0, carbs: 0, fats: 0, salts: 0, water: 0 };
+    const patientID = window.patientID; // Assuming window.patientID is set
+
+    const foodData = {};
+    
+    logData.forEach(row => {
+        const [employee_id, patient_id, time, date, food_id, category, corrected_amount] = row;
+
+        if (patient_id == patientID) { // Filter by patient ID
+            if (!foodData[category]) {
+                foodData[category] = [];
+            }
+
+            const nutritionInfo = nutritionMap[food_id];
+            if (nutritionInfo) {
+                foodData[category].push(nutritionInfo);
+                // Update overall totals
+                overallTotal.calories += nutritionInfo.calories;
+                overallTotal.protein += nutritionInfo.protein;
+                overallTotal.carbs += nutritionInfo.carbs;
+                overallTotal.fats += nutritionInfo.fats;
+                overallTotal.salts += nutritionInfo.salt; // Assuming 'salt' is used for 'salts'
+                overallTotal.water += nutritionInfo.water;
+            }
+        }
+    });
 
     for (const category in foodData) {
         const items = foodData[category];
@@ -51,12 +75,12 @@ function generateFoodTable() {
             const itemRow = document.createElement('tr');
             itemRow.classList.add('items-row', 'hidden');
             itemRow.setAttribute('data-parent', category);
-            itemRow.innerHTML = `<td style="padding-left: 20px; font-style: italic;">${item.item}</td>
+            itemRow.innerHTML = `<td style="padding-left: 20px; font-style: italic;">${item.dish}</td>
                 <td style="padding-left: 20px; font-style: italic;">${(item.calories).toFixed(1)}</td>
                 <td style="padding-left: 20px; font-style: italic;">${(item.protein).toFixed(1)}</td>
                 <td style="padding-left: 20px; font-style: italic;">${(item.carbs).toFixed(1)}</td>
                 <td style="padding-left: 20px; font-style: italic;">${(item.fats).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.salts).toFixed(1)}</td>
+                <td style="padding-left: 20px; font-style: italic;">${(item.salt).toFixed(1)}</td>
                 <td style="padding-left: 20px; font-style: italic;">${(item.water).toFixed(1)}</td>`;
             tbody.appendChild(itemRow);
 
@@ -65,16 +89,8 @@ function generateFoodTable() {
             categoryTotal.protein += item.protein;
             categoryTotal.carbs += item.carbs;
             categoryTotal.fats += item.fats;
-            categoryTotal.salts += item.salts;
+            categoryTotal.salts += item.salt;
             categoryTotal.water += item.water;
-
-            // Sum up overall totals
-            overallTotal.calories += item.calories;
-            overallTotal.protein += item.protein;
-            overallTotal.carbs += item.carbs;
-            overallTotal.fats += item.fats;
-            overallTotal.salts += item.salts;
-            overallTotal.water += item.water;
         });
 
         // Update the category row with the correct totals
