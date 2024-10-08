@@ -17,7 +17,7 @@ async function loadData(endpoint) {
 
 // Function to parse log data and nutrition data
 async function generateFoodTable() {
-    const ID = JSON.parse(localStorage.getItem('patientID'));; // Assuming patientID is set
+    const ID = JSON.parse(localStorage.getItem('patientID')); // Assuming patientID is set
 
     // Fetch log data and nutrition data from the API
     const [logData, nutritionData] = await Promise.all([
