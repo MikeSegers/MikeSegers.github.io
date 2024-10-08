@@ -23,6 +23,9 @@ async function verifyToken(scannedToken) {
         setTimeout(() => {
             if (scannedToken === sessionToken) {
                 localStorage.setItem('role', JSON.stringify("Nurse"));
+
+                localStorage.setItem('employeeID', JSON.stringify(2)); // SET TO NURSE ID WHO LOGS IN
+
                 document.getElementById("logout-section").style.display = "block"; // Show logout section
                 resolve("Login successful! Token: " + scannedToken);
             } else {

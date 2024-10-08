@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intake</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
-    <link rel="stylesheet" href="../CSS/FluidTracking.css"> 
+    <link rel="stylesheet" href="../CSS/FluidTracking.css">
 </head>
 <body>
     <div class="ipad">
@@ -16,45 +16,20 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../Apps/app3.html" class="back-button">Back</a> <!-- Back button -->
-            
-            <!-- Table for excretion types -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Amount (in ml)</th>
-                        <th>Submit</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Drinks</td>
-                        <td><input type="number" placeholder="Amount" min="0"></td>
-                        <td><button type="button">Submit</button></td>
-                    </tr>
-                    <tr>
-                        <td>Breakfast</td>
-                        <td><input type="number" placeholder="Amount" min="0"></td>
-                        <td><button type="button">Submit</button></td>
-                    </tr>
-                    <tr>
-                        <td>Lunch</td>
-                        <td><input type="number" placeholder="Amount" min="0"></td>
-                        <td><button type="button">Submit</button></td>
-                    </tr>
-                    <tr>
-                        <td>Snacks</td>
-                        <td><input type="number" placeholder="Amount" min="0"></td>
-                        <td><button type="button">Submit</button></td>
-                    </tr>
-                    <tr>
-                        <td>IV Bags</td>
-                        <td><input type="number" placeholder="Amount" min="0"></td>
-                        <td><button type="button">Submit</button></td>
-                    </tr>
-                </tbody>
-            </table>
 
+            <div class="nutrition-list">
+                <table id="nutritionTable">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Original Amount Portion</th>
+                            <th>Adjusted Amount Portion</th>
+                            <th>Submit</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nutritionData"></tbody>
+                </table>
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
@@ -62,5 +37,6 @@
     <script src="../Scripts/Config.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+    <script src="../Scripts/Intake.js"></script> <!-- New JS file for nutrition list -->
 </body>
 </html>

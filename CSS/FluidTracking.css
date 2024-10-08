@@ -1,17 +1,25 @@
+.nutrition-list {
+    max-height: 320px;       /* Set the maximum height for scrolling */
+    overflow-y: auto;        /* Enable vertical scrolling */
+    margin-top: 75px;       /* Space above the list */
+    width: 91%;              /* Make the container take full width */
+    border: 1px solid #ccc;  /* Optional: Add border for better visibility */
+    border-radius: 5px;      /* Optional: Rounded corners */
+}
+
 table {
-    margin-top: 75px;
-    width: 90%; /* Make the table take full width */
+    width: 100%;             /* Make the table take full width of the container */
     border-collapse: collapse; /* Collapse borders */
 }
 
 th, td {
     padding: 10px;
-    text-align: center; /* Center text in the table */
+    text-align: center;      /* Center text in the table */
 }
 
 th {
     background-color: #007BFF; /* Header background color */
-    color: white; /* Header text color */
+    color: white;              /* Header text color */
 }
 
 tr:nth-child(even) {
@@ -19,7 +27,15 @@ tr:nth-child(even) {
 }
 
 input[type="number"] {
-    width: 60%; /* Input field width */
+    width: 60%;               /* Input field width */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+input[type="text"] {
+    width: 90%;               /* Input field width */
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -27,7 +43,7 @@ input[type="number"] {
 
 button {
     background-color: #28a745; /* Green button color */
-    color: white; /* Button text color */
+    color: white;              /* Button text color */
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
