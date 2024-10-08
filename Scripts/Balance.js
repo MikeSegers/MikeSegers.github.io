@@ -1,6 +1,10 @@
 //Set role to patient
 localStorage.setItem('role', JSON.stringify("Patient"));
 
+// Base URL for the API if not declared
+// import { baseURL } from './Scripts/config.js';
+
+
 // Simulate the position of the indicator on the scale
 const currentStatusBalance = document.getElementById('currentStatusBalance');
 const scaleContainer = document.querySelector('.scale-container');
@@ -14,22 +18,29 @@ document.getElementById('balance').addEventListener('click', function() {
     window.location.href = "HomeScreen.html"; // Adjust the path to your desired page
 });
 
-// Function to fetch CSV data and parse it
-async function fetchCSV(url) {
-	const response = await fetch(url);
-	const text = await response.text();
-	const rows = text.trim().split('\n').map(row => row.split(','));
-	return rows;
+// Function to fetch data from the API
+async function fetchData(endpoint) {
+    const response = await fetch(`${baseURL}${endpoint}`);
+    if (!response.ok) {
+        throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
 }
 
 // Function to calculate fluid intake percentage
 async function calculateFluidIntake() {
-    // Fetch the log and patient CSV files
-    const nutritionData = await fetchCSV('../NutritionValues.csv');
-    const logData = await fetchCSV('../Logs.csv');
-    const patientData = await fetchCSV('../Patients.csv');
-
     const patientID = window.patientID; // Use the patient ID from the window object
+
+
+    // Fetch log data, nutrition data, and patient data from the API
+    const [nutritionData, logData, patientData] = await Promise.all([
+        fetchData(`/api/nutrition`),       // Fetch all nutrition values
+        fetchData(`/api/logs?patient_id=${patientID}`), // Fetch logs for a specific patient
+        fetchData(`/api/patients?patient_id=${patientID}`) // Fetch patient data
+    ]);
+    
+
 
     // Find the maximum fluid intake for the patient
     let maxFluidIntake = 0;
@@ -39,7 +50,7 @@ async function calculateFluidIntake() {
         }
     });
 
-    // Calculate total fluid intake from Logs.csv
+    // Calculate total fluid intake from Logs
     let totalIntake = 0;
     logData.forEach(row => {
     	if (row[1] === patientID) {

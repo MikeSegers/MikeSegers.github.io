@@ -1,44 +1,31 @@
+const tbody = document.querySelector('#foodTable tbody');
+
+// Base URL for the API if not declared
+// import { baseURL } from './config.js';
+
 // Function to get the ID parameter from the URL
 function getIdParameter() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('id');
 }
 
-// Function to fetch nutrition data from the CSV file
+// Function to fetch nutrition data from the API
 async function fetchNutritionData() {
-    const response = await fetch('../NutritionValues.csv'); // Adjust path if necessary
-    const data = await response.text();
-    return parseCSV(data);
-}
-
-// Function to parse the CSV data into an object
-function parseCSV(data) {
-    const lines = data.split('\n');
-    const result = {};
-    
-    // Skip header and loop through each line
-    for (let i = 1; i < lines.length; i++) {
-        const [id, dish, calories, protein, carbs, fats, salt, water] = lines[i].split(',');
-        if (id) { // Check if line is not empty
-            result[id] = {
-                dish: dish.toLowerCase(),
-                calories: parseFloat(calories),
-                protein: parseFloat(protein),
-                carbs: parseFloat(carbs),
-                fats: parseFloat(fats),
-                salt: parseFloat(salt),
-                water: parseFloat(water),
-            };
-        }
+    const response = await fetch(`${baseURL}/api/nutrition`);
+    if (!response.ok) {
+        throw new Error(`Error fetching nutrition data: ${response.statusText}`);
     }
-    return result;
+    const data = await response.json();
+    return data;
 }
 
 // Function to display the nutritional information
 async function displayNutritionInfo() {
     const id = getIdParameter();
     window.nutritionData = await fetchNutritionData();
-    const info = window.nutritionData[id];
+    
+    // Find the nutrition info for the current dish ID
+    const info = window.nutritionData.find(item => item.id === parseInt(id, 10));
 
     if (info) {
         document.getElementById('dish-name').innerText = info.dish.charAt(0).toUpperCase() + info.dish.slice(1);
@@ -119,8 +106,8 @@ function showCancelOrderButton() {
 }
 
 // Call the display function when the window loads
-window.onload = function() {
-    displayNutritionInfo();
+window.onload = async function() {
+    await displayNutritionInfo();
 
     // Check if any dish has already been ordered and update button
     const orderedDishID = localStorage.getItem('orderedDish');
