@@ -5,12 +5,12 @@ localStorage.setItem('role', JSON.stringify("Patient"));
 // import { baseURL } from './Scripts/config.js';
 
 
-// Simulate the position of the indicator on the scale
-const currentStatusBalance = document.getElementById('currentStatusBalance');
-const scaleContainer = document.querySelector('.scale-container');
+// // Simulate the position of the indicator on the scale
+// const currentStatusBalance = document.getElementById('currentStatusBalance');
+// const scaleContainer = document.querySelector('.scale-container');
 
-// Adjust the left position of the indicator
-currentStatusBalance.style.left = '65%'; // Change this percentage based on the current value
+// // Adjust the left position of the indicator
+// currentStatusBalance.style.left = '65%'; // Change this percentage based on the current value
 
 // Add a click event listener to the 'off' div
 document.getElementById('balance').addEventListener('click', function() {
