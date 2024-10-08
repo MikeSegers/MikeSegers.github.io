@@ -30,7 +30,7 @@ async function fetchData(endpoint) {
 
 // Function to calculate fluid intake percentage
 async function calculateFluidIntake() {
-    const patientID = window.patientID; // Use the patient ID from the window object
+    const patientID = JSON.parse(localStorage.getItem('patientID')); // Use the patient ID
 
 
     // Fetch log data, nutrition data, and patient data from the API
@@ -39,8 +39,6 @@ async function calculateFluidIntake() {
         fetchData(`/api/logs?patient_id=${patientID}`), // Fetch logs for a specific patient
         fetchData(`/api/patients?patient_id=${patientID}`) // Fetch patient data
     ]);
-    
-
 
     // Find the maximum fluid intake for the patient
     let maxFluidIntake = 0;

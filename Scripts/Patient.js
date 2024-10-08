@@ -16,12 +16,16 @@ async function getPatientData(roomNumber) {
 
         if (patients.length > 0) {
             const patient = patients[0]; // Assuming one active patient per room
-            window.patientID = patient.patient_id;
-            window.patientName = `${patient.first_name} ${patient.last_name}`;
+            
+            const patientID = patient.patient_id;
+            const patientName = `${patient.first_name} ${patient.last_name}`;
+
+            localStorage.setItem('patientID', JSON.stringify(patientID));
+            localStorage.setItem('patientName', JSON.stringify(patientName));
 
             // Display the patient information
-            document.getElementById('patientID').textContent = 'ID: ' + window.patientID;
-            document.getElementById('patientName').textContent = 'Name: ' + window.patientName;
+            document.getElementById('patientID').textContent = 'ID: ' + patientID;
+            document.getElementById('patientName').textContent = 'Name: ' + patientName;
         } else {
             console.error('No active patient found in this room.');
         }

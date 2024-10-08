@@ -17,11 +17,11 @@ async function loadData(endpoint) {
 
 // Function to parse log data and nutrition data
 async function generateFoodTable() {
-    const patientID = window.patientID; // Assuming window.patientID is set
+    const ID = JSON.parse(localStorage.getItem('patientID'));; // Assuming patientID is set
 
     // Fetch log data and nutrition data from the API
     const [logData, nutritionData] = await Promise.all([
-        loadData(`/api/logs?patient_id=${patientID}`),
+        loadData(`/api/logs?patient_id=${ID}`),
         loadData('/api/nutrition')
     ]);
 
@@ -43,7 +43,7 @@ async function generateFoodTable() {
     logData.forEach(row => {
         const {input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount} = row;
 
-        if (patient_id == patientID) { // Filter by patient ID
+        if (patient_id == ID) { // Filter by patient ID
             if (!foodData[category]) {
                 foodData[category] = [];
             }
