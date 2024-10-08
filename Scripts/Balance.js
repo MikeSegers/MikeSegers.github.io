@@ -30,33 +30,33 @@ async function fetchData(endpoint) {
 
 // Function to calculate fluid intake percentage
 async function calculateFluidIntake() {
-    const patientID = JSON.parse(localStorage.getItem('patientID')); // Use the patient ID
-
+    const ID = JSON.parse(localStorage.getItem('patientID')); // Use the patient ID
 
     // Fetch log data, nutrition data, and patient data from the API
     const [nutritionData, logData, patientData] = await Promise.all([
         fetchData(`/api/nutrition`),       // Fetch all nutrition values
-        fetchData(`/api/logs?patient_id=${patientID}`), // Fetch logs for a specific patient
-        fetchData(`/api/patients?patient_id=${patientID}`) // Fetch patient data
+        fetchData(`/api/logs?patient_id=${ID}`), // Fetch logs for a specific patient
+        fetchData(`/api/patients?patient_id=${ID}`) // Fetch patient data
     ]);
 
     // Find the maximum fluid intake for the patient
     let maxFluidIntake = 0;
     patientData.forEach(row => {
-    	if (row[1] === patientID) {
-            maxFluidIntake = parseFloat(row[5]); // Assuming max amount is in the 3rd column
+    	if (row.patient_id === ID) {
+            maxFluidIntake = parseFloat(row.max_fluid_intake);
         }
     });
 
     // Calculate total fluid intake from Logs
     let totalIntake = 0;
     logData.forEach(row => {
-    	if (row[1] === patientID) {
-            const foodId = row[4]
-            const food = nutritionData[foodId]
-            totalIntake += parseFloat(food[7]); 
+    	if (row.patient_id === ID) {
+            const foodId = row.nutrition_id;
+            const food = nutritionData[foodId-1]
+            totalIntake += parseFloat(food.water); 
         }
     });
+
 
     // Calculate percentage of intake
     const intakePercentage = (totalIntake / maxFluidIntake) * 50;
