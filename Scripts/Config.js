@@ -1,2 +1,2 @@
 // config.js
-const baseURL = 'http://localhost:3000';
+const baseURL = 'https://qrscanner.dubbeldam.be';
