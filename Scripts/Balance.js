@@ -71,5 +71,68 @@ async function calculateFluidIntake() {
 	currentStatusIntake.style.left = intakePercentageStr; // Change this percentage based on the current value
 }
 
+// Function to calculate fluid balance percentage
+async function calculateBalance() {
+    const ID = JSON.parse(localStorage.getItem('patientID')); // Use the patient ID
+
+    // Fetch log data, nutrition data, and patient data from the API
+    const [nutritionData, logData, logOutData, patientData] = await Promise.all([
+        fetchData(`/api/nutrition`),       // Fetch all nutrition values
+        fetchData(`/api/logs?patient_id=${ID}`), // Fetch logs for a specific patient
+        fetchData(`/api/logsOut?patient_id=${ID}`), // Fetch logsOut for a specific patient
+        fetchData(`/api/patients?patient_id=${ID}`) // Fetch patient data
+    ]);
+
+    console.log(ID);
+    console.log(nutritionData);
+    console.log(logData);
+    console.log(logOutData);
+    console.log(patientData);
+
+    // Find the maximum fluid intake for the patient
+    let maxFluidIntake = 0;
+    patientData.forEach(row => {
+        if (row.patient_id === ID) {
+            maxFluidIntake = parseFloat(row.max_fluid_intake);
+        }
+    });
+
+    // Calculate total fluid intake from Logs
+    let totalIntake = 0;
+    logData.forEach(row => {
+        if (row.patient_id === ID) {
+            const foodId = row.nutrition_id;
+            const amount = row.corrected_amount;
+            const food = nutritionData[foodId-1]
+            totalIntake += parseFloat(food.water * amount); 
+        }
+    });
+
+    // Calculate total fluid outtake from Logs
+    let totalOuttake = 0;
+    logData.forEach(row => {
+        if (row.patient_id === ID) {
+            totalIntake += parseFloat(row.amount); 
+        }
+    });
+
+    // Calculate percentage of balance
+    const balancePercentage = Math.max(0, Math.min(100, 50 + ((totalIntake - totalOuttake) / maxFluidIntake) * 50));
+    
+    // Convert to string with '%' sign
+    const balancePercentageStr = `${balancePercentage}%`;
+
+    // Simulate the position of the indicator on the scale
+    const currentStatusBalance = document.getElementById('currentStatusBalance');
+
+    // Adjust the left position of the indicator
+    currentStatusBalance.style.left = balancePercentageStr; // Change this percentage based on the current value
+}
+
+async function run() {
+    calculateFluidIntake();
+    calculateBalance();
+}
+
 // Generate the fluid intake percentage on page load
-window.onload = calculateFluidIntake;
+window.onload = run;
