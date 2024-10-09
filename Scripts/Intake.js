@@ -12,6 +12,7 @@ async function loadData(endpoint) {
 
 async function fetchNutritionData() {
 	const ID = JSON.parse(localStorage.getItem('patientID'));
+    const role = JSON.parse(localStorage.getItem('role'));
 
     // Fetch nutrition data from the API
     const [nutritionData] = await Promise.all([
@@ -28,25 +29,27 @@ async function fetchNutritionData() {
     // Populate the table with nutrition data
     nutritionData.forEach(item => {
     	const row = document.createElement('tr');
+        
+        if(item.protected == 0 || role == 'Nurse') {
+           row.innerHTML = `
+           <td><input type="text" value="${item.dish}" readonly /></td>
+           <td><input type="text" value="${item.water}" readonly /></td>
+           <td><input type="number" class="adjust-amount" id="amount-${item.id}" placeholder="1" /></td>
+           <td>
+           <select id="category-${item.id}">
+           <option value="breakfast">Breakfast</option>
+           <option value="lunch">Lunch</option>
+           <option value="dinner">Dinner</option>
+           <option value="snacks">Snacks</option>
+           <option value="drinks">Drinks</option>
+           </select>
+           </td>
+           <td><button onclick="submitAdjustedAmount(${item.id})">Submit</button></td>
+           `;
 
-    	row.innerHTML = `
-    	<td><input type="text" value="${item.dish}" readonly /></td>
-    	<td><input type="text" value="${item.water}" readonly /></td>
-    	<td><input type="number" class="adjust-amount" id="amount-${item.id}" placeholder="1" /></td>
-    	<td>
-    	<select id="category-${item.id}">
-    	<option value="breakfast">Breakfast</option>
-    	<option value="lunch">Lunch</option>
-    	<option value="dinner">Dinner</option>
-    	<option value="snacks">Snacks</option>
-    	<option value="drinks">Drinks</option>
-    	</select>
-    	</td>
-    	<td><button onclick="submitAdjustedAmount(${item.id})">Submit</button></td>
-    	`;
-
-    	nutritionTableBody.appendChild(row);
-    });
+           nutritionTableBody.appendChild(row);
+       }
+   });
 }
 
 function submitAdjustedAmount(id) {
@@ -80,7 +83,7 @@ function submitAdjustedAmount(id) {
 	    return response.json(); // Attempt to parse it as JSON
 	})
     .then(data => {
-	})
+    })
     .catch(error => {
     	console.error('Error:', error);
     });
