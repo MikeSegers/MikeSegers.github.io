@@ -63,7 +63,7 @@ function submitAdjustedAmount(id) {
     const currentDate = new Date().toISOString().split('T')[0];
 
     // Send the adjusted data to the backend
-    fetch('/api/add-log', {
+    fetch(baseURL + '/api/add-log', {
     	method: 'POST',
     	headers: { 'Content-Type': 'application/json' },
     	body: JSON.stringify({
@@ -77,14 +77,10 @@ function submitAdjustedAmount(id) {
     	})
     })
     .then(response => {
-    // Log the raw response to check what is being returned
-    console.log(response);
-    return response.json(); // Attempt to parse it as JSON
-})
+	    return response.json(); // Attempt to parse it as JSON
+	})
     .then(data => {
-    	console.log(data);
-    alert(data.message); // Show a success message
-})
+	})
     .catch(error => {
     	console.error('Error:', error);
     });
