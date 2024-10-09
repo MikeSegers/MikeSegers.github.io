@@ -8,10 +8,8 @@ async function loadData(endpoint) {
     const response = await fetch(`${baseURL}${endpoint}`);
     if (!response.ok) {
         throw new Error(`Error fetching data from ${endpoint}: ${response.statusText}`);
-
     }
     const data = await response.json();
-
     return data;
 }
 
@@ -50,20 +48,22 @@ async function generateFoodTable() {
 
             const nutritionInfo = nutritionMap[nutrition_id];
             if (nutritionInfo) {
-                foodData[category].push(nutritionInfo);
+                foodData[category].push({...nutritionInfo, corrected_amount});
                 // Update overall totals
-                overallTotal.calories += nutritionInfo.calories;
-                overallTotal.protein += nutritionInfo.protein;
-                overallTotal.carbs += nutritionInfo.carbs;
-                overallTotal.fats += nutritionInfo.fats;
-                overallTotal.salts += nutritionInfo.salt; // Assuming 'salt' is used for 'salts'
-                overallTotal.water += nutritionInfo.water;
+                overallTotal.calories += (nutritionInfo.calories * corrected_amount);
+                overallTotal.protein += (nutritionInfo.protein * corrected_amount);
+                overallTotal.carbs += (nutritionInfo.carbs * corrected_amount);
+                overallTotal.fats += (nutritionInfo.fats * corrected_amount);
+                overallTotal.salts += (nutritionInfo.salt * corrected_amount);
+                overallTotal.water += (nutritionInfo.water * corrected_amount);
             }
         }
     });
 
-    for (const category in foodData) {
-        const items = foodData[category];
+    const predefinedCategories = ['breakfast', 'lunch', 'dinner', 'snacks', 'drinks'];
+
+    predefinedCategories.forEach(category => {
+        const items = foodData[category] || []; // Get items or use an empty array if the category is not in the log
         let categoryTotal = { calories: 0, protein: 0, carbs: 0, fats: 0, salts: 0, water: 0 };
 
         // Create a combined category row that sums up and is clickable
@@ -84,30 +84,32 @@ async function generateFoodTable() {
             hiddenRows.forEach(row => row.classList.toggle('hidden'));
         });
 
-        // Create item rows for the category
-        items.forEach(item => {
-            const itemRow = document.createElement('tr');
-            itemRow.classList.add('items-row', 'hidden');
-            itemRow.setAttribute('data-parent', category);
-            itemRow.innerHTML = `<td style="padding-left: 20px; font-style: italic;">${item.dish}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.calories).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.protein).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.carbs).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.fats).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.salt).toFixed(1)}</td>
-                <td style="padding-left: 20px; font-style: italic;">${(item.water).toFixed(1)}</td>`;
-            tbody.appendChild(itemRow);
+        // Create item rows for the category (if any items exist)
+        if (items.length > 0) {
+            items.forEach(item => {
+                const itemRow = document.createElement('tr');
+                itemRow.classList.add('items-row', 'hidden');
+                itemRow.setAttribute('data-parent', category);
+                itemRow.innerHTML = `<td style="padding-left: 20px; font-style: italic;">${item.dish}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.calories * item.corrected_amount).toFixed(1)}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.protein * item.corrected_amount).toFixed(1)}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.carbs * item.corrected_amount).toFixed(1)}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.fats * item.corrected_amount).toFixed(1)}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.salt * item.corrected_amount).toFixed(1)}</td>
+                    <td style="padding-left: 20px; font-style: italic;">${(item.water * item.corrected_amount).toFixed(1)}</td>`;
+                tbody.appendChild(itemRow);
 
-            // Sum up category values
-            categoryTotal.calories += item.calories;
-            categoryTotal.protein += item.protein;
-            categoryTotal.carbs += item.carbs;
-            categoryTotal.fats += item.fats;
-            categoryTotal.salts += item.salt;
-            categoryTotal.water += item.water;
-        });
+                // Sum up category values, applying the corrected_amount
+                categoryTotal.calories += item.calories * item.corrected_amount;
+                categoryTotal.protein += item.protein * item.corrected_amount;
+                categoryTotal.carbs += item.carbs * item.corrected_amount;
+                categoryTotal.fats += item.fats * item.corrected_amount;
+                categoryTotal.salts += item.salt * item.corrected_amount;
+                categoryTotal.water += item.water * item.corrected_amount;
+            });
+        }
 
-        // Update the category row with the correct totals
+        // Update the category row with the correct totals (if there were items)
         categoryRow.innerHTML = `<td><strong>${capitalizeFirstLetter(category)}</strong></td>
             <td>${(categoryTotal.calories).toFixed(1)}</td>
             <td>${(categoryTotal.protein).toFixed(1)}</td>
@@ -115,7 +117,7 @@ async function generateFoodTable() {
             <td>${(categoryTotal.fats).toFixed(1)}</td>
             <td>${(categoryTotal.salts).toFixed(1)}</td>
             <td>${(categoryTotal.water).toFixed(1)}</td>`;
-    }
+    });
 
     // Create the overall total row at the top without bold formatting
     const overallTotalRow = document.createElement('tr');

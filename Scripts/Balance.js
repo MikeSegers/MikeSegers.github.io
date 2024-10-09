@@ -52,11 +52,11 @@ async function calculateFluidIntake() {
     logData.forEach(row => {
     	if (row.patient_id === ID) {
             const foodId = row.nutrition_id;
+            const amount = row.corrected_amount;
             const food = nutritionData[foodId-1]
-            totalIntake += parseFloat(food.water); 
+            totalIntake += parseFloat(food.water * amount); 
         }
     });
-
 
     // Calculate percentage of intake
     const intakePercentage = (totalIntake / maxFluidIntake) * 50;
