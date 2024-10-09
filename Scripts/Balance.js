@@ -83,12 +83,6 @@ async function calculateBalance() {
         fetchData(`/api/patients?patient_id=${ID}`) // Fetch patient data
     ]);
 
-    console.log(ID);
-    console.log(nutritionData);
-    console.log(logData);
-    console.log(logOutData);
-    console.log(patientData);
-
     // Find the maximum fluid intake for the patient
     let maxFluidIntake = 0;
     patientData.forEach(row => {
@@ -110,9 +104,9 @@ async function calculateBalance() {
 
     // Calculate total fluid outtake from Logs
     let totalOuttake = 0;
-    logData.forEach(row => {
+    logOutData.forEach(row => {
         if (row.patient_id === ID) {
-            totalIntake += parseFloat(row.amount); 
+            totalOuttake += parseFloat(row.amount); 
         }
     });
 
