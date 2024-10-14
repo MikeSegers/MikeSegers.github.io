@@ -3,8 +3,11 @@ s<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title>QR/Barcode Scanner</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+
+    <!-- Correct CDN for html5-qrcode -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 </head>
 <body>
     <div class="ipad">
@@ -16,31 +19,22 @@ s<!DOCTYPE html>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../Apps/app3.html" class="back-button">Back</a> <!-- Back button -->
 
-
-
-
-
-
-
-            <!-- PLACE CONTENT HERE -->
-
-
-
-
-
-
-
-
-
+            <!-- QR scanner -->
+            <div class="main-body" style="margin-top: 45px;">
+                <h2>Scan QR or Barcode</h2>
+                <div id="reader" style="width: 400px;"></div>
+                <p id="scanned-result"></p>
+                <p id="total-water">Total water consumed: Unkown</p>
+            </div>
 
 
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
+    <script src="../Scripts/Config.js"></script>
     <script src="../Scripts/QR.js"></script>
     <script src="../Scripts/Clock.js"></script>
-    <script src="../Scripts/Config.js"></script>
-    <script src="../Scripts/AutomaticOff.js"></script>
+    <!-- <script src="../Scripts/AutomaticOff.js"></script> -->
     <script src="../Scripts/Patient.js"></script>
 </body>
 </html>
