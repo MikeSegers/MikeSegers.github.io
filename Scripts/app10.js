@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         row.innerHTML = `
             <td>${dish}</td>
-            <td><input type="number" value="${correctedAmount}" data-log-id="${log.nutrition_id}"></td>
+            <td><input type="number" value="${correctedAmount}" data-log-id="${log.id}"></td>
             <td>
-                <button class="submit-btn" data-log-id="${log.nutrition_id}">Submit</button>
-                <button class="delete-btn" data-log-id="${log.nutrition_id}">Delete</button>
+                <button class="submit-btn-in" data-log-id="${log.id}">Submit</button>
+                <button class="delete-btn-in" data-log-id="${log.id}">Delete</button>
             </td>
         `;
 
@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         row.innerHTML = `
             <td>${category}</td>
-            <td><input type="number" value="${amount}" data-logsOut-id="${logOut.category}"></td>
+            <td><input type="number" value="${amount}" data-logsOut-id="${logOut.id}"></td>
             <td>
-                <button class="submit-btn" data-logsOut-id="${logOut.category}">Submit</button>
-                <button class="delete-btn" data-logsOut-id="${logOut.category}">Delete</button>
+                <button class="submit-btn-out" data-logsOut-id="${logOut.id}">Submit</button>
+                <button class="delete-btn-out" data-logsOut-id="${logOut.id}">Delete</button>
             </td>
         `;
 
@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Event listener for submit buttons
     document.body.addEventListener('click', async (event) => {
-        if (event.target.classList.contains('submit-btn')) {
-            const logID = event.target.dataset.logId || event.target.dataset.logsOutId;
+        if (event.target.classList.contains('submit-btn-in')) {
+            const logID = event.target.dataset.logId;
             const newAmount = event.target.parentElement.previousElementSibling.querySelector('input').value;
 
             // Send updated data to server
             try {
                 await fetch(`${baseURL}/api/updateLog`, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ id: logID, corrected_amount: newAmount })
                 });
@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         // Handle delete button
-        if (event.target.classList.contains('delete-btn')) {
-            const logID = event.target.dataset.logId || event.target.dataset.logsOutId;
+        if (event.target.classList.contains('delete-btn-in')) {
+            const logID = event.target.dataset.logId;
 
             try {
                 await fetch(`${baseURL}/api/deleteLog`, {
@@ -98,6 +98,40 @@ document.addEventListener('DOMContentLoaded', async () => {
                     body: JSON.stringify({ id: logID })
                 });
                 alert('Log deleted successfully!');
+                event.target.parentElement.parentElement.remove(); // Remove the row from the table
+            } catch (error) {
+                console.error('Error deleting log:', error);
+            }
+        }
+
+        if (event.target.classList.contains('submit-btn-out')) {
+            const logID = event.target.dataset.logsOutId;
+            const newAmount = event.target.parentElement.previousElementSibling.querySelector('input').value;
+
+            // Send updated data to server
+            try {
+                await fetch(`${baseURL}/api/updateLogOut`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: logID, corrected_amount: newAmount })
+                });
+                alert('LogOut updated successfully!');
+            } catch (error) {
+                console.error('Error updating log:', error);
+            }
+        }
+
+        // Handle delete button
+        if (event.target.classList.contains('delete-btn-out')) {
+            const logID = event.target.dataset.logsOutId;
+            
+            try {
+                await fetch(`${baseURL}/api/deleteLogOut`, {
+                    method: 'DELETE',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id: logID })
+                });
+                alert('LogOut deleted successfully!');
                 event.target.parentElement.parentElement.remove(); // Remove the row from the table
             } catch (error) {
                 console.error('Error deleting log:', error);
