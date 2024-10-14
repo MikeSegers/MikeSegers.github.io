@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await fetch(`${baseURL}/api/updateLog`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: logID, corrected_amount: newAmount })
+                    body: JSON.stringify({ log_id: logID, corrected_amount: newAmount })
                 });
                 alert('Log updated successfully!');
             } catch (error) {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await fetch(`${baseURL}/api/deleteLog`, {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: logID })
+                    body: JSON.stringify({ log_id: logID })
                 });
                 alert('Log deleted successfully!');
                 event.target.parentElement.parentElement.remove(); // Remove the row from the table
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await fetch(`${baseURL}/api/updateLogOut`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: logID, corrected_amount: newAmount })
+                    body: JSON.stringify({ logsOut_id: logID, corrected_amount: newAmount })
                 });
                 alert('LogOut updated successfully!');
             } catch (error) {
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await fetch(`${baseURL}/api/deleteLogOut`, {
                     method: 'DELETE',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ id: logID })
+                    body: JSON.stringify({ logsOut_id: logID })
                 });
                 alert('LogOut deleted successfully!');
                 event.target.parentElement.parentElement.remove(); // Remove the row from the table
