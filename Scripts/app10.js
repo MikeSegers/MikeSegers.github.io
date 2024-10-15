@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const patientID = JSON.parse(localStorage.getItem('patientID'));
 
     if (role !== 'Nurse') {
-        console.error('Access denied. Only nurses can view this data.');
+        document.getElementById('accessDeniedMessage').classList.remove('hidden');
         return;
     }
+
+    document.getElementById('logTable').classList.remove('hidden');
+    document.getElementById('logsOutTable').classList.remove('hidden');
 
     // Helper function to fetch data
     async function loadData(endpoint) {
@@ -73,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (event.target.classList.contains('submit-btn-in')) {
             const logID = event.target.dataset.logId;
             const newAmount = event.target.parentElement.previousElementSibling.querySelector('input').value;
-            
+
             // Send updated data to server
             try {
                 await fetch(`${baseURL}/api/updateLog`, {
@@ -124,7 +127,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Handle delete button
         if (event.target.classList.contains('delete-btn-out')) {
             const logID = event.target.dataset.logsOutId;
-            
+
             try {
                 await fetch(`${baseURL}/api/deleteLogOut`, {
                     method: 'DELETE',
