@@ -1,3 +1,35 @@
-#logTable {
-	margin-top: 40px;
+/* Hide elements by default */
+.hidden {
+    display: none;
 }
+
+/* Center and style the access denied message */
+#accessDeniedMessage {
+    color: red;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full screen centering */
+}
+
+#accessDeniedMessage h2 {
+    margin-bottom: 10px; /* Add some space between the heading and the paragraph */
+    font-size: 20px; /* Make the heading slightly larger */
+}
+
+#accessDeniedMessage p {
+    font-size: 18px; /* Slightly smaller text for the paragraph */
+}
+
+/* Adjust table margin */
+#logTable, #logsOutTable {
+    margin-top: 40px;
+    width: 100%; /* Make the tables full-width */
+    text-align: left;
+}
+
+/* Add additional table styling if needed */

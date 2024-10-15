@@ -17,8 +17,13 @@
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
 
+            <div id="accessDeniedMessage" class="hidden">
+                <h2>You are not a nurse</h2>
+                <p>Patients cannot look into patient managing info. Please <a href="app12.html">log in</a> to do so.</p>
+            </div>
+            
             <!-- Food Logs Table -->
-            <table id="logTable">
+            <table id="logTable" class="hidden">
                 <thead>
                     <tr>
                         <th>Dish</th>
@@ -32,7 +37,7 @@
             </table>
 
             <!-- LogsOut Table -->
-            <table id="logsOutTable">
+            <table id="logsOutTable" class="hidden">
                 <thead>
                     <tr>
                         <th>Category</th>
@@ -49,7 +54,6 @@
     </div>
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/Config.js"></script>
-<!--     <script src="../Scripts/AutomaticOff.js"></script> -->
     <script src="../Scripts/Patient.js"></script>
     <script src="../Scripts/app10.js"></script>
 </body>
