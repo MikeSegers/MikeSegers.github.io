@@ -1,17 +1,6 @@
 //Set role to patient
 localStorage.setItem('role', JSON.stringify("Patient"));
 
-// Base URL for the API if not declared
-// import { baseURL } from './Scripts/config.js';
-
-
-// // Simulate the position of the indicator on the scale
-// const currentStatusBalance = document.getElementById('currentStatusBalance');
-// const scaleContainer = document.querySelector('.scale-container');
-
-// // Adjust the left position of the indicator
-// currentStatusBalance.style.left = '65%'; // Change this percentage based on the current value
-
 // Add a click event listener to the 'off' div
 document.getElementById('balance').addEventListener('click', function() {
     // Redirect to another page
@@ -54,7 +43,7 @@ async function calculateFluidIntake() {
         }
     });
 
-    const intakePercentage = (totalIntake / maxFluidIntake) * 50;
+    const intakePercentage = Math.max(2, Math.min(98,(totalIntake / maxFluidIntake) * 50));
 
     console.log('test');
     document.getElementById('fluidIntake').innerText = `${totalIntake.toFixed(1)} ml`;
@@ -98,7 +87,7 @@ async function calculateBalance() {
         }
     });
 
-    const balancePercentage = Math.max(0, Math.min(100, 50 + ((totalIntake - totalOuttake) / maxFluidIntake) * 50));
+    const balancePercentage = Math.max(2, Math.min(98, 50 + ((totalIntake - totalOuttake) / maxFluidIntake) * 50));
 
     document.getElementById('fluidExcretion').innerText = `${totalOuttake.toFixed(1)} ml`;
     document.getElementById('fluidBalance').innerText = `${(totalIntake - totalOuttake).toFixed(1)} ml`;
