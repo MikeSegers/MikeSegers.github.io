@@ -143,6 +143,22 @@ if (role === 'Nurse') {
                 }
             }
 
+            if (event.target.classList.contains('verify-btn-in')) {
+                const logID = event.target.dataset.logId;
+
+                // Send updated data to the server
+                try {
+                    await fetch(`${baseURL}/api/verifyLog`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ log_id: logID })
+                    });
+                    alert('Log verified successfully!');
+                } catch (error) {
+                    console.error('Error verified log:', error);
+                }
+            }
+
             // Event listener for submit and delete buttons for logsOut
             if (event.target.classList.contains('submit-btn-out')) {
                 const logsOutID = event.target.dataset.logsOutId;
@@ -175,6 +191,23 @@ if (role === 'Nurse') {
                     event.target.parentElement.parentElement.remove(); // Remove the row from the table
                 } catch (error) {
                     console.error('Error deleting logOut:', error);
+                }
+            }
+
+            // Event listener for submit and delete buttons for logsOut
+            if (event.target.classList.contains('verify-btn-out')) {
+                const logsOutID = event.target.dataset.logsOutId;
+
+                // Send updated data to the server
+                try {
+                    await fetch(`${baseURL}/api/updateLogOut`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ logsOut_id: logsOutID })
+                    });
+                    alert('LogOut verified successfully!');
+                } catch (error) {
+                    console.error('Error verified logOut:', error);
                 }
             }
         });
