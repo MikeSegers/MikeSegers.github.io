@@ -130,7 +130,7 @@ function fetchTotalWaterConsumption() {
     fetch(baseURL + `/api/user-water/${userId}`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('total-water').innerText = `Total fluid balance of today: ${data.total_ml_water} ml`;
+            document.getElementById('total-water').innerText = `Fluid balance of today: ${data.total_ml_water} ml`;
         })
         .catch(error => console.error('Error fetching initial water data:', error));
 }

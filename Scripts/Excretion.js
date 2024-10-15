@@ -6,6 +6,12 @@ function submitExcretion(category) {
     const patient_id = JSON.parse(localStorage.getItem('patientID'));
     const role = JSON.parse(localStorage.getItem('role'));
 
+    if (role == 'Nurse') {
+      isNurse = true;
+    } else {
+      isNurse = false;
+    }
+
     const input_user_id = (role === 'Patient') ? patient_id : JSON.parse(localStorage.getItem('employeeID'));
 
     const currentTime = new Date().toTimeString().split(' ')[0].slice(0, 5);
@@ -21,7 +27,8 @@ function submitExcretion(category) {
             time: currentTime,
             date: currentDate,
             category: category,
-            amount: amount
+            amount: amount,
+            verified: isNurse
         })
     })
     .then(data => {

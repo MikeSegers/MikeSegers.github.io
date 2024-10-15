@@ -17,38 +17,40 @@
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
 
-            <div id="accessDeniedMessage" class="hidden">
+            <div id="accessDeniedMessage">
                 <h2>You are not a nurse</h2>
                 <p>Patients cannot look into patient managing info. Please <a href="app12.html">log in</a> to do so.</p>
             </div>
             
-            <!-- Food Logs Table -->
-            <table id="logTable" class="hidden">
-                <thead>
-                    <tr>
-                        <th>Dish</th>
-                        <th>Corrected Amount</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Data will be dynamically loaded here -->
-                </tbody>
-            </table>
+            <div class="scrollable-table"> <!-- New container to center content -->
+                <!-- Food Logs Table -->
+                <table id="logTable">
+                    <thead>
+                        <tr>
+                            <th>Dish</th>
+                            <th>Corrected Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be dynamically loaded here -->
+                    </tbody>
+                </table>
 
-            <!-- LogsOut Table -->
-            <table id="logsOutTable" class="hidden">
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Data will be dynamically loaded here -->
-                </tbody>
-            </table>
+                <!-- LogsOut Table -->
+                <table id="logsOutTable">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be dynamically loaded here -->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>

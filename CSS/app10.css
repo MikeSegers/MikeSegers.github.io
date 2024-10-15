@@ -1,6 +1,33 @@
-/* Hide elements by default */
-.hidden {
-    display: none;
+/* Scrollable table with a max height of 360px */
+.scrollable-table {
+    max-height: 360px;
+    overflow-y: auto;
+    max-width: 90%;
+    margin-top: 50px;
+}
+
+.scrollable-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.scrollable-table th, .scrollable-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* Change the background color of the headers */
+.scrollable-table th {
+    background-color: #4CAF50; /* Change this to your desired color */
+    color: white; /* Text color for better contrast */
+    font-weight: bold;
+}
+
+.scrollable-table td {
+    font-size: 1em;
 }
 
 /* Center and style the access denied message */
@@ -8,28 +35,14 @@
     color: red;
     font-size: 24px;
     text-align: center;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ensure full screen centering */
+    margin-top: 150px;
 }
 
 #accessDeniedMessage h2 {
-    margin-bottom: 10px; /* Add some space between the heading and the paragraph */
-    font-size: 20px; /* Make the heading slightly larger */
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 #accessDeniedMessage p {
-    font-size: 18px; /* Slightly smaller text for the paragraph */
+    font-size: 18px;
 }
-
-/* Adjust table margin */
-#logTable, #logsOutTable {
-    margin-top: 40px;
-    width: 100%; /* Make the tables full-width */
-    text-align: left;
-}
-
-/* Add additional table styling if needed */
