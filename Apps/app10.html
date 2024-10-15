@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Managing</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/app10.css">
 </head>
 <body>
     <div class="ipad">
@@ -15,12 +16,41 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+
+            <!-- Food Logs Table -->
+            <table id="logTable">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Corrected Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be dynamically loaded here -->
+                </tbody>
+            </table>
+
+            <!-- LogsOut Table -->
+            <table id="logsOutTable">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be dynamically loaded here -->
+                </tbody>
+            </table>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
     <script src="../Scripts/Clock.js"></script>
     <script src="../Scripts/Config.js"></script>
-    <script src="../Scripts/AutomaticOff.js"></script>
+<!--     <script src="../Scripts/AutomaticOff.js"></script> -->
     <script src="../Scripts/Patient.js"></script>
+    <script src="../Scripts/app10.js"></script>
 </body>
 </html>
