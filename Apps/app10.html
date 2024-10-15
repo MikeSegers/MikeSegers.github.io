@@ -21,11 +21,29 @@
                 <h2>You are not a nurse</h2>
                 <p>Patients cannot look into patient managing info. Please <a href="app12.html">log in</a> to do so.</p>
             </div>
-            
+
             <div class="scrollable-table"> <!-- New container to center content -->
+                <table id="verificationTable">
+                    <thead>
+                        <tr>
+                            <th colspan="3">Waiting on verification</th>
+                        </tr>
+                        <tr>
+                            <th>Dish</th>
+                            <th>(Corrected) Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be dynamically loaded here -->
+                    </tbody>
+                </table>
                 <!-- Food Logs Table -->
                 <table id="logTable">
                     <thead>
+                        <tr>
+                            <th colspan="3">Intake</th>
+                        </tr>
                         <tr>
                             <th>Dish</th>
                             <th>Corrected Amount</th>
@@ -40,6 +58,9 @@
                 <!-- LogsOut Table -->
                 <table id="logsOutTable">
                     <thead>
+                        <tr>
+                            <th colspan="3">Excretion</th>
+                        </tr>
                         <tr>
                             <th>Category</th>
                             <th>Amount</th>
