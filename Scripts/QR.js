@@ -48,6 +48,7 @@ function onScanSuccess(decodedText, decodedResult) {
         }
 
         const { name, water_ml, isIn } = qrData; // Extract the name and water_ml fields
+        document.getElementById('scanned-result').innerText = `Scanned result: ${name} with ${water_ml}ml`; // Display the product name
 
         // Send QR data to the backend via the /api/qr-scan endpoint
         fetch(baseURL + '/api/qr-scan', {
@@ -129,7 +130,7 @@ function fetchTotalWaterConsumption() {
     fetch(baseURL + `/api/user-water/${userId}`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('total-water').innerText = `Total water consumed today: ${data.total_ml_water} ml`;
+            document.getElementById('total-water').innerText = `Total fluid balance of today: ${data.total_ml_water} ml`;
         })
         .catch(error => console.error('Error fetching initial water data:', error));
 }
