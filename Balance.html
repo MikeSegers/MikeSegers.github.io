@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balance Screen</title>
-    <link rel="stylesheet" href="../CSS/Style_index.css"> 
-    <link rel="stylesheet" href="../CSS/Balance.css"> 
+    <link rel="stylesheet" href="CSS/Style_index.css"> 
+    <link rel="stylesheet" href="CSS/Balance.css"> 
 </head>
 <body>
     <div class="ipad">
@@ -17,24 +17,24 @@
             <div class="clock" id="liveClock">17:21</div>
             
             <!-- Centered Scale Indicator -->
-            <!-- <div class="scale-container">
+            <div class="scale-container">
                 <div class="scale-segment red"></div>
                 <div class="scale-segment orange"></div>
                 <div class="scale-segment green"></div>
                 <div class="scale-segment orange"></div>
                 <div class="scale-segment red"></div>
-            </div> -->
+            </div>
             
             <!-- Text at both red ends -->
-            <!-- <div class="scale-text">
+            <div class="scale-text">
                 <span class="left-text">Underhydrated</span>
                 <span class="right-text">Overhydrated</span>
-            </div> -->
+            </div>
             
             <!-- Indicator for current status -->
-            <!-- <div class="indicator-container">
+            <div class="indicator-container">
                 <div class="indicator" id="currentStatusBalance"></div>
-            </div> -->
+            </div>
 
 
 
@@ -62,14 +62,30 @@
             <div class="indicator-container">
                 <div class="indicator" id="currentStatusIntake"></div>
             </div>
+
+            <div class="fluid-stats">
+                <div class="fluid-row">
+                    <span>Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
+                </div>
+                <div class="fluid-row">
+                    <span>Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
+                </div>
+                <div class="fluid-row">
+                    <span>Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
+                </div>
+                <div class="fluid-row">
+                    <span>Balance:</span> <span id="fluidBalance">0 ml</span>
+                </div>
+            </div>
         </div>
+
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
 
-    <script src="../Scripts/Clock.js"></script>
-    <script src="../Scripts/Config.js"></script>
-    <script src="../Scripts/AutomaticOff.js"></script>
-    <script src="../Scripts/Patient.js"></script>
-    <script src="../Scripts/Balance.js"></script>
+    <script src="Scripts/Clock.js"></script>
+    <script src="Scripts/Config.js"></script>
+    <script src="Scripts/AutomaticOff.js"></script>
+    <script src="Scripts/Patient.js"></script>
+    <script src="Scripts/Balance.js"></script>
 </body>
 </html>

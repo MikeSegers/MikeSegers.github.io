@@ -39,7 +39,7 @@ async function generateFoodTable() {
     const foodData = {};
     
     logData.forEach(row => {
-        const {input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount} = row;
+        const {logId, input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount} = row;
 
         if (patient_id == ID) { // Filter by patient ID
             if (!foodData[category]) {

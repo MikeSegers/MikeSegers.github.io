@@ -24,9 +24,8 @@ function submitExcretion(category) {
             amount: amount
         })
     })
-    .then(response => response.json()) // Attempt to parse it as JSON
     .then(data => {
-        // Handle successful response here if needed
+      alert('Submitted!');
     })
     .catch(error => {
         console.error('Error:', error);
