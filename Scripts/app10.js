@@ -200,7 +200,7 @@ if (role === 'Nurse') {
 
                 // Send updated data to the server
                 try {
-                    await fetch(`${baseURL}/api/updateLogOut`, {
+                    await fetch(`${baseURL}/api/verifyLogOut`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ logsOut_id: logsOutID })
