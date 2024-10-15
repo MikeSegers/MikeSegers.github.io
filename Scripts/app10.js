@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (event.target.classList.contains('submit-btn-in')) {
             const logID = event.target.dataset.logId;
             const newAmount = event.target.parentElement.previousElementSibling.querySelector('input').value;
-
+            
             // Send updated data to server
             try {
                 await fetch(`${baseURL}/api/updateLog`, {

@@ -76,3 +76,26 @@
     top: -110px; /* Move the stripe slightly above the scale */
     transform: translateX(-50%); /* Center the stripe at the given position */
 }
+
+
+.fluid-stats {
+    width: 500px;
+    margin-top: 5px;
+    padding: 10px;
+    border-top: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fluid-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.fluid-row span {
+    color: black;
+}
