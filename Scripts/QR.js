@@ -47,7 +47,7 @@ function onScanSuccess(decodedText, decodedResult) {
             throw new Error('Invalid QR code data');
         }
 
-        const { name, water_ml } = qrData; // Extract the name and water_ml fields
+        const { name, water_ml, isIn } = qrData; // Extract the name and water_ml fields
 
         // Send QR data to the backend via the /api/qr-scan endpoint
         fetch(baseURL + '/api/qr-scan', {
@@ -55,15 +55,17 @@ function onScanSuccess(decodedText, decodedResult) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 userId: userId,
-                input_user_id: input_user_id,
+                inputUserId: input_user_id,
                 name: name,      // Product name from QR code
-                water_ml: water_ml // Water amount from QR code
+                water_ml: water_ml, // Water amount from QR code
+                isIn: isIn // Boolean value to indicate if the water is being consumed or excreted
             })
         })
         .then(response => response.json())
         .then(data => {
             console.log(data);
             alert(data.message); // Show a success message
+            fetchTotalWaterConsumption();
         })
         .catch(error => console.error('Error:', error));
 
@@ -85,7 +87,7 @@ function onScanSuccess(decodedText, decodedResult) {
         .then(data => {
             console.log(data);
             document.getElementById('scanned-result').innerText = `Product name: ${data.nutrition_name}`; // Display the product name
-            // alert(data.message); // Show a success message
+            alert(data.message); // Show a success message
             // Fetch and display total water consumption after the scan
             fetchTotalWaterConsumption();
         })
@@ -127,7 +129,7 @@ function fetchTotalWaterConsumption() {
     fetch(baseURL + `/api/user-water/${userId}`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('total-water').innerText = `Total water consumed: ${data.total_ml_water} ml`;
+            document.getElementById('total-water').innerText = `Total water consumed today: ${data.total_ml_water} ml`;
         })
         .catch(error => console.error('Error fetching initial water data:', error));
 }
