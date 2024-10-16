@@ -146,6 +146,8 @@ if (role === 'Nurse') {
             if (event.target.classList.contains('verify-btn-in')) {
                 const logID = event.target.dataset.logId;
 
+                console.log(logID);
+
                 // Send updated data to the server
                 try {
                     await fetch(`${baseURL}/api/verifyLog`, {
@@ -194,20 +196,19 @@ if (role === 'Nurse') {
                 }
             }
 
-            // Event listener for submit and delete buttons for logsOut
             if (event.target.classList.contains('verify-btn-out')) {
-                const logsOutID = event.target.dataset.logsOutId;
-
+                const logsOutID = event.target.dataset.logsoutId;
+                
                 // Send updated data to the server
                 try {
-                    await fetch(`${baseURL}/api/verifyLogOut`, {
+                    await fetch(`${baseURL}/api/verifyLogsOut`, {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ logsOut_id: logsOutID })
+                        body: JSON.stringify({ log_id: logsOutID })
                     });
-                    alert('LogOut verified successfully!');
+                    alert('Log verified successfully!');
                 } catch (error) {
-                    console.error('Error verified logOut:', error);
+                    console.error('Error verified log:', error);
                 }
             }
         });
