@@ -45,8 +45,6 @@ async function calculateFluidIntake() {
 
     const intakePercentage = Math.max(2, Math.min(98,(totalIntake / maxFluidIntake) * 50));
 
-    console.log(intakePercentage);
-
     document.getElementById('fluidIntake').innerText = `${totalIntake.toFixed(1)} ml`;
     document.getElementById('maxFluidIntake').innerText = `${maxFluidIntake.toFixed(1)} ml`;
 
@@ -89,8 +87,6 @@ async function calculateBalance() {
     });
 
     const balancePercentage = Math.max(2, Math.min(98, 50 + ((totalIntake - totalOuttake) / maxFluidIntake) * 50));
-
-    console.log(balancePercentage);
 
     document.getElementById('fluidExcretion').innerText = `${totalOuttake.toFixed(1)} ml`;
     document.getElementById('fluidBalance').innerText = `${(totalIntake - totalOuttake).toFixed(1)} ml`;

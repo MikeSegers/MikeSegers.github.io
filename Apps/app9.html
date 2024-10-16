@@ -1,10 +1,11 @@
-s<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel="stylesheet" href="../CSS/Style_index.css"> 
+    <link rel="stylesheet" href="../CSS/Style_index.css">
+    <link rel="stylesheet" href="../CSS/App9.css">
 </head>
 <body>
     <div class="ipad">
@@ -14,13 +15,32 @@ s<!DOCTYPE html>
                 <div id="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
+
+            <!-- Language Selection Dropdown -->
+            <div class="settings">
+                <label for="language-select">Choose Language:</label>
+                <select id="language-select">
+                    <option value="en" selected>English</option>
+                    <option value="nl">Dutch</option>
+                    <option value="pl">Polish</option>
+                </select>
+            </div>
+
             <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
+
     <script src="../Scripts/Clock.js"></script>
+    <script src="../Scripts/Language.js"></script>
     <script src="../Scripts/Config.js"></script>
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
+    <script>
+        // Change language based on dropdown selection
+        document.getElementById('language-select').addEventListener('change', function() {
+            loadLanguage(this.value);
+        });
+    </script>
 </body>
 </html>

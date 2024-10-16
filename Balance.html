@@ -11,8 +11,8 @@
     <div class="ipad">
         <div class="screen" id="balance">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patientName">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
             
@@ -27,8 +27,8 @@
             
             <!-- Text at both red ends -->
             <div class="scale-text">
-                <span class="left-text">Underhydrated</span>
-                <span class="right-text">Overhydrated</span>
+                <span class="left-text" data-translate="underhydrated">Underhydrated</span>
+                <span class="right-text" data-translate="overhydrated">Overhydrated</span>
             </div>
             
             <!-- Indicator for current status -->
@@ -52,10 +52,9 @@
                 <div class="scale-segment red"></div>
             </div>
             
-            <!-- Text at both red ends -->
-            <div class="scale-text">
-                <span class="left-text">Too little intake</span>
-                <span class="right-text">Too much intake</span>
+           <div class="scale-text">
+                <span class="left-text" data-translate="tooLittleIntake">Too little intake</span>
+                <span class="right-text" data-translate="tooMuchIntake">Too much intake</span>
             </div>
             
             <!-- Indicator for current status -->
@@ -65,16 +64,16 @@
 
             <div class="fluid-stats">
                 <div class="fluid-row">
-                    <span>Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
+                    <span data-translate="fluidIntake">Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
+                    <span data-translate="fluidExcretion">Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
+                    <span data-translate="maxFluidIntake">Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Balance:</span> <span id="fluidBalance">0 ml</span>
+                    <span data-translate="balance">Balance:</span> <span id="fluidBalance">0 ml</span>
                 </div>
             </div>
         </div>
@@ -83,6 +82,7 @@
     </div>
 
     <script src="Scripts/Clock.js"></script>
+    <script src="Scripts/Language.js"></script>
     <script src="Scripts/Config.js"></script>
     <script src="Scripts/AutomaticOff.js"></script>
     <script src="Scripts/Patient.js"></script>
