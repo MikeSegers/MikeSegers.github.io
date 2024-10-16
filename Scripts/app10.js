@@ -146,8 +146,6 @@ if (role === 'Nurse') {
             if (event.target.classList.contains('verify-btn-in')) {
                 const logID = event.target.dataset.logId;
 
-                console.log(logID);
-
                 // Send updated data to the server
                 try {
                     await fetch(`${baseURL}/api/verifyLog`, {
@@ -163,7 +161,7 @@ if (role === 'Nurse') {
 
             // Event listener for submit and delete buttons for logsOut
             if (event.target.classList.contains('submit-btn-out')) {
-                const logsOutID = event.target.dataset.logsOutId;
+                const logsOutID = event.target.dataset.logsoutId;
                 const newAmount = event.target.parentElement.previousElementSibling.querySelector('input').value;
 
                 // Send updated data to the server
@@ -181,7 +179,7 @@ if (role === 'Nurse') {
 
             // Handle delete button for logsOut
             if (event.target.classList.contains('delete-btn-out')) {
-                const logsOutID = event.target.dataset.logsOutId;
+                const logsOutID = event.target.dataset.logsoutId;
 
                 try {
                     await fetch(`${baseURL}/api/deleteLogOut`, {
