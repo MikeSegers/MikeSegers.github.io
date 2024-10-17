@@ -207,6 +207,10 @@ async function patientManaging() {
                         console.error('Error verified log:', error);
                     }
                 }
+
+                if (event.target.tagName === 'BUTTON') {
+                    location.reload();
+                }
             });
 
         } catch (error) {
