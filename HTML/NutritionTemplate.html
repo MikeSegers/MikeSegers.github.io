@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutritional Information</title>
+    <title data-translate="nutritional_info_title">Nutritional Information</title>
     <link rel="stylesheet" href="../CSS/NutritionTemplate.css"> 
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <script src="../Scripts/App2.js" defer></script>
@@ -12,11 +12,11 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patient_name">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patient_id">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../Apps/app2.html"  class="back-button">Back</a> <!-- Back button -->
+            <a href="../Apps/app2.html" class="back-button" data-translate="back_button">Back</a> <!-- Back button -->
 
             <div class="nutrition-info">
 
@@ -24,17 +24,17 @@
                     <img id="dish-image" src="" alt="Dish Image" class="dish-image">
                 </div>
 
-                <h1 id="dish-name">Dish Name</h1>
+                <h1 id="dish-name" data-translate="dish_name">Dish Name</h1>
                 <ul>
-                    <li>Calories: <span id="calories"></span></li>
-                    <li>Protein: <span id="protein"></span> g</li>
-                    <li>Carbohydrates: <span id="carbs"></span> g</li>
-                    <li>Fats: <span id="fats"></span> g</li>
-                    <li>Salt: <span id="salt"></span> g</li>
-                    <li>Water: <span id="water"></span> g</li>
+                    <li data-translate="calories_label">Calories: <span id="calories"></span></li>
+                    <li data-translate="protein_label">Protein: <span id="protein"></span> g</li>
+                    <li data-translate="carbs_label">Carbohydrates: <span id="carbs"></span> g</li>
+                    <li data-translate="fats_label">Fats: <span id="fats"></span> g</li>
+                    <li data-translate="salt_label">Salt: <span id="salt"></span> g</li>
+                    <li data-translate="water_label">Water: <span id="water"></span> g</li>
                 </ul>
                 <div id="order-section">
-                    <button id="order-button" onclick="orderDish()">Order This Dish</button>
+                    <button id="order-button" onclick="orderDish()" data-translate="order_button">Order This Dish</button>
                 </div>
             </div>
         </div>

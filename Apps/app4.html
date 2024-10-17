@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Call</title>
+    <title data-translate="emergencyCallTitle">Emergency Call</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <link rel="stylesheet" href="../CSS/App4.css"> 
 </head>
@@ -11,11 +11,11 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patientName">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../HomeScreen.html" class="back-button" data-translate="backButton">Back</a> <!-- Back button -->
 
             <!-- Two-column layout -->
             <div class="content-columns">
@@ -26,23 +26,23 @@
                 <div class="column text-column">
                     <!-- First Screen: Button to call a nurse with emergency -->
                     <div id="call-screen" class="screen-content">
-                        <h2>Call Nurse for Emergency</h2>
-                        <p> By pressing the button below a nurse will be called with emergency. Misuse of this feature may have consequences. </p>
-                        <button class="action-button" onclick="callEmergency()">Call Nurse</button>
+                        <h2 data-translate="callNurseTitle">Call Nurse for Emergency</h2>
+                        <p data-translate="callNurseInstruction"> By pressing the button below a nurse will be called with emergency. Misuse of this feature may have consequences. </p>
+                        <button class="action-button" onclick="callEmergency()" data-translate="callNurseButton">Call Nurse</button>
                     </div>
 
                     <!-- Second Screen: Nurse called, option to cancel -->
                     <div id="nurse-called-screen" class="screen-content" style="display: none;">
-                        <h2>Nurse Called with Emergency</h2>
-                        <p> A nurse is called with emergency. Please remain calm until the nurse arrives. Further help will be provided. </p>
-                        <button class="action-button" onclick="cancelEmergency()">Cancel Emergency</button>
+                        <h2 data-translate="nurseCalledTitle">Nurse Called with Emergency</h2>
+                        <p data-translate="nurseCalledInstruction"> A nurse is called with emergency. Please remain calm until the nurse arrives. Further help will be provided. </p>
+                        <button class="action-button" onclick="cancelEmergency()" data-translate="cancelEmergencyButton">Cancel Emergency</button>
                     </div>
 
                     <!-- Third Screen: Emergency canceled, option to call again -->
                     <div id="cancelled-screen" class="screen-content" style="display: none;">
-                        <h2>Emergency Canceled</h2>
-                        <p> You cancelled the emergency nurse call. If this was a mistake you can call a nurse again by pressing the button bellow. </p>
-                        <button class="action-button" onclick="callEmergency()">Call Nurse Again</button>
+                        <h2 data-translate="emergencyCancelledTitle">Emergency Canceled</h2>
+                        <p data-translate="emergencyCancelledInstruction"> You cancelled the emergency nurse call. If this was a mistake you can call a nurse again by pressing the button below. </p>
+                        <button class="action-button" onclick="callEmergency()" data-translate="callAgainButton">Call Nurse Again</button>
                     </div>
                 </div>
             </div>

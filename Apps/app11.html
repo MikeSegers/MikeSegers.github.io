@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balance Screen</title>
+    <title data-translate="balanceScreenTitle">Balance Screen</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <link rel="stylesheet" href="../CSS/Balance.css"> 
 </head>
@@ -11,11 +11,11 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patientName">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../HomeScreen.html" class="back-button" data-translate="backButton">Back</a> <!-- Back button -->
             
             <!-- Centered Scale Indicator -->
             <div class="scale-container">
@@ -28,8 +28,8 @@
             
             <!-- Text at both red ends -->
             <div class="scale-text">
-                <span class="left-text">Underhydrated</span>
-                <span class="right-text">Overhydrated</span>
+                <span class="left-text" data-translate="underhydrated">Underhydrated</span>
+                <span class="right-text" data-translate="overhydrated">Overhydrated</span>
             </div>
             
             <!-- Indicator for current status -->
@@ -55,8 +55,8 @@
             
             <!-- Text at both red ends -->
             <div class="scale-text">
-                <span class="left-text">Too little intake</span>
-                <span class="right-text">Too much intake</span>
+                <span class="left-text" data-translate="tooLittleIntake">Too little intake</span>
+                <span class="right-text" data-translate="tooMuchIntake">Too much intake</span>
             </div>
             
             <!-- Indicator for current status -->
@@ -66,16 +66,16 @@
 
             <div class="fluid-stats">
                 <div class="fluid-row">
-                    <span>Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
+                    <span data-translate="fluidIntakeLabel">Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
+                    <span data-translate="fluidExcretionLabel">Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
+                    <span data-translate="maxFluidIntakeLabel">Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
                 </div>
                 <div class="fluid-row">
-                    <span>Balance:</span> <span id="fluidBalance">0 ml</span>
+                    <span data-translate="balanceLabel">Balance:</span> <span id="fluidBalance">0 ml</span>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Settings</title>
+    <title data-translate="settings_title">Settings</title>
     <link rel="stylesheet" href="../CSS/Style_index.css">
     <link rel="stylesheet" href="../CSS/App9.css">
 </head>
@@ -11,22 +11,22 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patient_name">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patient_id">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
 
             <!-- Language Selection Dropdown -->
             <div class="settings">
-                <label for="language-select">Choose Language:</label>
-                <select id="language-select">
+                <label for="languageSelect" data-translate="choose_language">Choose Language:</label>
+                <select id="languageSelect">
                     <option value="en" selected>English</option>
                     <option value="nl">Dutch</option>
                     <option value="pl">Polish</option>
                 </select>
             </div>
 
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../HomeScreen.html" class="back-button" data-translate="back_button">Back</a> <!-- Back button -->
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
@@ -37,9 +37,20 @@
     <script src="../Scripts/AutomaticOff.js"></script>
     <script src="../Scripts/Patient.js"></script>
     <script>
-        // Change language based on dropdown selection
-        document.getElementById('language-select').addEventListener('change', function() {
-            loadLanguage(this.value);
+        // settings.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageSelect = document.getElementById('languageSelect');
+            
+            // Initialize the dropdown with saved language or default to 'en'
+            const savedLanguage = localStorage.getItem('language') || 'en';
+            languageSelect.value = savedLanguage;
+
+            // Update language when user changes selection
+            languageSelect.addEventListener('change', function() {
+                const selectedLanguage = languageSelect.value;
+                localStorage.setItem('language', selectedLanguage);
+                loadLanguage(selectedLanguage);  // Call the function from language.js to apply the translation immediately
+            });
         });
     </script>
 </body>

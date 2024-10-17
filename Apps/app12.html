@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Login</title>
+    <title data-translate="qrLoginTitle">QR Login</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <link rel="stylesheet" href="../CSS/App12.css">
 </head>
@@ -11,8 +11,8 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patientName">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patientID">Patient ID: [ID]</div>
             </div>
             
             <!-- Clock Display -->
@@ -20,18 +20,18 @@
             
             <!-- QR Code Login Section -->
             <div class="qr-section">
-                <h2>Scan the QR Code to Log In</h2>
+                <h2 data-translate="qrLoginPrompt">Scan the QR Code to Log In</h2>
                 <div id="qrcode"></div>
                 <div id="login-status"></div>
 
                 <!-- Logout Section -->
                 <div id="logout-section" style="display: none;">
-                    <button id="logout-button">Log Out</button>
+                    <button id="logout-button" data-translate="logoutButton">Log Out</button>
                 </div>
             </div>
 
             <!-- Back Button -->
-            <a href="../HomeScreen.html" class="back-button">Back</a>
+            <a href="../HomeScreen.html" class="back-button" data-translate="backButton">Back</a>
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>

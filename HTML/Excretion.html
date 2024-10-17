@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excretion</title>
+    <title data-translate="excretion_title">Excretion</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <link rel="stylesheet" href="../CSS/FluidTracking.css"> 
 </head>
@@ -11,41 +11,41 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patient_name">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patient_id">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../Apps/app3.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../Apps/app3.html" class="back-button" data-translate="back_button">Back</a> <!-- Back button -->
             
             <div class="nutrition-list">
                 <table>
                     <thead>
                         <tr>
-                            <th>Type</th>
-                            <th>Amount (in ml)</th>
-                            <th>Submit</th>
+                            <th data-translate="type">Type</th>
+                            <th data-translate="amount_ml">Amount (in ml)</th>
+                            <th data-translate="submit">Submit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Urine</td>
+                            <td data-translate="urine">Urine</td>
                             <td><input type="number" placeholder="Amount" min="0" id="amountUrine"></td>
-                            <td><button type="button" onclick="submitExcretion('urine')">Submit</button></td>
+                            <td><button type="button" onclick="submitExcretion('urine')" data-translate="submit">Submit</button></td>
                         </tr>
                         <tr>
-                            <td>Diarrhea</td>
+                            <td data-translate="diarrhea">Diarrhea</td>
                             <td><input type="number" placeholder="Amount" min="0" id="amountDiarrhea"></td>
-                            <td><button type="button" onclick="submitExcretion('diarrhea')">Submit</button></td>
+                            <td><button type="button" onclick="submitExcretion('diarrhea')" data-translate="submit">Submit</button></td>
                         </tr>
                         <tr>
-                            <td>Vomit</td>
+                            <td data-translate="vomit">Vomit</td>
                             <td><input type="number" placeholder="Amount" min="0" id="amountVomit"></td>
-                            <td><button type="button" onclick="submitExcretion('vomit')">Submit</button></td>
+                            <td><button type="button" onclick="submitExcretion('vomit')" data-translate="submit">Submit</button></td>
                         </tr>
                         <tr>
-                            <td>Blood</td>
+                            <td data-translate="blood">Blood</td>
                             <td><input type="number" placeholder="Amount" min="0" id="amountBlood"></td>
-                            <td><button type="button" onclick="submitExcretion('blood')">Submit</button></td>
+                            <td><button type="button" onclick="submitExcretion('blood')" data-translate="submit">Submit</button></td>
                         </tr>
                     </tbody>
                 </table>

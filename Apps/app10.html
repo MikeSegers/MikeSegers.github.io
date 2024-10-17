@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Managing</title>
+    <title data-translate="patientManagingTitle">Patient Managing</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
     <link rel="stylesheet" href="../CSS/app10.css">
 </head>
@@ -11,27 +11,27 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patientName">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patientID">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../HomeScreen.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../HomeScreen.html" class="back-button" data-translate="backButton">Back</a> <!-- Back button -->
 
             <div id="accessDeniedMessage">
-                <h2>You are not a nurse</h2>
-                <p>Patients cannot look into patient managing info. Please <a href="app12.html">log in</a> to do so.</p>
+                <h2 data-translate="accessDeniedHeader">You are not a nurse</h2>
+                <p data-translate="accessDeniedMessage">Patients cannot look into patient managing info. Please <a href="app12.html" data-translate="logInLink">log in</a> to do so.</p>
             </div>
 
             <div class="scrollable-table"> <!-- New container to center content -->
                 <table id="verificationTable">
                     <thead>
                         <tr>
-                            <th colspan="3">Waiting on verification</th>
+                            <th colspan="3" data-translate="waitingVerification">Waiting on verification</th>
                         </tr>
                         <tr>
-                            <th>Dish</th>
-                            <th>(Corrected) Amount</th>
-                            <th>Actions</th>
+                            <th data-translate="dish">Dish</th>
+                            <th data-translate="correctedAmount">(Corrected) Amount</th>
+                            <th data-translate="actions">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,12 +42,12 @@
                 <table id="logTable">
                     <thead>
                         <tr>
-                            <th colspan="3">Intake</th>
+                            <th colspan="3" data-translate="intake">Intake</th>
                         </tr>
                         <tr>
-                            <th>Dish</th>
-                            <th>Corrected Amount</th>
-                            <th>Actions</th>
+                            <th data-translate="dish">Dish</th>
+                            <th data-translate="correctedAmount">Corrected Amount</th>
+                            <th data-translate="actions">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,12 +59,12 @@
                 <table id="logsOutTable">
                     <thead>
                         <tr>
-                            <th colspan="3">Excretion</th>
+                            <th colspan="3" data-translate="excretion">Excretion</th>
                         </tr>
                         <tr>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>Actions</th>
+                            <th data-translate="category">Category</th>
+                            <th data-translate="amount">Amount</th>
+                            <th data-translate="actions">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR/Barcode Scanner</title>
+    <title data-translate="qr_scanner_title">QR/Barcode Scanner</title>
     <link rel="stylesheet" href="../CSS/Style_index.css"> 
 
     <!-- Correct CDN for html5-qrcode -->
@@ -13,21 +13,19 @@
     <div class="ipad">
         <div class="screen">
             <div class="patient">
-                <div id="patientName">Patient Name: [Name]</div>
-                <div id="patientID">Patient ID: [ID]</div>
+                <div id="patientName" data-translate="patient_name">Patient Name: [Name]</div>
+                <div id="patientID" data-translate="patient_id">Patient ID: [ID]</div>
             </div>
             <div class="clock" id="liveClock">17:21</div>
-            <a href="../Apps/app3.html" class="back-button">Back</a> <!-- Back button -->
+            <a href="../Apps/app3.html" class="back-button" data-translate="back_button">Back</a> <!-- Back button -->
 
             <!-- QR scanner -->
             <div class="main-body" style="margin-top: 45px;">
-                <h2>Scan QR or Barcode</h2>
+                <h2 data-translate="scan_qr_title">Scan QR or Barcode</h2>
                 <div id="reader" style="width: 400px;"></div>
-                <p id="scanned-result"></p>
-                <p id="total-water">Total water consumed: Unkown</p>
+                <p id="scanned-result" data-translate="scanned_result"> </p>
+                <p id="total-water" data-translate="total_water">Total water consumed: Unknown</p>
             </div>
-
-
         </div>
         <a href="../HomeScreen.html" class="home-button"></a>
     </div>
