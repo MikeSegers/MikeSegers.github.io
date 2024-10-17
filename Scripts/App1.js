@@ -69,7 +69,7 @@ async function generateFoodTable() {
         // Create a combined category row that sums up and is clickable
         const categoryRow = document.createElement('tr');
         categoryRow.classList.add('category-row');
-        categoryRow.innerHTML = `<td><strong>${capitalizeFirstLetter(category)}</strong></td>
+        categoryRow.innerHTML = `<td><strong data-translate="${category}">${capitalizeFirstLetter(category)}</strong></td>
             <td>${(categoryTotal.calories).toFixed(1)}</td>
             <td>${(categoryTotal.protein).toFixed(1)}</td>
             <td>${(categoryTotal.carbs).toFixed(1)}</td>
@@ -110,7 +110,7 @@ async function generateFoodTable() {
         }
 
         // Update the category row with the correct totals (if there were items)
-        categoryRow.innerHTML = `<td><strong>${capitalizeFirstLetter(category)}</strong></td>
+        categoryRow.innerHTML = `<td><strong data-translate="${category}">${capitalizeFirstLetter(category)}</strong></td>
             <td>${(categoryTotal.calories).toFixed(1)}</td>
             <td>${(categoryTotal.protein).toFixed(1)}</td>
             <td>${(categoryTotal.carbs).toFixed(1)}</td>
@@ -121,7 +121,7 @@ async function generateFoodTable() {
 
     // Create the overall total row at the top without bold formatting
     const overallTotalRow = document.createElement('tr');
-    overallTotalRow.innerHTML = `<td style="border-bottom: 3px solid black;"><strong>Overall</strong></td>
+    overallTotalRow.innerHTML = `<td style="border-bottom: 3px solid black;"><strong data-translate="overall_total">Overall</strong></td>
         <td style="border-bottom: 3px solid black;">${(overallTotal.calories).toFixed(1)}</td>
         <td style="border-bottom: 3px solid black;">${(overallTotal.protein).toFixed(1)}</td>
         <td style="border-bottom: 3px solid black;">${(overallTotal.carbs).toFixed(1)}</td>
@@ -136,5 +136,27 @@ function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-// Generate the food table on page load
-window.onload = generateFoodTable;
+function loadLanguage(language) {
+    fetch(`../Languages/${language}.json`)
+    .then(response => response.json())
+    .then(translations => {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
+        });
+    });
+}
+
+window.onload = async () => {
+    // Load translations first
+    const defaultLanguage = 'en'; // Default language is English
+    const savedLanguage = localStorage.getItem('language') || defaultLanguage;
+
+    // Generate the food table after translations are loaded
+    await generateFoodTable();
+
+    // Load the saved or default language
+    await loadLanguage(savedLanguage);
+};

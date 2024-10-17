@@ -105,9 +105,28 @@ function showCancelOrderButton() {
     orderSection.innerHTML = `<button id="cancel-button" onclick="cancelOrder()">Cancel Current Order</button>`;
 }
 
+function loadLanguage(language) {
+    fetch(`../Languages/${language}.json`)
+    .then(response => response.json())
+    .then(translations => {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
+        });
+    });
+}
+
 // Call the display function when the window loads
 window.onload = async function() {
+    // Load translations first
+    const defaultLanguage = 'en'; // Default language is English
+    const savedLanguage = localStorage.getItem('language') || defaultLanguage;
     await displayNutritionInfo();
+
+    // Load the saved or default language
+    await loadLanguage(savedLanguage); 
 
     // Check if any dish has already been ordered and update button
     const orderedDishID = localStorage.getItem('orderedDish');
