@@ -39,9 +39,6 @@ function onScanSuccess(decodedText, decodedResult) {
         // Try to parse the scanned text as JSON for QR code
         const qrData = JSON.parse(decodedText); // Parse the QR data
 
-        // print qr data
-        console.log(qrData);
-
         // if the qr data is not in the correct format, catch the error
         if (!qrData.name || !qrData.water_ml) {
             throw new Error('Invalid QR code data');
@@ -64,16 +61,12 @@ function onScanSuccess(decodedText, decodedResult) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             alert(data.message); // Show a success message
             fetchTotalWaterConsumption();
         })
         .catch(error => console.error('Error:', error));
 
     } catch (err) {
-        // If the scanned data is not JSON (i.e., it's a barcode), handle it as a barcode
-        console.log('Scanned text is not a QR code, treating as a barcode.');
-
         // Send barcode data to the backend via the /api/barcode-scan endpoint
         fetch(baseURL + '/api/barcode-scan', {
             method: 'POST',
@@ -86,7 +79,6 @@ function onScanSuccess(decodedText, decodedResult) {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             document.getElementById('scanned-result').innerText = `Product name: ${data.nutrition_name}`; // Display the product name
             alert(data.message); // Show a success message
             // Fetch and display total water consumption after the scan

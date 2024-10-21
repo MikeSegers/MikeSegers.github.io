@@ -19,8 +19,6 @@ async function fetchNutritionData() {
   	loadData('/api/nutrition')
   	]);
 
-  console.log(nutritionData);
-
   if (!nutritionData) {
   	console.error('Error fetching data');
   	return;
