@@ -70,12 +70,34 @@
 .indicator {
     position: absolute;
     width: 5px; /* Narrower to resemble a stripe */
-    height: 80px; /* Taller to span the height of the scale and beyond */
+    height: 70px; /* Taller to span the height of the scale and beyond */
     background-color: black;
     left: 60%; /* Adjust the position of the stripe */
     top: -110px; /* Move the stripe slightly above the scale */
     transform: translateX(-50%); /* Center the stripe at the given position */
 }
+
+/* Indicator (the stripe) */
+.indicator2 {
+    position: absolute;
+    width: 5px; /* Narrower to resemble a stripe */
+    height: 70px; /* Taller to span the height of the scale and beyond */
+    background-color: rgba(111, 111, 111, 0.8); /* Light grey with transparency */
+    left: 60%; /* Adjust the position of the stripe */
+    top: -110px; /* Move the stripe slightly above the scale */
+    transform: translateX(-50%); /* Center the stripe at the given position */
+    display: flex; /* Enable flexbox for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.vertical-text {
+    writing-mode: vertical-rl; /* Set text to vertical */
+    transform: rotate(180deg); /* Rotate the text to make it read from bottom to top */
+    color: white; /* Change text color if needed */
+    font-size: 12px; /* Adjust font size as necessary */
+}
+
 
 
 .fluid-stats {
@@ -98,4 +120,8 @@
 
 .fluid-row span {
     color: black;
+}
+
+h2 {
+    margin-bottom: 20px;
 }

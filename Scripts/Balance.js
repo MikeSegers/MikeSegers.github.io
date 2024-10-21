@@ -14,6 +14,27 @@ async function fetchData(endpoint) {
     return data;
 }
 
+async function calculateProgressIntake() {
+    // Get the current time
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours(); // Get the current hour (0-23)
+
+    // Calculate hours past 6 AM
+    let time = currentHour - 6;
+    if (time < 0) {
+        time = 0; // Accounting for times past midnight
+    }
+
+    const percentagePerHour = 100 / 18;
+ 
+    const progressPercentage = Math.max(2, Math.min(98, percentagePerHour * time * 0.5)); // * 0.5 since 50% is perfect
+
+    const progressIntake = document.getElementById('progressIntakePatient');
+    const progress = document.getElementById('progress');
+    progressIntake.style.left = `${progressPercentage}%`;
+    progress.style.left = `${progressPercentage}%`;
+}
+
 async function calculateFluidIntakePatient() {
     const ID = JSON.parse(localStorage.getItem('patientID'));
 
@@ -146,6 +167,7 @@ async function run() {
         calculateFluidIntakeNurse();
         calculateBalanceNurse();
     }
+    calculateProgressIntake()
 }
 
 // Generate the fluid intake percentage on page load
