@@ -30,9 +30,7 @@ async function calculateProgressIntake() {
     const progressPercentage = Math.max(2, Math.min(98, percentagePerHour * time * 0.5)); // * 0.5 since 50% is perfect
 
     const progressIntake = document.getElementById('progressIntakePatient');
-    const progress = document.getElementById('progress');
     progressIntake.style.left = `${progressPercentage}%`;
-    progress.style.left = `${progressPercentage}%`;
 }
 
 async function calculateFluidIntakePatient() {
