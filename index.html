@@ -18,8 +18,9 @@
         document.getElementById('off').addEventListener('click', function() {
             // Redirect to another page
             window.location.href = "Balance.html"; // Adjust the path to your desired page
+            //Set role to patient
+            localStorage.setItem('role', JSON.stringify("Patient"));
         });
     </script>
-    <script src="Scripts/Language.js"></script>
 </body>
 </html>

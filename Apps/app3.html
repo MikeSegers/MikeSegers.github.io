@@ -36,7 +36,6 @@
     <script>
         // Get the role from localStorage and display it
         const role = JSON.parse(localStorage.getItem('role'));
-        console.log(role);
         document.getElementById('userRole').textContent = `Role: ${role || 'Unknow'}`; // Set to 'Unknown' if role is null
 
         // Show the nurse note only if the role is not 'nurse'

@@ -16,66 +16,102 @@
             </div>
             <div class="clock" id="liveClock">17:21</div>
             <a href="../HomeScreen.html" class="back-button" data-translate="backButton">Back</a> <!-- Back button -->
-            
-            <!-- Centered Scale Indicator -->
-            <div class="scale-container">
-                <div class="scale-segment red"></div>
-                <div class="scale-segment orange"></div>
-                <div class="scale-segment green"></div>
-                <div class="scale-segment orange"></div>
-                <div class="scale-segment red"></div>
-            </div>
-            
-            <!-- Text at both red ends -->
-            <div class="scale-text">
-                <span class="left-text" data-translate="underhydrated">Underhydrated</span>
-                <span class="right-text" data-translate="overhydrated">Overhydrated</span>
-            </div>
-            
-            <!-- Indicator for current status -->
-            <div class="indicator-container">
-                <div class="indicator" id="currentStatusBalance"></div>
-            </div>
 
-
-
-            <!-- Centered Scale Indicator -->
-            <div class="scale-container">
-                <div class="scale-segment red"></div> 
-                <div class="scale-segment orange"></div>
-                <div class="scale-segment green"></div> 
-                <div class="scale-segment green"></div>
-                <div class="scale-segment green"></div> <!-- Until 50% -->
-                <div class="scale-segment orange"></div>
-                <div class="scale-segment red"></div>
-                <div class="scale-segment red"></div>
-                <div class="scale-segment red"></div>
-                <div class="scale-segment red"></div>
-            </div>
-            
-            <!-- Text at both red ends -->
-            <div class="scale-text">
-                <span class="left-text" data-translate="tooLittleIntake">Too little intake</span>
-                <span class="right-text" data-translate="tooMuchIntake">Too much intake</span>
-            </div>
-            
-            <!-- Indicator for current status -->
-            <div class="indicator-container">
-                <div class="indicator" id="currentStatusIntake"></div>
-            </div>
-
-            <div class="fluid-stats">
-                <div class="fluid-row">
-                    <span data-translate="fluidIntakeLabel">Fluid Intake:</span> <span id="fluidIntake">0 ml</span>
+            <!-- Patient specific section -->
+            <div id="patientContent" class="role-specific-content">
+                <h2>Live unverified status:</h2>
+                <!-- Centered Scale Indicator -->
+                <div class="scale-container">
+                    <div class="scale-segment red"></div> 
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment green"></div> 
+                    <div class="scale-segment green"></div>
+                    <div class="scale-segment green"></div> <!-- Until 50% -->
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
                 </div>
-                <div class="fluid-row">
-                    <span data-translate="fluidExcretionLabel">Fluid Excretion:</span> <span id="fluidExcretion">0 ml</span>
+                
+                <div class="scale-text">
+                    <span class="left-text" data-translate="tooLittleIntake">Too little intake</span>
+                    <span class="right-text" data-translate="tooMuchIntake">Too much intake</span>
                 </div>
-                <div class="fluid-row">
-                    <span data-translate="maxFluidIntakeLabel">Max Fluid Intake:</span> <span id="maxFluidIntake">0 ml</span>
+
+                <!-- Indicator for current status -->
+                <div class="indicator-container">
+                    <div class="indicator" id="currentStatusIntakePatient"></div>
                 </div>
-                <div class="fluid-row">
-                    <span data-translate="balanceLabel">Balance:</span> <span id="fluidBalance">0 ml</span>
+
+                <div class="fluid-stats">
+                    <div class="fluid-row">
+                        <span data-translate="fluidIntake">Fluid Intake:</span> <span id="fluidIntakePatient">0 ml</span>
+                    </div>
+                    <div class="fluid-row">
+                        <span data-translate="maxFluidIntake">Max Fluid Intake:</span> <span id="maxFluidIntakePatient">0 ml</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nurse specific section -->
+            <div id="nurseContent" class="role-specific-content">
+                <h2>Verified status:</h2>
+                <!-- Centered Scale Indicator -->
+                <div class="scale-container">
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment green"></div>
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment red"></div>
+                </div>
+
+                <div class="scale-text">
+                    <span class="left-text" data-translate="underhydrated">Underhydrated</span>
+                    <span class="right-text" data-translate="overhydrated">Overhydrated</span>
+                </div>
+
+                <div class="indicator-container">
+                    <div class="indicator" id="currentStatusBalanceNurse"></div>
+                </div>
+
+                <!-- Centered Scale Indicator -->
+                <div class="scale-container">
+                    <div class="scale-segment red"></div> 
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment green"></div> 
+                    <div class="scale-segment green"></div>
+                    <div class="scale-segment green"></div> <!-- Until 50% -->
+                    <div class="scale-segment orange"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
+                    <div class="scale-segment red"></div>
+                </div>
+                
+                <div class="scale-text">
+                    <span class="left-text" data-translate="tooLittleIntake">Too little intake</span>
+                    <span class="right-text" data-translate="tooMuchIntake">Too much intake</span>
+                </div>
+
+                <!-- Indicator for current status -->
+                <div class="indicator-container">
+                    <div class="indicator" id="currentStatusIntakeNurse"></div>
+                </div>
+
+                <div class="fluid-stats">
+                    <div class="fluid-row">
+                        <span data-translate="fluidIntakeLabel">Fluid Intake:</span> <span id="fluidIntakeNurse">0 ml</span>
+                    </div>
+                    <div class="fluid-row">
+                        <span data-translate="fluidExcretionLabel">Fluid Excretion:</span> <span id="fluidExcretionNurse">0 ml</span>
+                    </div>
+                    <div class="fluid-row">
+                        <span data-translate="maxFluidIntakeLabel">Max Fluid Intake:</span> <span id="maxFluidIntakeNurse">0 ml</span>
+                    </div>
+                    <div class="fluid-row">
+                        <span data-translate="balanceLabel">Balance:</span> <span id="fluidBalanceNurse">0 ml</span>
+                    </div>
                 </div>
             </div>
         </div>
