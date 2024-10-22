@@ -247,6 +247,8 @@
 	"overall_total": "Totaal",
 	"submit": "Indienen",
 	"verify": "Verifiëren",
-	"delete": "Verwijderen",
 	"progress": "Voortgang"
+	"delete": "Verwijderen",
+	"liveUnverifiedStatus": "Live Ongeverifieerde Status",
+	"verifiedStatus": "Geverifieerde Status"
 }

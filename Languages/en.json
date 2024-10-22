@@ -247,6 +247,8 @@
 	"overall_total": "Overall",
 	"submit": "Submit",
 	"verify": "Verify",
-	"delete": "Delete",
 	"progress": "Progress"
+	"delete": "Delete",
+	"liveUnverifiedStatus": "Live Unverified Status",
+	"verifiedStatus": "Verified Status"
 }
