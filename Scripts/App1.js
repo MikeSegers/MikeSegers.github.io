@@ -16,6 +16,7 @@ async function loadData(endpoint) {
 // Function to parse log data and nutrition data
 async function generateFoodTable() {
     const ID = JSON.parse(localStorage.getItem('patientID')); // Assuming patientID is set
+    const role = JSON.parse(localStorage.getItem('role'));
 
     // Fetch log data and nutrition data from the API
     const [logData, nutritionData] = await Promise.all([
@@ -41,7 +42,7 @@ async function generateFoodTable() {
     logData.forEach(row => {
         const {logId, input_user_id, patient_id, time, date, nutrition_id, category, corrected_amount, verified} = row;
 
-        if (patient_id == ID && verified) { // Filter by patient ID and if it is verified
+        if (patient_id == ID && (verified || role == 'Patient')) { // Filter by patient ID and if it is verified
             if (!foodData[category]) {
                 foodData[category] = [];
             }
