@@ -148,3 +148,20 @@ body {
     border-radius: 10px; /* Rounded corners */
     object-fit: cover; /* Ensures the image covers the area without distortion */
 }
+
+.switch-button {
+    position: absolute;
+    top: 10px; /* Position the button 10px from the top */
+    left: 10px; /* Position the button 10px from the left */
+    background-color: grey; /* Button background color */
+    color: white; /* Button text color */
+    padding: 5px 10px; /* Add some padding for better visuals */
+    border-radius: 5px; /* Round the corners */
+    text-decoration: none; /* Remove underline from text */
+    font-size: 14px; /* Adjust font size */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+.switch-button:hover {
+    background-color: darkgrey; /* Change color on hover */
+}

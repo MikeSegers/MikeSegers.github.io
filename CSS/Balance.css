@@ -72,7 +72,7 @@
     width: 5px; /* Narrower to resemble a stripe */
     height: 70px; /* Taller to span the height of the scale and beyond */
     background-color: black;
-    left: 60%; /* Adjust the position of the stripe */
+    left: 35%; /* Adjust the position of the stripe */
     top: -110px; /* Move the stripe slightly above the scale */
     transform: translateX(-50%); /* Center the stripe at the given position */
 }

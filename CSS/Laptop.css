@@ -1,0 +1,151 @@
+.computer-base {
+    background-color: black; /* Black color for the base */
+    width: 60%; /* Full width */
+    height: 150px; /* Adjust the height as needed */
+     margin: -5px auto 0; /* Top margin for overlap adjustment, auto for left and right */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for depth */
+}
+
+.webcam {
+    position: absolute;
+    left: 50%; /* Move to the left */
+    top: 17px;
+    transform: translateY(-50%);
+    width: 15px; /* Adjusted width for the home button */
+    height: 15px; /* Adjusted height for the home button */
+    background-color: grey; /* Grey color for the home button */
+    border-radius: 50%; /* Circular shape */
+}
+
+/* Patient grid styles */
+.patient-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 patients per row */
+    gap: 10px; /* Space between patients */
+    padding: 10px;
+    overflow-y: auto; /* Enables vertical scrolling if content exceeds height */
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+/* Patient list item */
+.patientCel {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+/* Patient header */
+.patient-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Center the entire screen content */
+.screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Scale container - bigger and centered */
+.scale-container {
+    display: flex;
+    width: 100px; /* Increased width for better visibility */
+    height: 10px; /* Increased height for better visibility */
+    margin: 0 auto; /* Center horizontally */
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #000;
+    position: relative;
+}
+
+/* Segments of the scale */
+.scale-segment {
+    flex: 1;
+    height: 100%;
+}
+
+.red {
+    background-color: red;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.green {
+    background-color: green;
+}
+
+/* Text on both sides of the scale */
+.scale-text {
+    width: 100px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.scale-text .left-text {
+    font-size: 8px;
+    color: black;
+    margin-left: 1px;
+}
+
+.scale-text .right-text {
+    font-size: 8px;
+    color: black;
+    margin-right: -60px;
+}
+
+/* Indicator container - keeps the stripe and text together */
+.indicator-container {
+    position: relative;
+    margin-top: 20px;
+    width: 100px; /* Same width as scale container */
+    height: 0px; 
+    text-align: center;
+}
+
+/* Indicator (the stripe) */
+.indicator {
+    position: absolute;
+    width: 2px; /* Narrower to resemble a stripe */
+    height: 12px; /* Taller to span the height of the scale and beyond */
+    background-color: black;
+    left: 35%; /* Adjust the position of the stripe */
+    top: -50px; /* Move the stripe slightly above the scale */
+    transform: translateX(-50%); /* Center the stripe at the given position */
+}
+
+.fluid-stats {
+    margin-top: 5px;
+    padding: 10px;
+    border-top: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fluid-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 10px;
+}
+
+.fluid-row span {
+    color: black;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
