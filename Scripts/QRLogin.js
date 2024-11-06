@@ -9,6 +9,9 @@ let qrcode = new QRCode(document.getElementById("qrcode"), {
     height: 128,
 });
 
+// Display the session token text below the QR code
+document.getElementById("token-display").innerText = `Token: ${sessionToken}`;
+
 // Check the role on page load
 document.addEventListener("DOMContentLoaded", () => {
     const role = JSON.parse(localStorage.getItem('role'));
