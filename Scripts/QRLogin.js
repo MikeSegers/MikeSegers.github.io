@@ -53,10 +53,17 @@ function mockScan(scannedToken) {
 
 // Event listener for simulating a scan
 document.getElementById("qrcode").addEventListener('click', () => {
-    const scannedToken = prompt("Simulate a scan: Enter the token you scanned"); // Simulate scan input
-    if (scannedToken) {
-        mockScan(scannedToken);
-    }
+    localStorage.setItem('role', JSON.stringify("Nurse"));
+
+    localStorage.setItem('employeeID', JSON.stringify(2)); // SET TO NURSE ID WHO LOGS IN
+
+    document.getElementById("logout-section").style.display = "block"; // Show logout section
+    resolve("Login successful! Token: " + scannedToken);
+
+    // const scannedToken = prompt("Simulate a scan: Enter the token you scanned"); // Simulate scan input
+    // if (scannedToken) {
+    //     mockScan(scannedToken);
+    // }
 });
 
 // Logout function
